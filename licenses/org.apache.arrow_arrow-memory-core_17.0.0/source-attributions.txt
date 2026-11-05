@@ -1,0 +1,17 @@
+Source paths: module-info.java, org/apache/arrow/memory/Accountant.java, org/apache/arrow/memory/AllocationListener.java, org/apache/arrow/memory/AllocationManager.java, org/apache/arrow/memory/AllocationOutcome.java, org/apache/arrow/memory/AllocationOutcomeDetails.java, org/apache/arrow/memory/AllocationReservation.java, org/apache/arrow/memory/AllocatorClosedException.java, org/apache/arrow/memory/ArrowBuf.java, org/apache/arrow/memory/BaseAllocator.java, org/apache/arrow/memory/BoundsChecking.java, org/apache/arrow/memory/BufferAllocator.java, org/apache/arrow/memory/BufferLedger.java, org/apache/arrow/memory/BufferManager.java, org/apache/arrow/memory/CheckAllocator.java, org/apache/arrow/memory/ChildAllocator.java, org/apache/arrow/memory/DefaultAllocationManagerOption.java, org/apache/arrow/memory/ForeignAllocation.java, org/apache/arrow/memory/ForeignAllocationManager.java, org/apache/arrow/memory/LowCostIdentityHashMap.java, org/apache/arrow/memory/OutOfMemoryException.java, org/apache/arrow/memory/OwnershipTransferNOOP.java, org/apache/arrow/memory/OwnershipTransferResult.java, org/apache/arrow/memory/ReferenceManager.java, org/apache/arrow/memory/ReusableBuffer.java, org/apache/arrow/memory/RootAllocator.java, org/apache/arrow/memory/ValueWithKeyIncluded.java, org/apache/arrow/memory/package-info.java, org/apache/arrow/memory/rounding/DefaultRoundingPolicy.java, org/apache/arrow/memory/rounding/RoundingPolicy.java, org/apache/arrow/memory/rounding/SegmentRoundingPolicy.java, org/apache/arrow/memory/util/ArrowBufPointer.java, org/apache/arrow/memory/util/AssertionUtil.java, org/apache/arrow/memory/util/AutoCloseableLock.java, org/apache/arrow/memory/util/ByteFunctionHelpers.java, org/apache/arrow/memory/util/CommonUtil.java, org/apache/arrow/memory/util/Float16.java, org/apache/arrow/memory/util/HistoricalLog.java, org/apache/arrow/memory/util/LargeMemoryUtil.java, org/apache/arrow/memory/util/MemoryUtil.java, org/apache/arrow/memory/util/StackTrace.java, org/apache/arrow/memory/util/hash/ArrowBufHasher.java, org/apache/arrow/memory/util/hash/MurmurHasher.java, org/apache/arrow/memory/util/hash/SimpleHasher.java, org/apache/arrow/util/AutoCloseables.java, org/apache/arrow/util/Collections2.java, org/apache/arrow/util/Preconditions.java, org/apache/arrow/util/VisibleForTesting.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */

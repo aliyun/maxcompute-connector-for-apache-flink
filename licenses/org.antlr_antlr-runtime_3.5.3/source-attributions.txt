@@ -1,0 +1,58 @@
+Source paths: org/antlr/runtime/DFA.java, org/antlr/runtime/ANTLRStringStream.java, org/antlr/runtime/misc/Stats.java, org/antlr/runtime/misc/IntArray.java, org/antlr/runtime/misc/LookaheadStream.java, org/antlr/runtime/misc/FastQueue.java, org/antlr/runtime/tree/TreeRuleReturnScope.java, org/antlr/runtime/tree/TreeFilter.java, org/antlr/runtime/tree/TreeNodeStream.java, org/antlr/runtime/tree/TreeRewriter.java, org/antlr/runtime/tree/Tree.java, org/antlr/runtime/tree/RewriteRuleElementStream.java, org/antlr/runtime/tree/CommonTreeNodeStream.java, org/antlr/runtime/tree/TreeVisitorAction.java, org/antlr/runtime/tree/RewriteEarlyExitException.java, org/antlr/runtime/tree/CommonTree.java, org/antlr/runtime/tree/BufferedTreeNodeStream.java, org/antlr/runtime/tree/TreePatternLexer.java, org/antlr/runtime/tree/TreeIterator.java, org/antlr/runtime/tree/TreeWizard.java, org/antlr/runtime/tree/CommonErrorNode.java, org/antlr/runtime/tree/TreeAdaptor.java, org/antlr/runtime/tree/RewriteEmptyStreamException.java, org/antlr/runtime/tree/RewriteRuleSubtreeStream.java, org/antlr/runtime/tree/BaseTree.java, org/antlr/runtime/tree/ParseTree.java, org/antlr/runtime/tree/RewriteCardinalityException.java, org/antlr/runtime/tree/BaseTreeAdaptor.java, org/antlr/runtime/tree/TreeVisitor.java, org/antlr/runtime/tree/DOTTreeGenerator.java, org/antlr/runtime/tree/TreeParser.java, org/antlr/runtime/tree/CommonTreeAdaptor.java, org/antlr/runtime/tree/RewriteRuleTokenStream.java, org/antlr/runtime/tree/RewriteRuleNodeStream.java, org/antlr/runtime/tree/TreePatternParser.java, org/antlr/runtime/TokenSource.java, org/antlr/runtime/CommonTokenStream.java, org/antlr/runtime/ClassicToken.java, org/antlr/runtime/BitSet.java, org/antlr/runtime/Parser.java, org/antlr/runtime/ANTLRFileStream.java, org/antlr/runtime/ANTLRInputStream.java, org/antlr/runtime/RecognizerSharedState.java, org/antlr/runtime/MismatchedTreeNodeException.java, org/antlr/runtime/BufferedTokenStream.java, org/antlr/runtime/CharStream.java, org/antlr/runtime/TokenStream.java, org/antlr/runtime/TokenRewriteStream.java, org/antlr/runtime/ANTLRReaderStream.java, org/antlr/runtime/MismatchedSetException.java, org/antlr/runtime/IntStream.java, org/antlr/runtime/MismatchedRangeException.java, org/antlr/runtime/MismatchedTokenException.java, org/antlr/runtime/MissingTokenException.java, org/antlr/runtime/RuleReturnScope.java, org/antlr/runtime/ParserRuleReturnScope.java, org/antlr/runtime/FailedPredicateException.java, org/antlr/runtime/MismatchedNotSetException.java, org/antlr/runtime/LegacyCommonTokenStream.java, org/antlr/runtime/UnbufferedTokenStream.java, org/antlr/runtime/SerializedGrammar.java, org/antlr/runtime/Lexer.java, org/antlr/runtime/BaseRecognizer.java, org/antlr/runtime/EarlyExitException.java, org/antlr/runtime/NoViableAltException.java, org/antlr/runtime/Token.java, org/antlr/runtime/UnwantedTokenException.java, org/antlr/runtime/RecognitionException.java, org/antlr/runtime/CommonToken.java, org/antlr/runtime/debug/Tracer.java, org/antlr/runtime/debug/TraceDebugEventListener.java, org/antlr/runtime/debug/DebugTokenStream.java, org/antlr/runtime/debug/DebugTreeNodeStream.java, org/antlr/runtime/debug/DebugEventRepeater.java, org/antlr/runtime/debug/RemoteDebugEventSocketListener.java, org/antlr/runtime/debug/DebugParser.java, org/antlr/runtime/debug/DebugEventSocketProxy.java, org/antlr/runtime/debug/DebugTreeParser.java, org/antlr/runtime/debug/DebugEventListener.java, org/antlr/runtime/debug/Profiler.java, org/antlr/runtime/debug/DebugEventHub.java, org/antlr/runtime/debug/ParseTreeBuilder.java, org/antlr/runtime/debug/DebugTreeAdaptor.java, org/antlr/runtime/debug/BlankDebugEventListener.java, org/antlr/runtime/CharStreamState.java
+/*
+ [The "BSD license"]
+ Copyright (c) 2005-2009 Terence Parr
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+     derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+Source paths: org/antlr/runtime/tree/PositionTrackingStream.java
+/*
+ [The "BSD license"]
+ Copyright (c) 2012 Terence Parr
+ Copyright (c) 2012 Sam Harwell
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+     derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */

@@ -1,0 +1,84 @@
+Source paths: io/netty/handler/codec/sctp/SctpOutboundByteStreamHandler.java, io/netty/channel/sctp/oio/OioSctpServerChannel.java, io/netty/channel/sctp/oio/OioSctpChannel.java, io/netty/channel/sctp/oio/package-info.java, io/netty/channel/sctp/nio/package-info.java, io/netty/channel/sctp/package-info.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/sctp/SctpMessageToMessageDecoder.java, io/netty/handler/codec/sctp/SctpInboundByteStreamHandler.java, io/netty/handler/codec/sctp/SctpMessageCompletionHandler.java, io/netty/handler/codec/sctp/package-info.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/channel/sctp/SctpServerChannelConfig.java, io/netty/channel/sctp/SctpMessage.java, io/netty/channel/sctp/SctpChannelConfig.java, io/netty/channel/sctp/DefaultSctpChannelConfig.java, io/netty/channel/sctp/SctpNotificationHandler.java, io/netty/channel/sctp/nio/NioSctpChannel.java, io/netty/channel/sctp/nio/NioSctpServerChannel.java, io/netty/channel/sctp/SctpServerChannel.java, io/netty/channel/sctp/SctpChannel.java, com/sun/nio/sctp/SendFailedNotification.java, com/sun/nio/sctp/NotificationHandler.java, com/sun/nio/sctp/HandlerResult.java, com/sun/nio/sctp/Notification.java, com/sun/nio/sctp/PeerAddressChangeNotification.java, com/sun/nio/sctp/UnsupportedOperatingSystemException.java, com/sun/nio/sctp/SctpSocketOption.java, com/sun/nio/sctp/AbstractNotificationHandler.java, com/sun/nio/sctp/SctpServerChannel.java, com/sun/nio/sctp/MessageInfo.java, com/sun/nio/sctp/SctpChannel.java, com/sun/nio/sctp/Association.java, com/sun/nio/sctp/AssociationChangeNotification.java, com/sun/nio/sctp/SctpStandardSocketOptions.java, com/sun/nio/sctp/ShutdownNotification.java, com/sun/nio/sctp/package-info.java
+/*
+ * Copyright 2011 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/channel/sctp/DefaultSctpServerChannelConfig.java
+/*
+* Copyright 2011 The Netty Project
+*
+* The Netty Project licenses this file to you under the Apache License,
+* version 2.0 (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at:
+*
+* https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+*/
+
+Source paths: io/netty/channel/sctp/SctpChannelOption.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */

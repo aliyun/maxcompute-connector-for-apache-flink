@@ -1,0 +1,253 @@
+Source paths: io/netty/handler/codec/rtsp/RtspResponseStatuses.java, io/netty/handler/codec/rtsp/RtspRequestDecoder.java, io/netty/handler/codec/rtsp/RtspVersions.java, io/netty/handler/codec/rtsp/RtspObjectDecoder.java, io/netty/handler/codec/rtsp/RtspResponseEncoder.java, io/netty/handler/codec/rtsp/RtspRequestEncoder.java, io/netty/handler/codec/rtsp/RtspHeaders.java, io/netty/handler/codec/rtsp/RtspMethods.java, io/netty/handler/codec/rtsp/RtspResponseDecoder.java, io/netty/handler/codec/rtsp/RtspObjectEncoder.java, io/netty/handler/codec/rtsp/package-info.java, io/netty/handler/codec/spdy/DefaultSpdySettingsFrame.java, io/netty/handler/codec/spdy/SpdyHttpHeaders.java, io/netty/handler/codec/spdy/SpdyHttpResponseStreamIdHandler.java, io/netty/handler/codec/spdy/SpdyHttpEncoder.java, io/netty/handler/codec/spdy/SpdySession.java, io/netty/handler/codec/spdy/package-info.java, io/netty/handler/codec/http/HttpConstants.java, io/netty/handler/codec/http/HttpObjectEncoder.java, io/netty/handler/codec/http/HttpMessage.java, io/netty/handler/codec/http/HttpRequestEncoder.java, io/netty/handler/codec/http/DefaultHttpResponse.java, io/netty/handler/codec/http/QueryStringEncoder.java, io/netty/handler/codec/http/DefaultLastHttpContent.java, io/netty/handler/codec/http/HttpResponseEncoder.java, io/netty/handler/codec/http/DefaultCookie.java, io/netty/handler/codec/http/DefaultHttpContent.java, io/netty/handler/codec/http/DefaultHttpRequest.java, io/netty/handler/codec/http/HttpClientCodec.java, io/netty/handler/codec/http/LastHttpContent.java, io/netty/handler/codec/http/HttpContentDecompressor.java, io/netty/handler/codec/http/HttpObjectAggregator.java, io/netty/handler/codec/http/HttpHeaders.java, io/netty/handler/codec/http/HttpContentDecoder.java, io/netty/handler/codec/http/HttpMethod.java, io/netty/handler/codec/http/HttpRequestDecoder.java, io/netty/handler/codec/http/HttpObjectDecoder.java, io/netty/handler/codec/http/HttpServerCodec.java, io/netty/handler/codec/http/multipart/MemoryAttribute.java, io/netty/handler/codec/http/multipart/HttpData.java, io/netty/handler/codec/http/multipart/AbstractDiskHttpData.java, io/netty/handler/codec/http/multipart/CaseIgnoringComparator.java, io/netty/handler/codec/http/multipart/HttpDataFactory.java, io/netty/handler/codec/http/multipart/DiskFileUpload.java, io/netty/handler/codec/http/multipart/AbstractHttpData.java, io/netty/handler/codec/http/multipart/HttpPostMultipartRequestDecoder.java, io/netty/handler/codec/http/multipart/DefaultHttpDataFactory.java, io/netty/handler/codec/http/multipart/HttpPostRequestEncoder.java, io/netty/handler/codec/http/multipart/HttpPostStandardRequestDecoder.java, io/netty/handler/codec/http/multipart/DiskAttribute.java, io/netty/handler/codec/http/multipart/AbstractMemoryHttpData.java, io/netty/handler/codec/http/multipart/InternalAttribute.java, io/netty/handler/codec/http/multipart/MixedAttribute.java, io/netty/handler/codec/http/multipart/InterfaceHttpPostRequestDecoder.java, io/netty/handler/codec/http/multipart/Attribute.java, io/netty/handler/codec/http/multipart/MixedFileUpload.java, io/netty/handler/codec/http/multipart/HttpPostBodyUtil.java, io/netty/handler/codec/http/multipart/MemoryFileUpload.java, io/netty/handler/codec/http/multipart/HttpPostRequestDecoder.java, io/netty/handler/codec/http/multipart/InterfaceHttpData.java, io/netty/handler/codec/http/multipart/package-info.java, io/netty/handler/codec/http/multipart/FileUpload.java, io/netty/handler/codec/http/QueryStringDecoder.java, io/netty/handler/codec/http/HttpContentCompressor.java, io/netty/handler/codec/http/DefaultHttpMessage.java, io/netty/handler/codec/http/HttpObject.java, io/netty/handler/codec/http/Cookie.java, io/netty/handler/codec/http/HttpResponseDecoder.java, io/netty/handler/codec/http/HttpHeaderDateFormat.java, io/netty/handler/codec/http/DefaultHttpHeaders.java, io/netty/handler/codec/http/HttpContentEncoder.java, io/netty/handler/codec/http/HttpContent.java, io/netty/handler/codec/http/HttpRequest.java, io/netty/handler/codec/http/DefaultHttpObject.java, io/netty/handler/codec/http/websocketx/WebSocketVersion.java, io/netty/handler/codec/http/websocketx/PingWebSocketFrame.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshakerFactory.java, io/netty/handler/codec/http/websocketx/WebSocket00FrameEncoder.java, io/netty/handler/codec/http/websocketx/BinaryWebSocketFrame.java, io/netty/handler/codec/http/websocketx/TextWebSocketFrame.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshaker13.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshaker08.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshaker07.java, io/netty/handler/codec/http/websocketx/WebSocketHandshakeException.java, io/netty/handler/codec/http/websocketx/WebSocket07FrameEncoder.java, io/netty/handler/codec/http/websocketx/WebSocketFrame.java, io/netty/handler/codec/http/websocketx/WebSocket13FrameEncoder.java, io/netty/handler/codec/http/websocketx/WebSocketUtil.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshaker.java, io/netty/handler/codec/http/websocketx/WebSocket08FrameEncoder.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshaker00.java, io/netty/handler/codec/http/websocketx/PongWebSocketFrame.java, io/netty/handler/codec/http/websocketx/package-info.java, io/netty/handler/codec/http/websocketx/ContinuationWebSocketFrame.java, io/netty/handler/codec/http/HttpResponseStatus.java, io/netty/handler/codec/http/package-info.java, io/netty/handler/codec/http/CookieDecoder.java, io/netty/handler/codec/http/HttpResponse.java, io/netty/handler/codec/http/HttpVersion.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/rtsp/RtspEncoder.java, io/netty/handler/codec/rtsp/RtspDecoder.java, io/netty/handler/codec/http/CookieUtil.java, io/netty/handler/codec/http/HttpUtil.java, io/netty/handler/codec/http/HttpExpectationFailedEvent.java, io/netty/handler/codec/http/CombinedHttpHeaders.java, io/netty/handler/codec/http/EmptyHttpHeaders.java, io/netty/handler/codec/http/HttpScheme.java, io/netty/handler/codec/http/cookie/CookieUtil.java, io/netty/handler/codec/http/cookie/CookieHeaderNames.java, io/netty/handler/codec/http/cookie/DefaultCookie.java, io/netty/handler/codec/http/cookie/ServerCookieEncoder.java, io/netty/handler/codec/http/cookie/ClientCookieEncoder.java, io/netty/handler/codec/http/cookie/CookieEncoder.java, io/netty/handler/codec/http/cookie/ServerCookieDecoder.java, io/netty/handler/codec/http/cookie/Cookie.java, io/netty/handler/codec/http/cookie/package-info.java, io/netty/handler/codec/http/cookie/CookieDecoder.java, io/netty/handler/codec/http/cookie/ClientCookieDecoder.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/rtsp/RtspHeaderValues.java, io/netty/handler/codec/rtsp/RtspHeaderNames.java, io/netty/handler/codec/spdy/SpdyFrameCodec.java, io/netty/handler/codec/spdy/SpdyFrameEncoder.java, io/netty/handler/codec/spdy/SpdyHeaderBlockRawDecoder.java, io/netty/handler/codec/spdy/SpdyProtocolException.java, io/netty/handler/codec/spdy/SpdyHeaderBlockDecoder.java, io/netty/handler/codec/spdy/SpdyFrameDecoderDelegate.java, io/netty/handler/codec/spdy/SpdyFrameDecoder.java, io/netty/handler/codec/spdy/SpdyHeaderBlockZlibDecoder.java, io/netty/handler/codec/http/HttpHeaderNames.java, io/netty/handler/codec/http/HttpStatusClass.java, io/netty/handler/codec/http/HttpHeaderValues.java, io/netty/handler/codec/http/HttpMessageUtil.java, io/netty/handler/codec/http/ServerCookieEncoder.java, io/netty/handler/codec/http/ClientCookieEncoder.java, io/netty/handler/codec/http/HttpChunkedInput.java, io/netty/handler/codec/http/HttpHeadersEncoder.java, io/netty/handler/codec/http/websocketx/Utf8FrameValidator.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketClientExtension.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionDecoder.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtension.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketClientExtensionHandler.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketServerExtension.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketClientExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionUtil.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerFrameDeflateDecoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/DeflateFrameClientExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerMessageDeflateEncoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/DeflateDecoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/WebSocketClientCompressionHandler.java, io/netty/handler/codec/http/websocketx/extensions/compression/DeflateFrameServerExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerMessageDeflateClientExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerFrameDeflateEncoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/WebSocketServerCompressionHandler.java, io/netty/handler/codec/http/websocketx/extensions/compression/DeflateEncoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerMessageDeflateDecoder.java, io/netty/handler/codec/http/websocketx/extensions/compression/PerMessageDeflateServerExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/compression/package-info.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionEncoder.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketServerExtensionHandler.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketServerExtensionHandshaker.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionData.java, io/netty/handler/codec/http/websocketx/extensions/package-info.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/spdy/SpdyHeaders.java, io/netty/handler/codec/spdy/SpdyCodecUtil.java, io/netty/handler/codec/spdy/DefaultSpdySynReplyFrame.java, io/netty/handler/codec/spdy/SpdyRstStreamFrame.java, io/netty/handler/codec/spdy/DefaultSpdySynStreamFrame.java, io/netty/handler/codec/spdy/SpdyHttpDecoder.java, io/netty/handler/codec/spdy/SpdyHeaderBlockZlibEncoder.java, io/netty/handler/codec/spdy/SpdySessionStatus.java, io/netty/handler/codec/spdy/DefaultSpdyDataFrame.java, io/netty/handler/codec/spdy/DefaultSpdyGoAwayFrame.java, io/netty/handler/codec/spdy/DefaultSpdyStreamFrame.java, io/netty/handler/codec/spdy/SpdyHeadersFrame.java, io/netty/handler/codec/spdy/DefaultSpdyRstStreamFrame.java, io/netty/handler/codec/spdy/SpdySynStreamFrame.java, io/netty/handler/codec/spdy/SpdyGoAwayFrame.java, io/netty/handler/codec/spdy/SpdyStreamFrame.java, io/netty/handler/codec/spdy/DefaultSpdyPingFrame.java, io/netty/handler/codec/spdy/SpdyVersion.java, io/netty/handler/codec/spdy/DefaultSpdyWindowUpdateFrame.java, io/netty/handler/codec/spdy/DefaultSpdyHeadersFrame.java, io/netty/handler/codec/spdy/SpdyHeaderBlockRawEncoder.java, io/netty/handler/codec/spdy/DefaultSpdyHeaders.java, io/netty/handler/codec/spdy/SpdyPingFrame.java, io/netty/handler/codec/spdy/SpdySessionHandler.java, io/netty/handler/codec/spdy/SpdyFrame.java, io/netty/handler/codec/spdy/SpdyHeaderBlockJZlibEncoder.java, io/netty/handler/codec/spdy/SpdyWindowUpdateFrame.java, io/netty/handler/codec/spdy/SpdyStreamStatus.java, io/netty/handler/codec/spdy/SpdyHttpCodec.java, io/netty/handler/codec/spdy/SpdyDataFrame.java, io/netty/handler/codec/spdy/SpdySynReplyFrame.java, io/netty/handler/codec/spdy/SpdySettingsFrame.java, io/netty/handler/codec/spdy/SpdyHeaderBlockEncoder.java, io/netty/handler/codec/http/ComposedLastHttpContent.java, io/netty/handler/codec/http/FullHttpResponse.java, io/netty/handler/codec/http/FullHttpMessage.java, io/netty/handler/codec/http/FullHttpRequest.java, io/netty/handler/codec/http/cors/package-info.java, io/netty/handler/codec/http/DefaultFullHttpResponse.java, io/netty/handler/codec/http/websocketx/WebSocketFrameDecoder.java, io/netty/handler/codec/http/websocketx/WebSocketClientProtocolHandshakeHandler.java, io/netty/handler/codec/http/websocketx/WebSocketFrameAggregator.java, io/netty/handler/codec/http/websocketx/WebSocketFrameEncoder.java, io/netty/handler/codec/http/websocketx/WebSocketProtocolHandler.java, io/netty/handler/codec/http/websocketx/WebSocketClientProtocolHandler.java, io/netty/handler/codec/http/DefaultFullHttpRequest.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/spdy/SpdyFrameDecoderExtendedDelegate.java, io/netty/handler/codec/spdy/DefaultSpdyUnknownFrame.java, io/netty/handler/codec/spdy/SpdyUnknownFrame.java
+/*
+ * Copyright 2024 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/HttpMessageDecoderResult.java, io/netty/handler/codec/http/CompressionEncoderFactory.java
+/*
+ * Copyright 2021 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/TooLongHttpLineException.java, io/netty/handler/codec/http/TooLongHttpHeaderException.java, io/netty/handler/codec/http/TooLongHttpContentException.java, io/netty/handler/codec/http/multipart/AbstractMixedHttpData.java, io/netty/handler/codec/http/HttpHeaderValidationUtil.java
+/*
+ * Copyright 2022 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/HttpHeadersFactory.java, io/netty/handler/codec/http/DefaultHttpHeadersFactory.java, io/netty/handler/codec/http/HttpDecoderConfig.java
+/*
+ * Copyright 2023 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/HttpClientUpgradeHandler.java, io/netty/handler/codec/http/HttpServerUpgradeHandler.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http/multipart/FileUploadUtil.java, io/netty/handler/codec/http/HttpServerKeepAliveHandler.java, io/netty/handler/codec/http/websocketx/WebSocketChunkedInput.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/multipart/DeleteFileOnExitHook.java, io/netty/handler/codec/http/websocketx/WebSocketClientHandshakeException.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshakeException.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/cors/CorsHandler.java, io/netty/handler/codec/http/cors/CorsConfig.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http/cors/CorsConfigBuilder.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http/ReadOnlyHttpHeaders.java, io/netty/handler/codec/http/HttpServerExpectContinueHandler.java, io/netty/handler/codec/http/websocketx/WebSocketScheme.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http/websocketx/WebSocketServerHandshaker07.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshaker.java, io/netty/handler/codec/http/websocketx/Utf8Validator.java, io/netty/handler/codec/http/websocketx/CloseWebSocketFrame.java, io/netty/handler/codec/http/websocketx/WebSocket13FrameDecoder.java, io/netty/handler/codec/http/websocketx/WebSocket07FrameDecoder.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshaker00.java, io/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionFilter.java, io/netty/handler/codec/http/websocketx/extensions/WebSocketExtensionFilterProvider.java, io/netty/handler/codec/http/websocketx/WebSocketServerProtocolConfig.java, io/netty/handler/codec/http/websocketx/WebSocketClientProtocolConfig.java, io/netty/handler/codec/http/websocketx/WebSocketServerProtocolHandler.java, io/netty/handler/codec/http/websocketx/WebSocketDecoderConfig.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshakerFactory.java, io/netty/handler/codec/http/websocketx/WebSocket00FrameDecoder.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshaker13.java, io/netty/handler/codec/http/websocketx/CorruptedWebSocketFrameException.java, io/netty/handler/codec/http/websocketx/WebSocketServerProtocolHandshakeHandler.java, io/netty/handler/codec/http/websocketx/WebSocketServerHandshaker08.java, io/netty/handler/codec/http/websocketx/WebSocketCloseStatus.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */

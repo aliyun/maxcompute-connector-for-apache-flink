@@ -1,0 +1,220 @@
+Source paths: org/locationtech/jts/geomgraph/Node.java, org/locationtech/jts/geomgraph/Label.java, org/locationtech/jts/geomgraph/EdgeIntersectionList.java, org/locationtech/jts/geomgraph/EdgeIntersection.java, org/locationtech/jts/geomgraph/EdgeNodingValidator.java, org/locationtech/jts/geomgraph/EdgeEndStar.java, org/locationtech/jts/geomgraph/EdgeList.java, org/locationtech/jts/geomgraph/TopologyLocation.java, org/locationtech/jts/geomgraph/Depth.java, org/locationtech/jts/geomgraph/EdgeRing.java, org/locationtech/jts/geomgraph/DirectedEdgeStar.java, org/locationtech/jts/geomgraph/NodeMap.java, org/locationtech/jts/geomgraph/GraphComponent.java, org/locationtech/jts/geomgraph/index/SimpleSweepLineIntersector.java, org/locationtech/jts/geomgraph/index/MonotoneChainIndexer.java, org/locationtech/jts/geomgraph/index/SegmentIntersector.java, org/locationtech/jts/geomgraph/index/EdgeSetIntersector.java, org/locationtech/jts/geomgraph/index/SweepLineEvent.java, org/locationtech/jts/geomgraph/index/MonotoneChain.java, org/locationtech/jts/geomgraph/index/SimpleEdgeSetIntersector.java, org/locationtech/jts/geomgraph/index/MonotoneChainEdge.java, org/locationtech/jts/geomgraph/index/SimpleMCSweepLineIntersector.java, org/locationtech/jts/geomgraph/index/SweepLineSegment.java, org/locationtech/jts/geomgraph/index/package-info.java, org/locationtech/jts/geomgraph/DirectedEdge.java, org/locationtech/jts/geomgraph/PlanarGraph.java, org/locationtech/jts/geomgraph/GeometryGraph.java, org/locationtech/jts/geomgraph/NodeFactory.java, org/locationtech/jts/geomgraph/EdgeEnd.java, org/locationtech/jts/geomgraph/Edge.java, org/locationtech/jts/geomgraph/package-info.java, org/locationtech/jts/operation/valid/TopologyValidationError.java, org/locationtech/jts/operation/valid/RepeatedPointTester.java, org/locationtech/jts/operation/valid/package-info.java, org/locationtech/jts/operation/predicate/RectangleIntersects.java, org/locationtech/jts/operation/predicate/RectangleContains.java, org/locationtech/jts/operation/predicate/package-info.java, org/locationtech/jts/operation/overlayng/package-info.java, org/locationtech/jts/operation/distance/DistanceOp.java, org/locationtech/jts/operation/distance/ConnectedElementPointFilter.java, org/locationtech/jts/operation/distance/ConnectedElementLocationFilter.java, org/locationtech/jts/operation/distance/GeometryLocation.java, org/locationtech/jts/operation/distance/package-info.java, org/locationtech/jts/operation/BoundaryOp.java, org/locationtech/jts/operation/polygonize/PolygonizeGraph.java, org/locationtech/jts/operation/polygonize/EdgeRing.java, org/locationtech/jts/operation/polygonize/PolygonizeDirectedEdge.java, org/locationtech/jts/operation/polygonize/Polygonizer.java, org/locationtech/jts/operation/polygonize/PolygonizeEdge.java, org/locationtech/jts/operation/polygonize/package-info.java, org/locationtech/jts/operation/IsSimpleOp.java, org/locationtech/jts/operation/union/UnaryUnionOp.java, org/locationtech/jts/operation/union/UnionInteracting.java, org/locationtech/jts/operation/union/PointGeometryUnion.java, org/locationtech/jts/operation/union/CascadedPolygonUnion.java, org/locationtech/jts/operation/union/package-info.java, org/locationtech/jts/operation/linemerge/LineMergeEdge.java, org/locationtech/jts/operation/linemerge/LineMergeGraph.java, org/locationtech/jts/operation/linemerge/LineSequencer.java, org/locationtech/jts/operation/linemerge/LineMerger.java, org/locationtech/jts/operation/linemerge/LineMergeDirectedEdge.java, org/locationtech/jts/operation/linemerge/package-info.java, org/locationtech/jts/operation/linemerge/EdgeString.java, org/locationtech/jts/operation/relate/EdgeEndBuilder.java, org/locationtech/jts/operation/relate/RelateComputer.java, org/locationtech/jts/operation/relate/RelateNodeFactory.java, org/locationtech/jts/operation/relate/RelateNodeGraph.java, org/locationtech/jts/operation/relate/RelateOp.java, org/locationtech/jts/operation/relate/RelateNode.java, org/locationtech/jts/operation/relate/EdgeEndBundle.java, org/locationtech/jts/operation/relate/EdgeEndBundleStar.java, org/locationtech/jts/operation/relate/package-info.java, org/locationtech/jts/operation/overlay/ConsistentPolygonRingChecker.java, org/locationtech/jts/operation/overlay/validate/FuzzyPointLocator.java, org/locationtech/jts/operation/overlay/validate/OverlayResultValidator.java, org/locationtech/jts/operation/overlay/validate/package-info.java, org/locationtech/jts/operation/overlay/validate/OffsetPointGenerator.java, org/locationtech/jts/operation/overlay/LineBuilder.java, org/locationtech/jts/operation/overlay/PolygonBuilder.java, org/locationtech/jts/operation/overlay/OverlayOp.java, org/locationtech/jts/operation/overlay/PointBuilder.java, org/locationtech/jts/operation/overlay/MinimalEdgeRing.java, org/locationtech/jts/operation/overlay/snap/SnapOverlayOp.java, org/locationtech/jts/operation/overlay/snap/LineStringSnapper.java, org/locationtech/jts/operation/overlay/snap/SnapIfNeededOverlayOp.java, org/locationtech/jts/operation/overlay/snap/package-info.java, org/locationtech/jts/operation/overlay/snap/GeometrySnapper.java, org/locationtech/jts/operation/overlay/MaximalEdgeRing.java, org/locationtech/jts/operation/overlay/OverlayNodeFactory.java, org/locationtech/jts/operation/overlay/package-info.java, org/locationtech/jts/operation/overlay/EdgeSetNoder.java, org/locationtech/jts/operation/GeometryGraphOperation.java, org/locationtech/jts/operation/package-info.java, org/locationtech/jts/operation/buffer/BufferSubgraph.java, org/locationtech/jts/operation/buffer/validate/BufferDistanceValidator.java, org/locationtech/jts/operation/buffer/validate/BufferResultValidator.java, org/locationtech/jts/operation/buffer/validate/BufferCurveMaximumDistanceFinder.java, org/locationtech/jts/operation/buffer/validate/PointPairDistance.java, org/locationtech/jts/operation/buffer/validate/DistanceToPointFinder.java, org/locationtech/jts/operation/buffer/validate/package-info.java, org/locationtech/jts/operation/buffer/BufferInputLineSimplifier.java, org/locationtech/jts/operation/buffer/BufferBuilder.java, org/locationtech/jts/operation/buffer/BufferOp.java, org/locationtech/jts/operation/buffer/RightmostEdgeFinder.java, org/locationtech/jts/operation/buffer/BufferCurveSetBuilder.java, org/locationtech/jts/operation/buffer/BufferParameters.java, org/locationtech/jts/operation/buffer/OffsetCurveBuilder.java, org/locationtech/jts/operation/buffer/SubgraphDepthLocater.java, org/locationtech/jts/operation/buffer/package-info.java, org/locationtech/jts/util/NumberUtil.java, org/locationtech/jts/util/Stopwatch.java, org/locationtech/jts/util/AssertionFailedException.java, org/locationtech/jts/util/StringUtil.java, org/locationtech/jts/util/Assert.java, org/locationtech/jts/util/UniqueCoordinateArrayFilter.java, org/locationtech/jts/util/CoordinateArrayFilter.java, org/locationtech/jts/util/PriorityQueue.java, org/locationtech/jts/util/ObjectCounter.java, org/locationtech/jts/util/Memory.java, org/locationtech/jts/util/Debug.java, org/locationtech/jts/util/GeometricShapeFactory.java, org/locationtech/jts/util/CollectionUtil.java, org/locationtech/jts/util/package-info.java, org/locationtech/jts/util/CoordinateCountFilter.java, org/locationtech/jts/linearref/LocationIndexOfLine.java, org/locationtech/jts/linearref/LinearLocation.java, org/locationtech/jts/linearref/LinearIterator.java, org/locationtech/jts/linearref/LengthIndexOfPoint.java, org/locationtech/jts/linearref/LocationIndexOfPoint.java, org/locationtech/jts/linearref/LengthLocationMap.java, org/locationtech/jts/linearref/LengthIndexedLine.java, org/locationtech/jts/linearref/ExtractLineByLocation.java, org/locationtech/jts/linearref/LocationIndexedLine.java, org/locationtech/jts/linearref/LinearGeometryBuilder.java, org/locationtech/jts/linearref/package-info.java, org/locationtech/jts/JTSVersion.java, org/locationtech/jts/io/WKBConstants.java, org/locationtech/jts/io/WKTFileReader.java, org/locationtech/jts/io/gml2/GMLWriter.java, org/locationtech/jts/io/gml2/GMLConstants.java, org/locationtech/jts/io/gml2/GMLReader.java, org/locationtech/jts/io/gml2/GeometryStrategies.java, org/locationtech/jts/io/gml2/package-info.java, org/locationtech/jts/io/gml2/GMLHandler.java, org/locationtech/jts/io/InStream.java, org/locationtech/jts/io/OutputStreamOutStream.java, org/locationtech/jts/io/ByteOrderDataInStream.java, org/locationtech/jts/io/ParseException.java, org/locationtech/jts/io/WKBReader.java, org/locationtech/jts/io/WKTWriter.java, org/locationtech/jts/io/kml/KMLWriter.java, org/locationtech/jts/io/kml/KMLReader.java, org/locationtech/jts/io/WKTReader.java, org/locationtech/jts/io/ByteArrayInStream.java, org/locationtech/jts/io/WKBWriter.java, org/locationtech/jts/io/ByteOrderValues.java, org/locationtech/jts/io/OutStream.java, org/locationtech/jts/io/InputStreamInStream.java, org/locationtech/jts/io/package-info.java, org/locationtech/jts/densify/Densifier.java, org/locationtech/jts/densify/package-info.java, org/locationtech/jts/planargraph/Node.java, org/locationtech/jts/planargraph/DirectedEdgeStar.java, org/locationtech/jts/planargraph/NodeMap.java, org/locationtech/jts/planargraph/algorithm/ConnectedSubgraphFinder.java, org/locationtech/jts/planargraph/algorithm/package-info.java, org/locationtech/jts/planargraph/GraphComponent.java, org/locationtech/jts/planargraph/Subgraph.java, org/locationtech/jts/planargraph/DirectedEdge.java, org/locationtech/jts/planargraph/PlanarGraph.java, org/locationtech/jts/planargraph/Edge.java, org/locationtech/jts/planargraph/package-info.java, org/locationtech/jts/algorithm/Orientation.java, org/locationtech/jts/algorithm/CGAlgorithms.java, org/locationtech/jts/algorithm/InteriorPointPoint.java, org/locationtech/jts/algorithm/locate/PointOnGeometryLocator.java, org/locationtech/jts/algorithm/locate/IndexedPointInAreaLocator.java, org/locationtech/jts/algorithm/locate/SimplePointInAreaLocator.java, org/locationtech/jts/algorithm/locate/package-info.java, org/locationtech/jts/algorithm/PointLocation.java, org/locationtech/jts/algorithm/InteriorPointArea.java, org/locationtech/jts/algorithm/LineIntersector.java, org/locationtech/jts/algorithm/Centroid.java, org/locationtech/jts/algorithm/Angle.java, org/locationtech/jts/algorithm/match/AreaSimilarityMeasure.java, org/locationtech/jts/algorithm/match/SimilarityMeasure.java, org/locationtech/jts/algorithm/match/HausdorffSimilarityMeasure.java, org/locationtech/jts/algorithm/match/SimilarityMeasureCombiner.java, org/locationtech/jts/algorithm/match/package-info.java, org/locationtech/jts/algorithm/Distance.java, org/locationtech/jts/algorithm/hull/package-info.java, org/locationtech/jts/algorithm/distance/DiscreteHausdorffDistance.java, org/locationtech/jts/algorithm/distance/DistanceToPoint.java, org/locationtech/jts/algorithm/distance/PointPairDistance.java, org/locationtech/jts/algorithm/distance/package-info.java, org/locationtech/jts/algorithm/Length.java, org/locationtech/jts/algorithm/PointLocator.java, org/locationtech/jts/algorithm/ConvexHull.java, org/locationtech/jts/algorithm/InteriorPointLine.java, org/locationtech/jts/algorithm/MinimumDiameter.java, org/locationtech/jts/algorithm/RayCrossingCounter.java, org/locationtech/jts/algorithm/NotRepresentableException.java, org/locationtech/jts/algorithm/Area.java, org/locationtech/jts/algorithm/RobustDeterminant.java, org/locationtech/jts/algorithm/BoundaryNodeRule.java, org/locationtech/jts/algorithm/MinimumBoundingCircle.java, org/locationtech/jts/algorithm/HCoordinate.java, org/locationtech/jts/algorithm/construct/package-info.java, org/locationtech/jts/algorithm/package-info.java, org/locationtech/jts/geom/Polygon.java, org/locationtech/jts/geom/impl/PackedCoordinateSequence.java, org/locationtech/jts/geom/impl/PackedCoordinateSequenceFactory.java, org/locationtech/jts/geom/impl/CoordinateArraySequence.java, org/locationtech/jts/geom/impl/CoordinateArraySequenceFactory.java, org/locationtech/jts/geom/impl/package-info.java, org/locationtech/jts/geom/CoordinateFilter.java, org/locationtech/jts/geom/Envelope.java, org/locationtech/jts/geom/PrecisionModel.java, org/locationtech/jts/geom/prep/BasicPreparedGeometry.java, org/locationtech/jts/geom/prep/PreparedPolygonContains.java, org/locationtech/jts/geom/prep/PreparedPolygonIntersects.java, org/locationtech/jts/geom/prep/PreparedGeometryFactory.java, org/locationtech/jts/geom/prep/PreparedGeometry.java, org/locationtech/jts/geom/prep/PreparedPolygonPredicate.java, org/locationtech/jts/geom/prep/PreparedLineString.java, org/locationtech/jts/geom/prep/PreparedLineStringIntersects.java, org/locationtech/jts/geom/prep/PreparedPolygonCovers.java, org/locationtech/jts/geom/prep/PreparedPolygon.java, org/locationtech/jts/geom/prep/AbstractPreparedPolygonContains.java, org/locationtech/jts/geom/prep/PreparedPolygonContainsProperly.java, org/locationtech/jts/geom/prep/PreparedPoint.java, org/locationtech/jts/geom/prep/package-info.java, org/locationtech/jts/geom/GeometryCollectionIterator.java, org/locationtech/jts/geom/CoordinateArrays.java, org/locationtech/jts/geom/util/PolygonExtracter.java, org/locationtech/jts/geom/util/GeometryEditor.java, org/locationtech/jts/geom/util/LineStringExtracter.java, org/locationtech/jts/geom/util/SineStarFactory.java, org/locationtech/jts/geom/util/AffineTransformation.java, org/locationtech/jts/geom/util/GeometryExtracter.java, org/locationtech/jts/geom/util/GeometryCombiner.java, org/locationtech/jts/geom/util/ShortCircuitedGeometryVisitor.java, org/locationtech/jts/geom/util/ComponentCoordinateExtracter.java, org/locationtech/jts/geom/util/AffineTransformationFactory.java, org/locationtech/jts/geom/util/GeometryCollectionMapper.java, org/locationtech/jts/geom/util/GeometryTransformer.java, org/locationtech/jts/geom/util/LinearComponentExtracter.java, org/locationtech/jts/geom/util/PointExtracter.java, org/locationtech/jts/geom/util/AffineTransformationBuilder.java, org/locationtech/jts/geom/util/NoninvertibleTransformationException.java, org/locationtech/jts/geom/util/package-info.java, org/locationtech/jts/geom/OctagonalEnvelope.java, org/locationtech/jts/geom/CoordinateXYZM.java, org/locationtech/jts/geom/CoordinateSequenceComparator.java, org/locationtech/jts/geom/MultiPoint.java, org/locationtech/jts/geom/Point.java, org/locationtech/jts/geom/CoordinateSequenceFactory.java, org/locationtech/jts/geom/CoordinateSequences.java, org/locationtech/jts/geom/GeometryCollection.java, org/locationtech/jts/geom/Lineal.java, org/locationtech/jts/geom/MultiLineString.java, org/locationtech/jts/geom/LineSegment.java, org/locationtech/jts/geom/Triangle.java, org/locationtech/jts/geom/MultiPolygon.java, org/locationtech/jts/geom/GeometryComponentFilter.java, org/locationtech/jts/geom/Position.java, org/locationtech/jts/geom/IntersectionMatrix.java, org/locationtech/jts/geom/GeometryFactory.java, org/locationtech/jts/geom/Puntal.java, org/locationtech/jts/geom/GeometryFilter.java, org/locationtech/jts/geom/TopologyException.java, org/locationtech/jts/geom/Dimension.java, org/locationtech/jts/geom/Location.java, org/locationtech/jts/geom/CoordinateSequenceFilter.java, org/locationtech/jts/geom/Quadrant.java, org/locationtech/jts/geom/LineString.java, org/locationtech/jts/geom/LinearRing.java, org/locationtech/jts/geom/CoordinateList.java, org/locationtech/jts/geom/Polygonal.java, org/locationtech/jts/geom/package-info.java, org/locationtech/jts/geom/Geometry.java, org/locationtech/jts/edgegraph/MarkHalfEdge.java, org/locationtech/jts/edgegraph/EdgeGraphBuilder.java, org/locationtech/jts/edgegraph/HalfEdge.java, org/locationtech/jts/edgegraph/EdgeGraph.java, org/locationtech/jts/index/ItemVisitor.java, org/locationtech/jts/index/kdtree/KdNode.java, org/locationtech/jts/index/kdtree/KdTree.java, org/locationtech/jts/index/kdtree/package-info.java, org/locationtech/jts/index/kdtree/KdNodeVisitor.java, org/locationtech/jts/index/ArrayListVisitor.java, org/locationtech/jts/index/sweepline/SweepLineOverlapAction.java, org/locationtech/jts/index/sweepline/SweepLineEvent.java, org/locationtech/jts/index/sweepline/SweepLineInterval.java, org/locationtech/jts/index/sweepline/SweepLineIndex.java, org/locationtech/jts/index/sweepline/package-info.java, org/locationtech/jts/index/strtree/SIRtree.java, org/locationtech/jts/index/strtree/AbstractNode.java, org/locationtech/jts/index/strtree/Interval.java, org/locationtech/jts/index/strtree/Boundable.java, org/locationtech/jts/index/strtree/ItemBoundable.java, org/locationtech/jts/index/strtree/AbstractSTRtree.java, org/locationtech/jts/index/strtree/STRtree.java, org/locationtech/jts/index/strtree/package-info.java, org/locationtech/jts/index/chain/MonotoneChainBuilder.java, org/locationtech/jts/index/chain/MonotoneChainOverlapAction.java, org/locationtech/jts/index/chain/MonotoneChainSelectAction.java, org/locationtech/jts/index/chain/package-info.java, org/locationtech/jts/index/SpatialIndex.java, org/locationtech/jts/index/intervalrtree/IntervalRTreeNode.java, org/locationtech/jts/index/intervalrtree/SortedPackedIntervalRTree.java, org/locationtech/jts/index/intervalrtree/IntervalRTreeBranchNode.java, org/locationtech/jts/index/intervalrtree/IntervalRTreeLeafNode.java, org/locationtech/jts/index/intervalrtree/package-info.java, org/locationtech/jts/index/bintree/Root.java, org/locationtech/jts/index/bintree/Node.java, org/locationtech/jts/index/bintree/Interval.java, org/locationtech/jts/index/bintree/Key.java, org/locationtech/jts/index/bintree/Bintree.java, org/locationtech/jts/index/bintree/package-info.java, org/locationtech/jts/index/bintree/NodeBase.java, org/locationtech/jts/index/quadtree/Root.java, org/locationtech/jts/index/quadtree/Node.java, org/locationtech/jts/index/quadtree/IntervalSize.java, org/locationtech/jts/index/quadtree/Quadtree.java, org/locationtech/jts/index/quadtree/DoubleBits.java, org/locationtech/jts/index/quadtree/Key.java, org/locationtech/jts/index/quadtree/package-info.java, org/locationtech/jts/index/quadtree/NodeBase.java, org/locationtech/jts/index/package-info.java, org/locationtech/jts/awt/PolygonShape.java, org/locationtech/jts/awt/PointTransformation.java, org/locationtech/jts/awt/IdentityPointTransformation.java, org/locationtech/jts/awt/ShapeReader.java, org/locationtech/jts/awt/ShapeWriter.java, org/locationtech/jts/awt/FontGlyphReader.java, org/locationtech/jts/awt/GeometryCollectionShape.java, org/locationtech/jts/awt/ShapeCollectionPathIterator.java, org/locationtech/jts/awt/PointShapeFactory.java, org/locationtech/jts/awt/package-info.java, org/locationtech/jts/triangulate/ConstraintSplitPointFinder.java, org/locationtech/jts/triangulate/Segment.java, org/locationtech/jts/triangulate/ConstraintEnforcementException.java, org/locationtech/jts/triangulate/IncrementalDelaunayTriangulator.java, org/locationtech/jts/triangulate/ConstraintVertexFactory.java, org/locationtech/jts/triangulate/VoronoiDiagramBuilder.java, org/locationtech/jts/triangulate/DelaunayTriangulationBuilder.java, org/locationtech/jts/triangulate/quadedge/QuadEdgeUtil.java, org/locationtech/jts/triangulate/quadedge/TriangleVisitor.java, org/locationtech/jts/triangulate/quadedge/Vertex.java, org/locationtech/jts/triangulate/quadedge/QuadEdge.java, org/locationtech/jts/triangulate/quadedge/QuadEdgeLocator.java, org/locationtech/jts/triangulate/quadedge/LocateFailureException.java, org/locationtech/jts/triangulate/quadedge/LastFoundQuadEdgeLocator.java, org/locationtech/jts/triangulate/quadedge/EdgeConnectedTriangleTraversal.java, org/locationtech/jts/triangulate/quadedge/TraversalVisitor.java, org/locationtech/jts/triangulate/quadedge/QuadEdgeSubdivision.java, org/locationtech/jts/triangulate/quadedge/QuadEdgeTriangle.java, org/locationtech/jts/triangulate/quadedge/package-info.java, org/locationtech/jts/triangulate/ConformingDelaunayTriangulationBuilder.java, org/locationtech/jts/triangulate/SplitSegment.java, org/locationtech/jts/triangulate/ConstraintVertex.java, org/locationtech/jts/triangulate/MidpointSplitPointFinder.java, org/locationtech/jts/triangulate/ConformingDelaunayTriangulator.java, org/locationtech/jts/triangulate/package-info.java, org/locationtech/jts/triangulate/VertexTaggedGeometryDataMapper.java, org/locationtech/jts/triangulate/NonEncroachingSplitPointFinder.java, org/locationtech/jts/precision/CommonBitsRemover.java, org/locationtech/jts/precision/CommonBitsOp.java, org/locationtech/jts/precision/CoordinatePrecisionReducerFilter.java, org/locationtech/jts/precision/EnhancedPrecisionOp.java, org/locationtech/jts/precision/SimpleGeometryPrecisionReducer.java, org/locationtech/jts/precision/package-info.java, org/locationtech/jts/precision/CommonBits.java, org/locationtech/jts/simplify/DouglasPeuckerLineSimplifier.java, org/locationtech/jts/simplify/TaggedLineSegment.java, org/locationtech/jts/simplify/DouglasPeuckerSimplifier.java, org/locationtech/jts/simplify/LineSegmentIndex.java, org/locationtech/jts/simplify/VWLineSimplifier.java, org/locationtech/jts/simplify/TaggedLineString.java, org/locationtech/jts/simplify/VWSimplifier.java, org/locationtech/jts/simplify/TaggedLinesSimplifier.java, org/locationtech/jts/simplify/TaggedLineStringSimplifier.java, org/locationtech/jts/simplify/package-info.java, org/locationtech/jts/simplify/TopologyPreservingSimplifier.java, org/locationtech/jts/noding/FastSegmentSetIntersectionFinder.java, org/locationtech/jts/noding/snapround/MCIndexSnapRounder.java, org/locationtech/jts/noding/snapround/HotPixel.java, org/locationtech/jts/noding/snapround/MCIndexPointSnapper.java, org/locationtech/jts/noding/snapround/package-info.java, org/locationtech/jts/noding/NodableSegmentString.java, org/locationtech/jts/noding/Noder.java, org/locationtech/jts/noding/SegmentNode.java, org/locationtech/jts/noding/SegmentSetMutualIntersector.java, org/locationtech/jts/noding/NodedSegmentString.java, org/locationtech/jts/noding/SegmentIntersector.java, org/locationtech/jts/noding/SegmentStringUtil.java, org/locationtech/jts/noding/SimpleNoder.java, org/locationtech/jts/noding/SegmentStringDissolver.java, org/locationtech/jts/noding/SegmentPointComparator.java, org/locationtech/jts/noding/IntersectionFinderAdder.java, org/locationtech/jts/noding/IntersectionAdder.java, org/locationtech/jts/noding/NodingIntersectionFinder.java, org/locationtech/jts/noding/FastNodingValidator.java, org/locationtech/jts/noding/NodingValidator.java, org/locationtech/jts/noding/SegmentNodeList.java, org/locationtech/jts/noding/SegmentIntersectionDetector.java, org/locationtech/jts/noding/MCIndexSegmentSetMutualIntersector.java, org/locationtech/jts/noding/InteriorIntersectionFinderAdder.java, org/locationtech/jts/noding/Octant.java, org/locationtech/jts/noding/BasicSegmentString.java, org/locationtech/jts/noding/SinglePassNoder.java, org/locationtech/jts/noding/SimpleSegmentSetMutualIntersector.java, org/locationtech/jts/noding/SegmentString.java, org/locationtech/jts/noding/IteratedNoder.java, org/locationtech/jts/noding/ScaledNoder.java, org/locationtech/jts/noding/package-info.java, org/locationtech/jts/noding/OrientedCoordinateArray.java, org/locationtech/jts/dissolve/LineDissolver.java, org/locationtech/jts/dissolve/DissolveHalfEdge.java, org/locationtech/jts/dissolve/DissolveEdgeGraph.java
+/*
+ * Copyright (c) 2016 Vivid Solutions.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/distance3d/PlanarPolygon3D.java, org/locationtech/jts/operation/distance3d/Distance3DOp.java, org/locationtech/jts/operation/distance3d/AxisPlaneCoordinateSequence.java, org/locationtech/jts/operation/distance/FacetSequenceTreeBuilder.java, org/locationtech/jts/operation/distance/IndexedFacetDistance.java, org/locationtech/jts/operation/distance/FacetSequence.java, org/locationtech/jts/operation/buffer/OffsetSegmentGenerator.java, org/locationtech/jts/operation/buffer/OffsetSegmentString.java, org/locationtech/jts/shape/fractal/KochSnowflakeBuilder.java, org/locationtech/jts/shape/fractal/SierpinskiCarpetBuilder.java, org/locationtech/jts/shape/GeometricShapeBuilder.java, org/locationtech/jts/shape/random/RandomPointsBuilder.java, org/locationtech/jts/shape/random/RandomPointsInGridBuilder.java, org/locationtech/jts/io/WKBHexFileReader.java, org/locationtech/jts/algorithm/RectangleLineIntersector.java, org/locationtech/jts/algorithm/CGAlgorithms3D.java, org/locationtech/jts/algorithm/CGAlgorithmsDD.java, org/locationtech/jts/algorithm/InteriorPoint.java, org/locationtech/jts/math/Matrix.java, org/locationtech/jts/math/DD.java, org/locationtech/jts/math/Vector2D.java, org/locationtech/jts/math/Plane3D.java, org/locationtech/jts/math/Vector3D.java, org/locationtech/jts/math/MathUtil.java, org/locationtech/jts/geom/util/GeometryMapper.java, org/locationtech/jts/index/strtree/ItemDistance.java, org/locationtech/jts/index/strtree/GeometryItemDistance.java, org/locationtech/jts/index/strtree/BoundablePair.java, org/locationtech/jts/triangulate/quadedge/TrianglePredicate.java, org/locationtech/jts/precision/MinimumClearance.java, org/locationtech/jts/precision/PrecisionReducerCoordinateOperation.java, org/locationtech/jts/precision/SimpleMinimumClearance.java, org/locationtech/jts/precision/GeometryPrecisionReducer.java, org/locationtech/jts/noding/snapround/SnapRoundingIntersectionAdder.java, org/locationtech/jts/noding/snap/SnappingIntersectionAdder.java
+/*
+ * Copyright (c) 2016 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/valid/PolygonNode.java, org/locationtech/jts/operation/valid/PolygonRing.java, org/locationtech/jts/operation/valid/IndexedNestedPolygonTester.java, org/locationtech/jts/operation/valid/PolygonIntersectionAnalyzer.java, org/locationtech/jts/operation/valid/IsValidOp.java, org/locationtech/jts/operation/valid/IndexedNestedHoleTester.java, org/locationtech/jts/operation/valid/IsSimpleOp.java, org/locationtech/jts/operation/valid/PolygonTopologyAnalyzer.java, org/locationtech/jts/operation/buffer/SegmentMCIndex.java, org/locationtech/jts/operation/buffer/OffsetCurve.java, org/locationtech/jts/shape/CubicBezierCurve.java, org/locationtech/jts/algorithm/hull/ConcaveHull.java, org/locationtech/jts/algorithm/hull/HullTri.java, org/locationtech/jts/algorithm/hull/HullTriangulation.java, org/locationtech/jts/geom/util/GeometryFixer.java, org/locationtech/jts/index/VertexSequencePackedRtree.java, org/locationtech/jts/triangulate/tri/TriangulationBuilder.java, org/locationtech/jts/triangulate/tri/Tri.java, org/locationtech/jts/triangulate/tri/TriEdge.java, org/locationtech/jts/triangulate/polygon/PolygonHoleJoiner.java, org/locationtech/jts/triangulate/polygon/PolygonTriangulator.java, org/locationtech/jts/triangulate/polygon/PolygonEarClipper.java, org/locationtech/jts/triangulate/polygon/ConstrainedDelaunayTriangulator.java, org/locationtech/jts/triangulate/polygon/TriDelaunayImprover.java, org/locationtech/jts/precision/PointwisePrecisionReducerTransformer.java, org/locationtech/jts/precision/PrecisionReducerTransformer.java, org/locationtech/jts/simplify/LinkedRing.java
+/*
+ * Copyright (c) 2021 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/overlayng/IndexedPointOnLineLocator.java, org/locationtech/jts/operation/overlayng/MaximalEdgeRing.java
+/*
+ * Copyright (c) 2020 Martin Davis
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/overlayng/OverlayLabel.java, org/locationtech/jts/operation/overlayng/OverlayEdge.java, org/locationtech/jts/operation/overlayng/EdgeNodingBuilder.java, org/locationtech/jts/operation/overlayng/LineBuilder.java, org/locationtech/jts/operation/overlayng/OverlayEdgeRing.java, org/locationtech/jts/operation/overlayng/LineLimiter.java, org/locationtech/jts/operation/overlayng/PolygonBuilder.java, org/locationtech/jts/operation/overlayng/OverlayGraph.java, org/locationtech/jts/operation/overlayng/InputGeometry.java, org/locationtech/jts/operation/overlayng/EdgeMerger.java, org/locationtech/jts/operation/overlayng/OverlayLabeller.java, org/locationtech/jts/operation/overlayng/UnaryUnionNG.java, org/locationtech/jts/operation/overlayng/ElevationModel.java, org/locationtech/jts/operation/overlayng/OverlayPoints.java, org/locationtech/jts/operation/overlayng/PrecisionReducer.java, org/locationtech/jts/operation/overlayng/PrecisionUtil.java, org/locationtech/jts/operation/overlayng/EdgeKey.java, org/locationtech/jts/operation/overlayng/Edge.java, org/locationtech/jts/operation/overlayng/IntersectionPointBuilder.java, org/locationtech/jts/operation/overlayng/EdgeSourceInfo.java, org/locationtech/jts/operation/overlayng/CoverageUnion.java, org/locationtech/jts/operation/overlayng/RingClipper.java, org/locationtech/jts/operation/overlayng/OverlayNG.java, org/locationtech/jts/operation/overlayng/RobustClipEnvelopeComputer.java, org/locationtech/jts/operation/polygonize/HoleAssigner.java, org/locationtech/jts/operation/union/UnionStrategy.java, org/locationtech/jts/operation/union/OverlapUnion.java, org/locationtech/jts/operation/union/InputExtracter.java, org/locationtech/jts/operation/buffer/VariableBuffer.java, org/locationtech/jts/shape/fractal/MortonCurveBuilder.java, org/locationtech/jts/shape/fractal/HilbertCurveBuilder.java, org/locationtech/jts/shape/fractal/HilbertCode.java, org/locationtech/jts/shape/fractal/MortonCode.java, org/locationtech/jts/util/TestBuilderProxy.java, org/locationtech/jts/util/IntArrayList.java, org/locationtech/jts/io/OrdinateFormat.java, org/locationtech/jts/index/strtree/EnvelopeDistance.java, org/locationtech/jts/index/hprtree/HPRtree.java, org/locationtech/jts/index/hprtree/HilbertEncoder.java, org/locationtech/jts/index/hprtree/Item.java, org/locationtech/jts/noding/snapround/SnapRoundingNoder.java, org/locationtech/jts/noding/snapround/HotPixelIndex.java, org/locationtech/jts/noding/SegmentExtractingNoder.java
+/*
+ * Copyright (c) 2019 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/overlayng/FastOverlayFilter.java
+/*
+ * Copyright (c) 2020 Martin Davis, and others.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/operation/overlayng/OverlayNGRobust.java, org/locationtech/jts/operation/overlayng/OverlayUtil.java, org/locationtech/jts/operation/overlayng/OverlayMixedPoints.java, org/locationtech/jts/io/WKTConstants.java, org/locationtech/jts/algorithm/construct/MaximumInscribedCircle.java, org/locationtech/jts/algorithm/construct/LargestEmptyCircle.java, org/locationtech/jts/geom/GeometryOverlay.java, org/locationtech/jts/noding/snap/SnappingNoder.java, org/locationtech/jts/noding/snap/SnappingPointIndex.java
+/*
+ * Copyright (c) 2020 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/io/Ordinate.java
+/*
+ * Copyright (c) 2018 Felix Obermaier
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/algorithm/RobustLineIntersector.java, org/locationtech/jts/index/chain/MonotoneChain.java, org/locationtech/jts/noding/MCIndexNoder.java, org/locationtech/jts/noding/snapround/GeometryNoder.java
+/*
+ * Copyright (c) 2016 Vivid Solutions, and others.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/algorithm/match/FrechetSimilarityMeasure.java, org/locationtech/jts/algorithm/distance/DiscreteFrechetDistance.java
+/*
+ * Copyright (c) 2021 Felix Obermaier.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/algorithm/hull/ConcaveHullOfPolygons.java, org/locationtech/jts/simplify/RingHull.java, org/locationtech/jts/simplify/PolygonHullSimplifier.java, org/locationtech/jts/simplify/RingHullIndex.java, org/locationtech/jts/noding/BoundaryChainNoder.java, org/locationtech/jts/noding/BoundarySegmentNoder.java
+/*
+ * Copyright (c) 2022 Martin Davis.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/algorithm/Intersection.java
+/*
+ * Copyright (c) 2019 martin Davis
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/geom/CoordinateXYM.java, org/locationtech/jts/geom/CoordinateSequence.java, org/locationtech/jts/geom/Coordinate.java, org/locationtech/jts/geom/CoordinateXY.java
+/*
+ * Copyright (c) 2018 Vivid Solutions
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/geom/Coordinates.java
+/*
+ * Copyright (c) 2018 Contributors to the Eclipse Foundation
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/index/strtree/BoundablePairDistanceComparator.java
+/*
+ * Copyright (c) 2017 Jia Yu.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/triangulate/tri/package-info.java, org/locationtech/jts/triangulate/polygon/package-info.java
+/*
+ * Copyright (c) 2021 Martin Davis
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */
+
+Source paths: org/locationtech/jts/noding/ValidatingNoder.java
+/*
+ * Copyright (c) 2020 Martin Davis, and others
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v20.html
+ * and the Eclipse Distribution License is available at
+ *
+ * http://www.eclipse.org/org/documents/edl-v10.php.
+ */

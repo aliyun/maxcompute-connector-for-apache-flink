@@ -1,0 +1,271 @@
+Source paths: org/aspectj/runtime/CFlow.java, org/aspectj/runtime/reflect/MemberSignatureImpl.java, org/aspectj/lang/reflect/SourceLocation.java, org/aspectj/lang/JoinPoint.java, org/aspectj/runtime/reflect/MethodSignatureImpl.java, org/aspectj/runtime/reflect/InitializerSignatureImpl.java, org/aspectj/runtime/reflect/ConstructorSignatureImpl.java, org/aspectj/runtime/internal/Conversions.java, org/aspectj/runtime/reflect/CatchClauseSignatureImpl.java, org/aspectj/runtime/reflect/StringMaker.java, org/aspectj/lang/reflect/MethodSignature.java, org/aspectj/lang/reflect/FieldSignature.java, org/aspectj/runtime/reflect/SourceLocationImpl.java, org/aspectj/runtime/internal/CFlowPlusState.java, org/aspectj/runtime/internal/CFlowStack.java, org/aspectj/lang/NoAspectBoundException.java, org/aspectj/runtime/reflect/SignatureImpl.java, org/aspectj/runtime/reflect/CodeSignatureImpl.java, org/aspectj/runtime/internal/PerObjectMap.java, org/aspectj/lang/reflect/CodeSignature.java, org/aspectj/runtime/reflect/FieldSignatureImpl.java, org/aspectj/lang/reflect/MemberSignature.java, org/aspectj/runtime/reflect/JoinPointImpl.java, org/aspectj/lang/reflect/ConstructorSignature.java, org/aspectj/lang/reflect/AdviceSignature.java, org/aspectj/lang/reflect/CatchClauseSignature.java, org/aspectj/runtime/reflect/AdviceSignatureImpl.java, org/aspectj/lang/Signature.java
+/* *******************************************************************
+ * Copyright (c) 1999-2001 Xerox Corporation,
+ *               2002 Palo Alto Research Center, Incorporated (PARC).
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Xerox/PARC     initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/internal/lang/reflect/InterTypeConstructorDeclarationImpl.java, org/aspectj/internal/lang/reflect/StringToType.java, org/aspectj/internal/lang/reflect/DeclarePrecedenceImpl.java, org/aspectj/lang/reflect/Advice.java, org/aspectj/lang/reflect/NoSuchPointcutException.java, org/aspectj/internal/lang/reflect/TypePatternBasedPerClauseImpl.java, org/aspectj/lang/reflect/AdviceKind.java, org/aspectj/internal/lang/reflect/DeclareParentsImpl.java, org/aspectj/internal/lang/annotation/ajcITD.java, org/aspectj/internal/lang/annotation/ajcDeclareSoft.java, org/aspectj/lang/reflect/DeclarePrecedence.java, org/aspectj/lang/reflect/AjType.java, org/aspectj/lang/reflect/InterTypeConstructorDeclaration.java, org/aspectj/internal/lang/reflect/DeclareSoftImpl.java, org/aspectj/internal/lang/reflect/PerClauseImpl.java, org/aspectj/lang/reflect/InterTypeDeclaration.java, org/aspectj/internal/lang/reflect/TypePatternImpl.java, org/aspectj/internal/lang/reflect/PointcutExpressionImpl.java, org/aspectj/internal/lang/reflect/AjTypeImpl.java, org/aspectj/lang/reflect/DeclareErrorOrWarning.java, org/aspectj/lang/reflect/InterTypeMethodDeclaration.java, org/aspectj/lang/reflect/TypePatternBasedPerClause.java, org/aspectj/internal/lang/reflect/InterTypeDeclarationImpl.java, org/aspectj/internal/lang/annotation/ajcPrivileged.java, org/aspectj/lang/reflect/PointcutExpression.java, org/aspectj/lang/reflect/InterTypeFieldDeclaration.java, org/aspectj/internal/lang/reflect/DeclareAnnotationImpl.java, org/aspectj/internal/lang/annotation/ajcDeclarePrecedence.java, org/aspectj/lang/reflect/DeclareAnnotation.java, org/aspectj/lang/reflect/AjTypeSystem.java, org/aspectj/lang/annotation/DeclareWarning.java, org/aspectj/internal/lang/reflect/SignaturePatternImpl.java, org/aspectj/internal/lang/reflect/DeclareErrorOrWarningImpl.java, org/aspectj/internal/lang/reflect/PointcutImpl.java, org/aspectj/internal/lang/annotation/ajcDeclareParents.java, org/aspectj/lang/reflect/DeclareParents.java, org/aspectj/lang/reflect/PointcutBasedPerClause.java, org/aspectj/internal/lang/reflect/InterTypeMethodDeclarationImpl.java, org/aspectj/internal/lang/annotation/ajcDeclareEoW.java, org/aspectj/lang/reflect/Pointcut.java, org/aspectj/internal/lang/annotation/ajcDeclareAnnotation.java, org/aspectj/lang/reflect/TypePattern.java, org/aspectj/lang/reflect/NoSuchAdviceException.java, org/aspectj/internal/lang/reflect/AdviceImpl.java, org/aspectj/internal/lang/reflect/InterTypeFieldDeclarationImpl.java, org/aspectj/lang/reflect/PerClause.java, org/aspectj/lang/reflect/SignaturePattern.java, org/aspectj/internal/lang/reflect/PointcutBasedPerClauseImpl.java, org/aspectj/lang/reflect/PerClauseKind.java, org/aspectj/lang/reflect/DeclareSoft.java, org/aspectj/lang/annotation/DeclareError.java
+/* *******************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *   Adrian Colyer			Initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/annotation/RequiredTypes.java
+/* *******************************************************************
+ * Copyright (c) 2014 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ * ******************************************************************/
+
+Source paths: org/aspectj/runtime/internal/cflowstack/ThreadStackFactory.java, org/aspectj/runtime/internal/cflowstack/ThreadStackFactoryImpl11.java, org/aspectj/runtime/internal/cflowstack/ThreadCounter.java, org/aspectj/runtime/internal/cflowstack/ThreadStackFactoryImpl.java, org/aspectj/runtime/internal/cflowstack/ThreadStack.java, org/aspectj/runtime/internal/CFlowCounter.java
+/* *******************************************************************
+ * Copyright (c) 2004 IBM Corporation
+ *
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *    Andy Clement     initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/Aspects14.java
+/*******************************************************************************
+ * Copyright (c) 2006 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * variant of Aspects in the aspectj5rt project - this one isn't Java5   - Andy Clement
+ *******************************************************************************/
+
+Source paths: org/aspectj/lang/annotation/DeclarePrecedence.java, org/aspectj/lang/annotation/Around.java, org/aspectj/lang/annotation/Before.java, org/aspectj/lang/ProceedingJoinPoint.java, org/aspectj/lang/annotation/After.java, org/aspectj/lang/annotation/AfterThrowing.java, org/aspectj/lang/annotation/Aspect.java, org/aspectj/lang/annotation/Pointcut.java, org/aspectj/lang/annotation/AfterReturning.java
+/*******************************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * initial implementation              Alexandre Vasseur
+ *******************************************************************************/
+
+Source paths: org/aspectj/runtime/reflect/UnlockSignatureImpl.java, org/aspectj/lang/reflect/UnlockSignature.java, org/aspectj/lang/reflect/LockSignature.java, org/aspectj/runtime/reflect/LockSignatureImpl.java
+/*******************************************************************************
+ * Copyright (c) 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Andy Clement - initial implementation
+ *******************************************************************************/
+
+Source paths: org/aspectj/runtime/internal/cflowstack/ThreadStackImpl11.java, org/aspectj/runtime/internal/cflowstack/ThreadCounterImpl11.java
+/* *******************************************************************
+ * Copyright (c) 2004 IBM Corporation
+ *
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *    Andy Clement     initial implementation
+ * 					   Copied from bits of original CFlowStack
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/reflect/InitializerSignature.java
+/* *******************************************************************
+ * Copyright (c) 1999-2001 Xerox Corporation,
+ *               2002 Palo Alto Research Center, Incorporated (PARC),
+ *               2006 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Xerox/PARC     initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/annotation/AdviceName.java
+/*******************************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *   Adrian Colyer									initial implementation
+ *******************************************************************************/
+
+Source paths: org/aspectj/lang/annotation/DeclareAnnotation.java
+/*******************************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *   Alexandre Vasseur         initial implementation
+ *******************************************************************************/
+
+Source paths: org/aspectj/lang/annotation/control/CodeGenerationHint.java
+/*******************************************************************************
+ * Copyright (c) 2013 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * initial implementation              Andy Clement
+ *******************************************************************************/
+
+Source paths: org/aspectj/runtime/reflect/Factory.java
+/* *******************************************************************
+ * Copyright (c) 1999-2001 Xerox Corporation,
+ *               2002-2018 Palo Alto Research Center, Incorporated (PARC), Contributors
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *      Xerox/PARC    initial implementation
+ *    Alex Vasseur    new factory methods for variants of JP
+ *  Abraham Nevado    new factory methods for collapsed SJPs
+ *    Andy Clement    new factory methods that rely on LDC <class>
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/Aspects.java
+/*******************************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * initial implementation              Alexandre Vasseur
+ * generic signature update            Adrian Colyer
+ *******************************************************************************/
+
+Source paths: org/aspectj/runtime/internal/AroundClosure.java
+/* *******************************************************************
+ * Copyright (c) 1999-2001 Xerox Corporation,
+ *               2002 Palo Alto Research Center, Incorporated (PARC).
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Xerox/PARC     initial implementation
+ *    Alex Vasseur    wired up for @AJ proceeding
+ *    Andy Clement 23-06-06 added extras for @AJ
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/SoftException.java
+/* *******************************************************************
+ * Copyright (c) 1999-2001 Xerox Corporation,
+ *               2002 Palo Alto Research Center, Incorporated (PARC),
+ *               2004 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Xerox/PARC     initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/internal/lang/PlaceHolder.java
+/* *******************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Wes Isberg       initial implementation
+ * ******************************************************************/
+
+Source paths: org/aspectj/lang/annotation/DeclareMixin.java
+/*******************************************************************************
+ * Copyright (c) 2009 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * initial implementation              Andy Clement
+ *******************************************************************************/
+
+Source paths: org/aspectj/lang/annotation/DeclareParents.java
+/*******************************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ * initial implementation              Adrian Colyer
+ *******************************************************************************/
+
+Source paths: org/aspectj/lang/annotation/SuppressAjWarnings.java
+/* *******************************************************************
+ * Copyright (c) 2005 Contributors.
+ * All rights reserved.
+ * This program and the accompanying materials are made available
+ * under the terms of the Eclipse Public License v 2.0
+ * which accompanies this distribution and is available at
+ * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt
+ *
+ * Contributors:
+ *     Wes Isberg       initial implementation
+ *   Andy Clement       fleshed out to match SuppressWarnings
+ * ******************************************************************/

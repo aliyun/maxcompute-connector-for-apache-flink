@@ -1,0 +1,198 @@
+Source paths: io/netty/handler/codec/http2/Http2ControlFrameLimitEncoder.java, io/netty/handler/codec/http2/Http2SettingsReceivedConsumer.java, io/netty/handler/codec/http2/Http2EmptyDataFrameConnectionDecoder.java, io/netty/handler/codec/http2/Http2EmptyDataFrameListener.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/HpackStaticTable.java, io/netty/handler/codec/http2/CharSequenceMap.java, io/netty/handler/codec/http2/HpackHeaderField.java, io/netty/handler/codec/http2/HpackDecoder.java, io/netty/handler/codec/http2/HpackEncoder.java, io/netty/handler/codec/http2/HpackDynamicTable.java, io/netty/handler/codec/http2/Http2ConnectionHandlerBuilder.java, io/netty/handler/codec/http2/HttpToHttp2ConnectionHandlerBuilder.java, io/netty/handler/codec/http2/HpackHuffmanDecoder.java, io/netty/handler/codec/http2/HpackHuffmanEncoder.java, io/netty/handler/codec/http2/AbstractHttp2ConnectionHandlerBuilder.java, io/netty/handler/codec/http2/HpackUtil.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/WeightedFairQueueByteDistributor.java, io/netty/handler/codec/http2/StreamByteDistributor.java, io/netty/handler/codec/http2/DecoratingHttp2FrameWriter.java, io/netty/handler/codec/http2/DecoratingHttp2ConnectionEncoder.java, io/netty/handler/codec/http2/UniformStreamByteDistributor.java, io/netty/handler/codec/http2/Http2PromisedRequestVerifier.java, io/netty/handler/codec/http2/StreamBufferingEncoder.java, io/netty/handler/codec/http2/InboundHttp2ToHttpAdapterBuilder.java, io/netty/handler/codec/http2/Http2StreamVisitor.java, io/netty/handler/codec/http2/DecoratingHttp2ConnectionDecoder.java, io/netty/handler/codec/http2/AbstractInboundHttp2ToHttpAdapterBuilder.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2StreamChannelBootstrap.java, io/netty/handler/codec/http2/Http2StreamChannel.java, io/netty/handler/codec/http2/Http2StreamChannelId.java, io/netty/handler/codec/http2/Http2FrameStreamEvent.java, io/netty/handler/codec/http2/DefaultHttp2UnknownFrame.java, io/netty/handler/codec/http2/CleartextHttp2ServerUpgradeHandler.java, io/netty/handler/codec/http2/Http2FrameCodecBuilder.java, io/netty/handler/codec/http2/Http2UnknownFrame.java, io/netty/handler/codec/http2/Http2MultiplexCodecBuilder.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/DefaultHttp2PingFrame.java, io/netty/handler/codec/http2/ReadOnlyHttp2Headers.java, io/netty/handler/codec/http2/Http2FrameStreamException.java, io/netty/handler/codec/http2/Http2MultiplexCodec.java, io/netty/handler/codec/http2/AbstractHttp2StreamFrame.java, io/netty/handler/codec/http2/InboundHttpToHttp2Adapter.java, io/netty/handler/codec/http2/Http2FrameStreamVisitor.java, io/netty/handler/codec/http2/DefaultHttp2GoAwayFrame.java, io/netty/handler/codec/http2/Http2WindowUpdateFrame.java, io/netty/handler/codec/http2/Http2SettingsFrame.java, io/netty/handler/codec/http2/DefaultHttp2WindowUpdateFrame.java, io/netty/handler/codec/http2/Http2Frame.java, io/netty/handler/codec/http2/DefaultHttp2ResetFrame.java, io/netty/handler/codec/http2/Http2FrameCodec.java, io/netty/handler/codec/http2/DefaultHttp2SettingsFrame.java, io/netty/handler/codec/http2/DefaultHttp2DataFrame.java, io/netty/handler/codec/http2/Http2ChannelDuplexHandler.java, io/netty/handler/codec/http2/Http2HeadersFrame.java, io/netty/handler/codec/http2/Http2StreamFrame.java, io/netty/handler/codec/http2/DefaultHttp2HeadersFrame.java, io/netty/handler/codec/http2/Http2GoAwayFrame.java, io/netty/handler/codec/http2/Http2ResetFrame.java, io/netty/handler/codec/http2/Http2PingFrame.java, io/netty/handler/codec/http2/Http2FrameStream.java, io/netty/handler/codec/http2/Http2DataFrame.java, io/netty/handler/codec/http2/Http2StreamFrameToHttpObjectCodec.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2FlowController.java, io/netty/handler/codec/http2/DefaultHttp2RemoteFlowController.java, io/netty/handler/codec/http2/DelegatingDecompressorFrameListener.java, io/netty/handler/codec/http2/Http2FrameListenerDecorator.java, io/netty/handler/codec/http2/DefaultHttp2ConnectionDecoder.java, io/netty/handler/codec/http2/Http2LifecycleManager.java, io/netty/handler/codec/http2/Http2ConnectionDecoder.java, io/netty/handler/codec/http2/Http2FrameReader.java, io/netty/handler/codec/http2/Http2Flags.java, io/netty/handler/codec/http2/Http2Exception.java, io/netty/handler/codec/http2/Http2ClientUpgradeCodec.java, io/netty/handler/codec/http2/InboundHttp2ToHttpAdapter.java, io/netty/handler/codec/http2/Http2DataWriter.java, io/netty/handler/codec/http2/Http2RemoteFlowController.java, io/netty/handler/codec/http2/Http2HeadersDecoder.java, io/netty/handler/codec/http2/CompressorHttp2ConnectionEncoder.java, io/netty/handler/codec/http2/Http2FrameListener.java, io/netty/handler/codec/http2/DefaultHttp2FrameReader.java, io/netty/handler/codec/http2/DefaultHttp2HeadersEncoder.java, io/netty/handler/codec/http2/DefaultHttp2FrameWriter.java, io/netty/handler/codec/http2/Http2CodecUtil.java, io/netty/handler/codec/http2/DefaultHttp2LocalFlowController.java, io/netty/handler/codec/http2/Http2LocalFlowController.java, io/netty/handler/codec/http2/Http2ServerUpgradeCodec.java, io/netty/handler/codec/http2/Http2EventAdapter.java, io/netty/handler/codec/http2/Http2HeadersEncoder.java, io/netty/handler/codec/http2/DefaultHttp2ConnectionEncoder.java, io/netty/handler/codec/http2/Http2FrameWriter.java, io/netty/handler/codec/http2/DefaultHttp2Connection.java, io/netty/handler/codec/http2/Http2Headers.java, io/netty/handler/codec/http2/Http2FrameTypes.java, io/netty/handler/codec/http2/Http2ConnectionAdapter.java, io/netty/handler/codec/http2/Http2Connection.java, io/netty/handler/codec/http2/Http2Settings.java, io/netty/handler/codec/http2/HttpConversionUtil.java, io/netty/handler/codec/http2/EmptyHttp2Headers.java, io/netty/handler/codec/http2/Http2NoMoreStreamIdsException.java, io/netty/handler/codec/http2/Http2FrameSizePolicy.java, io/netty/handler/codec/http2/HttpToHttp2ConnectionHandler.java, io/netty/handler/codec/http2/DefaultHttp2HeadersDecoder.java, io/netty/handler/codec/http2/package-info.java, io/netty/handler/codec/http2/DefaultHttp2Headers.java, io/netty/handler/codec/http2/Http2Error.java, io/netty/handler/codec/http2/Http2Stream.java, io/netty/handler/codec/http2/Http2ConnectionHandler.java, io/netty/handler/codec/http2/Http2FrameAdapter.java, io/netty/handler/codec/http2/Http2ConnectionEncoder.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2OutboundFrameLogger.java, io/netty/handler/codec/http2/Http2FrameLogger.java, io/netty/handler/codec/http2/Http2SecurityUtil.java, io/netty/handler/codec/http2/Http2InboundFrameLogger.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2SettingsAckFrame.java, io/netty/handler/codec/http2/Http2MultiplexHandler.java, io/netty/handler/codec/http2/DefaultHttp2SettingsAckFrame.java, io/netty/handler/codec/http2/MaxCapacityQueue.java, io/netty/handler/codec/http2/AbstractHttp2StreamChannel.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/DefaultHttp2PushPromiseFrame.java, io/netty/handler/codec/http2/Http2PriorityFrame.java, io/netty/handler/codec/http2/DefaultHttp2PriorityFrame.java, io/netty/handler/codec/http2/Http2PushPromiseFrame.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2MaxRstFrameDecoder.java, io/netty/handler/codec/http2/Http2MaxRstFrameListener.java, io/netty/handler/codec/http2/Http2MultiplexActiveStreamsException.java
+/*
+ * Copyright 2023 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2DataChunkedInput.java
+/*
+ * Copyright 2022 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/http2/Http2ConnectionPrefaceAndSettingsFrameWrittenEvent.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */

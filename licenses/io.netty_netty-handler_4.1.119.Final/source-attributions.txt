@@ -1,0 +1,339 @@
+Source paths: io/netty/handler/pcap/UDPPacket.java, io/netty/handler/pcap/EthernetPacket.java, io/netty/handler/pcap/PcapWriter.java, io/netty/handler/pcap/IPPacket.java, io/netty/handler/pcap/PcapHeaders.java, io/netty/handler/pcap/TCPPacket.java, io/netty/handler/pcap/package-info.java, io/netty/handler/pcap/PcapWriteHandler.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/pcap/State.java
+/*
+ * Copyright 2023 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/traffic/GlobalTrafficShapingHandler.java, io/netty/handler/traffic/TrafficCounter.java, io/netty/handler/traffic/ChannelTrafficShapingHandler.java, io/netty/handler/traffic/package-info.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/traffic/GlobalChannelTrafficShapingHandler.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/traffic/GlobalChannelTrafficCounter.java, io/netty/handler/ipfilter/IpFilterRuleType.java, io/netty/handler/ipfilter/RuleBasedIpFilter.java, io/netty/handler/ipfilter/IpSubnetFilterRule.java, io/netty/handler/ipfilter/AbstractRemoteAddressFilter.java, io/netty/handler/ipfilter/UniqueIpFilter.java, io/netty/handler/ipfilter/IpFilterRule.java, io/netty/handler/ipfilter/package-info.java, io/netty/handler/ssl/SupportedCipherSuiteFilter.java, io/netty/handler/ssl/OpenSslServerSessionContext.java, io/netty/handler/ssl/JdkSslContext.java, io/netty/handler/ssl/JdkAlpnApplicationProtocolNegotiator.java, io/netty/handler/ssl/Java7SslParametersUtils.java, io/netty/handler/ssl/OpenSslSessionStats.java, io/netty/handler/ssl/JettyAlpnSslEngine.java, io/netty/handler/ssl/OpenSslContext.java, io/netty/handler/ssl/ApplicationProtocolUtil.java, io/netty/handler/ssl/JdkSslEngine.java, io/netty/handler/ssl/util/LazyX509Certificate.java, io/netty/handler/ssl/util/OpenJdkSelfSignedCertGenerator.java, io/netty/handler/ssl/util/FingerprintTrustManagerFactory.java, io/netty/handler/ssl/util/ThreadLocalInsecureRandom.java, io/netty/handler/ssl/util/SelfSignedCertificate.java, io/netty/handler/ssl/util/InsecureTrustManagerFactory.java, io/netty/handler/ssl/util/SimpleTrustManagerFactory.java, io/netty/handler/ssl/util/BouncyCastleSelfSignedCertGenerator.java, io/netty/handler/ssl/OpenSslApplicationProtocolNegotiator.java, io/netty/handler/ssl/PemReader.java, io/netty/handler/ssl/OpenSslEngine.java, io/netty/handler/ssl/OpenSslServerContext.java, io/netty/handler/ssl/SslProvider.java, io/netty/handler/ssl/OpenSslDefaultApplicationProtocolNegotiator.java, io/netty/handler/ssl/SslContext.java, io/netty/handler/ssl/JdkBaseApplicationProtocolNegotiator.java, io/netty/handler/ssl/OpenSslSessionContext.java, io/netty/handler/ssl/OpenSslNpnApplicationProtocolNegotiator.java, io/netty/handler/ssl/JdkApplicationProtocolNegotiator.java, io/netty/handler/ssl/OpenSslClientContext.java, io/netty/handler/ssl/SslUtils.java, io/netty/handler/ssl/JdkDefaultApplicationProtocolNegotiator.java, io/netty/handler/ssl/OpenSslEngineMap.java, io/netty/handler/ssl/CipherSuiteFilter.java, io/netty/handler/ssl/JdkSslClientContext.java, io/netty/handler/ssl/ApplicationProtocolNegotiator.java, io/netty/handler/ssl/JettyNpnSslEngine.java, io/netty/handler/ssl/OpenSsl.java, io/netty/handler/ssl/IdentityCipherSuiteFilter.java, io/netty/handler/ssl/CipherSuiteConverter.java, io/netty/handler/ssl/JdkNpnApplicationProtocolNegotiator.java, io/netty/handler/ssl/ApplicationProtocolConfig.java, io/netty/handler/ssl/JdkSslServerContext.java, io/netty/handler/ssl/SniHandler.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/traffic/AbstractTrafficShapingHandler.java
+/*
+ * Copyright 2011 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ipfilter/IpSubnetFilterRuleComparator.java, io/netty/handler/ipfilter/IpSubnetFilter.java, io/netty/handler/ssl/util/FingerprintTrustManagerFactoryBuilder.java, io/netty/handler/ssl/SslHandshakeTimeoutException.java, io/netty/handler/ssl/SslClosedEngineException.java, io/netty/handler/address/ResolveAddressHandler.java, io/netty/handler/logging/ByteBufFormat.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/SslContextBuilder.java, io/netty/handler/ssl/OpenSslSessionTicketKey.java, io/netty/handler/ssl/util/LazyJavaxX509Certificate.java, io/netty/handler/ssl/ApplicationProtocolAccessor.java, io/netty/handler/ssl/ApplicationProtocolNames.java, io/netty/handler/ssl/ApplicationProtocolNegotiationHandler.java, io/netty/handler/ssl/ClientAuth.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/AsyncRunnable.java, io/netty/handler/ssl/OpenSslContextOption.java, io/netty/handler/ssl/BouncyCastleAlpnSslUtils.java, io/netty/handler/ssl/BouncyCastleAlpnSslEngine.java, io/netty/handler/ssl/SslProtocols.java, io/netty/handler/ssl/OpenSslSessionCache.java, io/netty/handler/ssl/SslContextOption.java, io/netty/handler/ssl/OpenSslSessionId.java, io/netty/handler/ssl/OpenSslAsyncPrivateKeyMethod.java, io/netty/handler/ssl/BouncyCastle.java, io/netty/handler/ssl/OpenSslClientSessionCache.java, io/netty/handler/ssl/GroupsConverter.java, io/netty/handler/ssl/Ciphers.java
+/*
+ * Copyright 2021 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/PemPrivateKey.java, io/netty/handler/ssl/PemEncoded.java, io/netty/handler/ssl/ReferenceCountedOpenSslServerContext.java, io/netty/handler/ssl/util/X509TrustManagerWrapper.java, io/netty/handler/ssl/PemValue.java, io/netty/handler/ssl/ReferenceCountedOpenSslContext.java, io/netty/handler/ssl/OpenSslCertificateException.java, io/netty/handler/ssl/ReferenceCountedOpenSslClientContext.java, io/netty/handler/ssl/Java8SslUtils.java, io/netty/handler/ssl/ReferenceCountedOpenSslEngine.java, io/netty/handler/ssl/PemX509Certificate.java, io/netty/handler/ssl/OpenSslKeyMaterialManager.java, io/netty/handler/ssl/DelegatingSslContext.java, io/netty/handler/flush/FlushConsolidationHandler.java, io/netty/handler/flush/package-info.java, io/netty/handler/flow/package-info.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/OpenSslCertificateCompressionAlgorithm.java, io/netty/handler/ssl/BouncyCastlePemReader.java
+/*
+ * Copyright 2022 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/SignatureAlgorithmConverter.java, io/netty/handler/ssl/OpenSslX509KeyManagerFactory.java, io/netty/handler/ssl/OpenSslX509TrustManagerWrapper.java, io/netty/handler/ssl/OpenSslPrivateKey.java, io/netty/handler/ssl/OpenSslInternalSession.java, io/netty/handler/ssl/OpenSslKeyMaterialProvider.java, io/netty/handler/ssl/OpenSslCachingKeyMaterialProvider.java, io/netty/handler/ssl/OpenSslKeyMaterial.java, io/netty/handler/ssl/ExtendedOpenSslSession.java, io/netty/handler/ssl/OpenSslCachingX509KeyManagerFactory.java, io/netty/handler/ssl/DefaultOpenSslKeyMaterial.java
+/*
+ * Copyright 2018 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/ConscryptAlpnSslEngine.java, io/netty/handler/ssl/JdkAlpnSslEngine.java, io/netty/handler/ssl/Conscrypt.java, io/netty/handler/ssl/AbstractSniHandler.java, io/netty/handler/ssl/SslCompletionEvent.java, io/netty/handler/ssl/SslClientHelloHandler.java, io/netty/handler/ssl/JdkAlpnSslUtils.java, io/netty/handler/ssl/SniCompletionEvent.java, io/netty/handler/ssl/OptionalSslHandler.java, io/netty/handler/ssl/ocsp/OcspClientHandler.java, io/netty/handler/ssl/ocsp/package-info.java, io/netty/handler/ssl/SslCloseCompletionEvent.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/SslHandshakeCompletionEvent.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/StacklessSSLHandshakeException.java, io/netty/handler/ssl/EnhancingX509ExtendedTrustManager.java
+/*
+ * Copyright 2023 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/ResumptionController.java, io/netty/handler/ssl/ResumableX509ExtendedTrustManager.java, io/netty/handler/ssl/OpenSslSession.java, io/netty/handler/ssl/SslHandlerCoalescingBufferQueue.java
+/*
+ * Copyright 2024 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/SslHandler.java, io/netty/handler/ssl/util/package-info.java, io/netty/handler/ssl/NotSslRecordException.java, io/netty/handler/ssl/package-info.java, io/netty/handler/stream/ChunkedNioStream.java, io/netty/handler/stream/ChunkedInput.java, io/netty/handler/stream/ChunkedNioFile.java, io/netty/handler/stream/ChunkedWriteHandler.java, io/netty/handler/stream/ChunkedFile.java, io/netty/handler/stream/ChunkedStream.java, io/netty/handler/stream/package-info.java, io/netty/handler/timeout/WriteTimeoutException.java, io/netty/handler/timeout/ReadTimeoutException.java, io/netty/handler/timeout/ReadTimeoutHandler.java, io/netty/handler/timeout/WriteTimeoutHandler.java, io/netty/handler/timeout/IdleStateHandler.java, io/netty/handler/timeout/TimeoutException.java, io/netty/handler/timeout/IdleStateEvent.java, io/netty/handler/timeout/IdleState.java, io/netty/handler/timeout/package-info.java, io/netty/handler/logging/LoggingHandler.java, io/netty/handler/logging/LogLevel.java, io/netty/handler/logging/package-info.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/util/TrustManagerFactoryWrapper.java, io/netty/handler/ssl/util/X509KeyManagerWrapper.java, io/netty/handler/ssl/util/KeyManagerFactoryWrapper.java, io/netty/handler/ssl/util/SimpleKeyManagerFactory.java, io/netty/handler/ssl/OpenSslPrivateKeyMethod.java, io/netty/handler/ssl/SslMasterKeyHandler.java, io/netty/handler/ssl/PseudoRandomFunction.java, io/netty/handler/address/DynamicAddressConnectHandler.java, io/netty/handler/address/package-info.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/ssl/OpenSslCertificateCompressionConfig.java
+/*
+ * Copyright 2022 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/flow/FlowControlHandler.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */

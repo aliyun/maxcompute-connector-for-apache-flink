@@ -1,0 +1,67 @@
+Source paths: io/netty/channel/udt/UdtServerChannelConfig.java, io/netty/channel/udt/DefaultUdtServerChannelConfig.java, io/netty/channel/udt/UdtChannelOption.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/channel/udt/UdtChannelConfig.java, io/netty/channel/udt/UdtMessage.java, io/netty/channel/udt/DefaultUdtChannelConfig.java, io/netty/channel/udt/nio/package-info.java, io/netty/channel/udt/package-info.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/channel/udt/UdtChannel.java, io/netty/channel/udt/nio/NioUdtByteAcceptorChannel.java, io/netty/channel/udt/nio/NioUdtMessageRendezvousChannel.java, io/netty/channel/udt/nio/NioUdtMessageConnectorChannel.java, io/netty/channel/udt/nio/NioUdtAcceptorChannel.java, io/netty/channel/udt/nio/NioUdtByteConnectorChannel.java, io/netty/channel/udt/nio/NioUdtByteRendezvousChannel.java, io/netty/channel/udt/nio/NioUdtProvider.java, io/netty/channel/udt/nio/NioUdtMessageAcceptorChannel.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/channel/udt/UdtServerChannel.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */

@@ -1,0 +1,95 @@
+Source paths: com/aliyun/testodps/TestAnnotation.java, com/aliyun/odps/data/RawGeographyObject.java, com/aliyun/odps/data/package-info.java, com/aliyun/odps/volume/FileStatus.java, com/aliyun/odps/volume/Path.java, com/aliyun/odps/io/BlobDataInputStream.java, com/aliyun/odps/io/DatetimeWritable.java, com/aliyun/odps/conf/Configured.java, com/aliyun/odps/conf/package-info.java, com/aliyun/odps/credentials/Credentials.java, com/aliyun/odps/retry/RetryHeaders.java, com/aliyun/odps/data/TableInfo.java, com/aliyun/odps/data/Record.java, com/aliyun/odps/data/RecordWriter.java, com/aliyun/odps/data/ArrayRecord.java, com/aliyun/odps/data/RecordReader.java, com/aliyun/odps/data/JsonString.java, com/aliyun/odps/data/RecordComparator.java, com/aliyun/odps/io/OutputBlobWritable.java, com/aliyun/odps/io/IntervalDayTimeWritable.java, com/aliyun/odps/io/TimestampNtzWritable.java, com/aliyun/odps/io/InputBlobWritable.java, com/aliyun/odps/conf/Configuration.java, com/aliyun/odps/retry/RetryContext.java, com/aliyun/odps/OdpsType.java, com/aliyun/odps/volume/FileSystem.java, com/aliyun/odps/volume/PathFilter.java, com/aliyun/odps/volume/FSDataOutputStream.java, com/aliyun/odps/OdpsDeprecatedLogger.java, com/aliyun/odps/utils/CredentialUtils.java, com/aliyun/odps/io/AbstractDatetimeWritable.java, com/aliyun/odps/io/TimestampWritable.java, com/aliyun/odps/io/DateWritable.java, com/aliyun/odps/io/AbstractMapWritable.java, com/aliyun/odps/io/MapWritable.java, com/aliyun/odps/io/package-info.java, com/aliyun/odps/TableSchema.java, com/aliyun/odps/conf/Configurable.java, com/aliyun/odps/Survey.java, com/aliyun/odps/PartitionSpec.java, com/aliyun/odps/data/VolumeInfo.java, com/aliyun/odps/volume/FSDataInputStream.java, com/aliyun/odps/utils/CommonUtils.java, com/aliyun/odps/utils/package-info.java, com/aliyun/odps/counter/Counter.java, com/aliyun/odps/counter/Counters.java, com/aliyun/odps/counter/package-info.java, com/aliyun/odps/io/WritableRecord.java, com/aliyun/odps/io/IntervalYearMonthWritable.java, com/aliyun/odps/io/SortedMapWritable.java, com/aliyun/odps/Column.java, com/aliyun/odps/credentials/StaticCredentialProvider.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: com/aliyun/odps/utils/StringUtils.java, com/aliyun/odps/io/WritableComparable.java, com/aliyun/odps/io/ArrayWritable.java, com/aliyun/odps/io/BytesWritable.java, com/aliyun/odps/io/DoubleWritable.java, com/aliyun/odps/io/BinaryComparable.java, com/aliyun/odps/io/ByteWritable.java, com/aliyun/odps/io/BooleanWritable.java, com/aliyun/odps/io/InputBuffer.java, com/aliyun/odps/io/LongWritable.java, com/aliyun/odps/io/NullWritable.java, com/aliyun/odps/counter/CounterGroup.java, com/aliyun/odps/io/WritableComparator.java, com/aliyun/odps/io/DataInputBuffer.java, com/aliyun/odps/io/DataOutputBuffer.java, com/aliyun/odps/io/WritableUtils.java, com/aliyun/odps/io/BitMapWritable.java, com/aliyun/odps/io/Writable.java, com/aliyun/odps/io/RawComparator.java, com/aliyun/odps/io/IntWritable.java, com/aliyun/odps/io/Text.java
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/aliyun/odps/io/FloatWritable.java, com/aliyun/odps/io/ShortWritable.java, com/aliyun/odps/io/VarcharWritable.java, com/aliyun/odps/io/StructWritable.java, com/aliyun/odps/io/CharWritable.java
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/aliyun/odps/io/TupleReaderWriter.java, com/aliyun/odps/io/Tuple.java, com/aliyun/odps/io/BigDecimalWritable.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/aliyun/odps/utils/ReflectionUtils.java
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */

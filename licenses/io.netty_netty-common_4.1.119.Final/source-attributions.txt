@@ -1,0 +1,299 @@
+Source paths: io/netty/util/ResourceLeakTracker.java, io/netty/util/DomainNameMappingBuilder.java, io/netty/util/IntSupplier.java, io/netty/util/internal/ThrowableUtil.java, io/netty/util/internal/OutOfDirectMemoryError.java, io/netty/util/internal/NativeLibraryUtil.java, io/netty/util/internal/MacAddressUtil.java, io/netty/util/internal/UnstableApi.java, io/netty/util/internal/ConstantTimeUtils.java, io/netty/util/internal/PromiseNotificationUtil.java, io/netty/util/internal/logging/Log4J2LoggerFactory.java, io/netty/util/internal/logging/Log4J2Logger.java, io/netty/util/internal/SocketUtils.java, io/netty/util/BooleanSupplier.java, io/netty/util/concurrent/EventExecutorChooserFactory.java, io/netty/util/concurrent/NonStickyEventExecutorGroup.java, io/netty/util/concurrent/PromiseCombiner.java, io/netty/util/concurrent/UnaryPromiseNotifier.java, io/netty/util/concurrent/RejectedExecutionHandler.java, io/netty/util/concurrent/DefaultEventExecutorChooserFactory.java, io/netty/util/concurrent/RejectedExecutionHandlers.java, io/netty/util/concurrent/OrderedEventExecutor.java, io/netty/util/concurrent/UnorderedThreadPoolEventExecutor.java, io/netty/util/ResourceLeakDetectorFactory.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/HashingStrategy.java, io/netty/util/AsyncMapping.java, io/netty/util/internal/DefaultPriorityQueue.java, io/netty/util/internal/PriorityQueueNode.java, io/netty/util/internal/LongCounter.java, io/netty/util/concurrent/AbstractScheduledEventExecutor.java, io/netty/util/concurrent/ThreadProperties.java, io/netty/util/DomainMappingBuilder.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/AbstractReferenceCounted.java, io/netty/util/ReferenceCountUtil.java, io/netty/util/ResourceLeak.java, io/netty/util/ReferenceCounted.java, io/netty/util/ConstantPool.java, io/netty/util/ResourceLeakDetector.java, io/netty/util/internal/AppendableCharSequence.java, io/netty/util/internal/ConcurrentSet.java, io/netty/util/internal/ReadOnlyIterator.java, io/netty/util/internal/TypeParameterMatcher.java, io/netty/util/internal/PlatformDependent0.java, io/netty/util/internal/PendingWrite.java, io/netty/util/internal/RecyclableArrayList.java, io/netty/util/internal/NoOpTypeParameterMatcher.java, io/netty/util/internal/logging/package-info.java, io/netty/util/internal/logging/MessageFormatter.java, io/netty/util/internal/logging/FormattingTuple.java, io/netty/util/internal/EmptyArrays.java, io/netty/util/ResourceLeakException.java, io/netty/util/concurrent/Future.java, io/netty/util/concurrent/GenericProgressiveFutureListener.java, io/netty/util/concurrent/ImmediateExecutor.java, io/netty/util/concurrent/Promise.java, io/netty/util/concurrent/AbstractEventExecutor.java, io/netty/util/concurrent/PromiseTask.java, io/netty/util/concurrent/DefaultPromise.java, io/netty/util/concurrent/GenericFutureListener.java, io/netty/util/concurrent/DefaultThreadFactory.java, io/netty/util/concurrent/ProgressiveFuture.java, io/netty/util/concurrent/AbstractFuture.java, io/netty/util/concurrent/ThreadPerTaskExecutor.java, io/netty/util/concurrent/DefaultProgressivePromise.java, io/netty/util/concurrent/AbstractEventExecutorGroup.java, io/netty/util/concurrent/ScheduledFuture.java, io/netty/util/concurrent/ImmediateEventExecutor.java, io/netty/util/concurrent/DefaultFutureListeners.java, io/netty/util/concurrent/FutureListener.java, io/netty/util/concurrent/CompleteFuture.java, io/netty/util/concurrent/package-info.java, io/netty/util/concurrent/ProgressivePromise.java, io/netty/util/concurrent/ScheduledFutureTask.java, io/netty/util/Recycler.java, io/netty/util/Version.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/AttributeMap.java, io/netty/util/HashedWheelTimer.java, io/netty/util/AbstractConstant.java, io/netty/util/IllegalReferenceCountException.java, io/netty/util/internal/StringUtil.java, io/netty/util/internal/PlatformDependent.java, io/netty/util/internal/SystemPropertyUtil.java, io/netty/util/internal/logging/InternalLogger.java, io/netty/util/internal/logging/JdkLoggerFactory.java, io/netty/util/internal/logging/Slf4JLogger.java, io/netty/util/internal/logging/InternalLogLevel.java, io/netty/util/internal/logging/CommonsLogger.java, io/netty/util/internal/logging/Slf4JLoggerFactory.java, io/netty/util/internal/logging/JdkLogger.java, io/netty/util/internal/logging/InternalLoggerFactory.java, io/netty/util/internal/logging/AbstractInternalLogger.java, io/netty/util/internal/logging/CommonsLoggerFactory.java, io/netty/util/internal/logging/Log4JLoggerFactory.java, io/netty/util/internal/logging/Log4JLogger.java, io/netty/util/internal/package-info.java, io/netty/util/Constant.java, io/netty/util/Timeout.java, io/netty/util/Timer.java, io/netty/util/TimerTask.java, io/netty/util/concurrent/EventExecutorGroup.java, io/netty/util/concurrent/DefaultEventExecutor.java, io/netty/util/concurrent/BlockingOperationException.java, io/netty/util/concurrent/DefaultEventExecutorGroup.java, io/netty/util/concurrent/SingleThreadEventExecutor.java, io/netty/util/concurrent/MultithreadEventExecutorGroup.java, io/netty/util/concurrent/SucceededFuture.java, io/netty/util/concurrent/GlobalEventExecutor.java, io/netty/util/concurrent/FailedFuture.java, io/netty/util/concurrent/EventExecutor.java, io/netty/util/CharsetUtil.java, io/netty/util/Attribute.java, io/netty/util/NetUtil.java, io/netty/util/package-info.java, io/netty/util/DefaultAttributeMap.java, io/netty/util/Signal.java, io/netty/util/AttributeKey.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/AsciiStringUtil.java, io/netty/util/internal/BoundedInputStream.java
+/*
+ * Copyright 2024 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/DomainWildcardMappingBuilder.java, io/netty/util/NetUtilSubstitutions.java, io/netty/util/NetUtilInitializations.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/ReferenceCountUpdater.java, io/netty/util/internal/ThreadExecutorMap.java, io/netty/util/internal/svm/PlatformDependentSubstitution.java, io/netty/util/internal/svm/UnsafeRefArrayAccessSubstitution.java, io/netty/util/internal/svm/CleanerJava6Substitution.java, io/netty/util/internal/svm/PlatformDependent0Substitution.java, io/netty/util/internal/svm/package-info.java, io/netty/util/internal/ObjectPool.java, io/netty/util/internal/Hidden.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/EmptyPriorityQueue.java, io/netty/util/internal/ObjectCleaner.java, io/netty/util/internal/PriorityQueue.java, io/netty/util/internal/ReflectionUtil.java, io/netty/util/internal/LongAdderCounter.java, io/netty/util/internal/logging/LocationAwareSlf4JLogger.java, io/netty/util/UncheckedBooleanSupplier.java, io/netty/util/NettyRuntime.java, io/netty/util/SuppressForbidden.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/ThreadLocalRandom.java, io/netty/util/internal/InternalThreadLocalMap.java, io/netty/util/internal/UnpaddedInternalThreadLocalMap.java, io/netty/util/internal/NativeLibraryLoader.java, io/netty/util/internal/IntegerHolder.java, io/netty/util/ResourceLeakHint.java, io/netty/util/Mapping.java, io/netty/util/concurrent/FastThreadLocal.java, io/netty/util/concurrent/PromiseNotifier.java, io/netty/util/concurrent/PromiseAggregator.java, io/netty/util/ThreadDeathWatcher.java, io/netty/util/DomainNameMapping.java, io/netty/util/AsciiString.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/CleanerJava6.java, io/netty/util/concurrent/FastThreadLocalThread.java
+/*
+* Copyright 2014 The Netty Project
+*
+* The Netty Project licenses this file to you under the Apache License,
+* version 2.0 (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at:
+*
+*   https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+*/
+
+Source paths: io/netty/util/internal/ResourcesUtil.java, io/netty/util/ByteProcessorUtils.java
+/*
+ * Copyright 2018 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/util/internal/ClassInitializerUtil.java
+/*
+ * Copyright 2021 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/Cleaner.java, io/netty/util/internal/CleanerJava9.java, io/netty/util/concurrent/FastThreadLocalRunnable.java
+/*
+* Copyright 2017 The Netty Project
+*
+* The Netty Project licenses this file to you under the Apache License,
+* version 2.0 (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at:
+*
+*   https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+*/
+
+Source paths: io/netty/util/internal/SWARUtil.java
+/*
+ * Copyright 2024 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/util/internal/SuppressJava6Requirement.java
+/*
+ * Copyright 2018 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/util/internal/ObjectUtil.java, io/netty/util/collection/LongObjectHashMap.java, io/netty/util/collection/LongCollections.java, io/netty/util/collection/ByteObjectHashMap.java, io/netty/util/collection/ByteObjectMap.java, io/netty/util/collection/CharObjectHashMap.java, io/netty/util/collection/IntObjectMap.java, io/netty/util/collection/ByteCollections.java, io/netty/util/collection/IntObjectHashMap.java, io/netty/util/collection/IntCollections.java, io/netty/util/collection/ShortObjectHashMap.java, io/netty/util/collection/CharCollections.java, io/netty/util/collection/LongObjectMap.java, io/netty/util/collection/ShortObjectMap.java, io/netty/util/collection/CharObjectMap.java, io/netty/util/collection/ShortCollections.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/util/internal/MathUtil.java, io/netty/util/ByteProcessor.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/util/internal/shaded/org/jctools/maps/AbstractEntry.java, io/netty/util/internal/shaded/org/jctools/maps/NonBlockingHashMap.java, io/netty/util/internal/shaded/org/jctools/maps/NonBlockingSetInt.java, io/netty/util/internal/shaded/org/jctools/maps/NonBlockingIdentityHashMap.java, io/netty/util/internal/shaded/org/jctools/maps/NonBlockingHashMapLong.java, io/netty/util/internal/shaded/org/jctools/maps/NonBlockingHashSet.java, io/netty/util/internal/shaded/org/jctools/maps/ConcurrentAutoTable.java, io/netty/util/internal/shaded/org/jctools/maps/package-info.java, io/netty/util/internal/shaded/org/jctools/util/PortableJvmInfo.java, io/netty/util/internal/shaded/org/jctools/util/UnsafeJvmInfo.java, io/netty/util/internal/shaded/org/jctools/util/UnsafeRefArrayAccess.java, io/netty/util/internal/shaded/org/jctools/util/UnsafeLongArrayAccess.java, io/netty/util/internal/shaded/org/jctools/util/RangeUtil.java, io/netty/util/internal/shaded/org/jctools/util/InternalAPI.java, io/netty/util/internal/shaded/org/jctools/util/UnsafeAccess.java, io/netty/util/internal/shaded/org/jctools/util/Pow2.java, io/netty/util/internal/shaded/org/jctools/util/package-info.java, io/netty/util/internal/shaded/org/jctools/util/PaddedAtomicLong.java, io/netty/util/internal/shaded/org/jctools/queues/MpscChunkedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscUnboundedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpmcArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/SpmcArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscLinkedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/BaseLinkedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MessagePassingQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscCompoundQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscUnboundedXaddArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscBlockingConsumerArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/LinkedQueueNode.java, io/netty/util/internal/shaded/org/jctools/queues/ConcurrentCircularArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/BaseLinkedAtomicQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/AtomicReferenceArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpmcAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpscLinkedAtomicQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpmcAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpscChunkedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpscUnboundedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/BaseMpscLinkedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpscGrowableAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SequencedAtomicReferenceArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpscUnboundedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpscUnboundedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpscLinkedAtomicUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpmcAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/BaseLinkedAtomicUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpmcAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpscGrowableAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/BaseMpscLinkedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/BaseSpscLinkedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpscChunkedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpscGrowableAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpscLinkedAtomicUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpscChunkedAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/SpscAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/package-info.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/unpadded/MpscAtomicUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpscGrowableAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/LinkedQueueAtomicNode.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpscAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpscChunkedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpscLinkedAtomicQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/SpscAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/BaseSpscLinkedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/MpscUnboundedAtomicArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/atomic/package-info.java, io/netty/util/internal/shaded/org/jctools/queues/SupportsIterator.java, io/netty/util/internal/shaded/org/jctools/queues/MpmcUnboundedXaddChunk.java, io/netty/util/internal/shaded/org/jctools/queues/ConcurrentSequencedCircularArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/SpscLinkedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscUnboundedXaddChunk.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/BaseSpscLinkedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/BaseMpscLinkedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpscChunkedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpscUnboundedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/BaseLinkedUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpscLinkedUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpmcUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpscUnboundedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpscLinkedUnpaddedQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpscUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/ConcurrentCircularUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpscGrowableUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/ConcurrentSequencedCircularUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpscChunkedUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/MpscGrowableUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpmcUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/package-info.java, io/netty/util/internal/shaded/org/jctools/queues/unpadded/SpscUnpaddedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/SpscGrowableArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/SpscArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/SpscUnboundedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/BaseSpscLinkedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MessagePassingQueueUtil.java, io/netty/util/internal/shaded/org/jctools/queues/BaseMpscLinkedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/IndexedQueueSizeUtil.java, io/netty/util/internal/shaded/org/jctools/queues/MpmcUnboundedXaddArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/MpscGrowableArrayQueue.java, io/netty/util/internal/shaded/org/jctools/queues/package-info.java, io/netty/util/internal/shaded/org/jctools/queues/SpscChunkedArrayQueue.java, io/netty/util/internal/shaded/org/jctools/counters/package-info.java
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */

@@ -1,0 +1,410 @@
+Source paths: javax/mail/Header.java, javax/mail/MultipartDataSource.java, javax/mail/event/MailEvent.java, javax/mail/event/MessageCountEvent.java, javax/mail/event/ConnectionAdapter.java, javax/mail/event/MessageChangedListener.java, javax/mail/event/TransportListener.java, javax/mail/event/TransportEvent.java, javax/mail/event/FolderListener.java, javax/mail/event/TransportAdapter.java, javax/mail/event/ConnectionEvent.java, javax/mail/event/MessageChangedEvent.java, javax/mail/event/MessageCountListener.java, javax/mail/event/StoreEvent.java, javax/mail/event/StoreListener.java, javax/mail/event/FolderEvent.java, javax/mail/event/ConnectionListener.java, javax/mail/event/MessageCountAdapter.java, javax/mail/event/FolderAdapter.java, javax/mail/FetchProfile.java, javax/mail/util/SharedByteArrayInputStream.java, javax/mail/FolderNotFoundException.java, javax/mail/IllegalWriteException.java, javax/mail/MessageContext.java, javax/mail/URLName.java, javax/mail/Provider.java, javax/mail/StoreClosedException.java, javax/mail/Version.java, javax/mail/Authenticator.java, javax/mail/SendFailedException.java, javax/mail/MessageRemovedException.java, javax/mail/MethodNotSupportedException.java, javax/mail/MessageAware.java, javax/mail/Store.java, javax/mail/BodyPart.java, javax/mail/Address.java, javax/mail/QuotaAwareStore.java, javax/mail/Quota.java, javax/mail/search/MessageNumberTerm.java, javax/mail/search/OrTerm.java, javax/mail/search/AddressTerm.java, javax/mail/search/IntegerComparisonTerm.java, javax/mail/search/FlagTerm.java, javax/mail/search/SearchException.java, javax/mail/search/SentDateTerm.java, javax/mail/search/FromTerm.java, javax/mail/search/NotTerm.java, javax/mail/search/SizeTerm.java, javax/mail/search/FromStringTerm.java, javax/mail/search/HeaderTerm.java, javax/mail/search/RecipientTerm.java, javax/mail/search/AndTerm.java, javax/mail/search/RecipientStringTerm.java, javax/mail/search/MessageIDTerm.java, javax/mail/search/StringTerm.java, javax/mail/search/ComparisonTerm.java, javax/mail/search/ReceivedDateTerm.java, javax/mail/search/SearchTerm.java, javax/mail/search/SubjectTerm.java, javax/mail/search/DateTerm.java, javax/mail/search/AddressStringTerm.java, javax/mail/search/BodyTerm.java, javax/mail/MessagingException.java, javax/mail/ReadOnlyFolderException.java, javax/mail/Part.java, javax/mail/FolderClosedException.java, javax/mail/internet/SharedInputStream.java, javax/mail/internet/UniqueValue.java, javax/mail/internet/PreencodedMimeBodyPart.java, javax/mail/internet/AddressException.java, javax/mail/internet/ContentDisposition.java, javax/mail/internet/ParseException.java, javax/mail/internet/NewsAddress.java, javax/mail/internet/ContentType.java, javax/mail/internet/HeaderTokenizer.java, javax/mail/internet/MimePart.java, javax/mail/internet/InternetHeaders.java, javax/mail/Service.java, javax/mail/AuthenticationFailedException.java, javax/mail/NoSuchProviderException.java, com/sun/mail/pop3/DefaultFolder.java, com/sun/mail/pop3/POP3SSLStore.java, com/sun/mail/pop3/Status.java, com/sun/mail/iap/Literal.java, com/sun/mail/iap/ParsingException.java, com/sun/mail/iap/CommandFailedException.java, com/sun/mail/iap/ProtocolException.java, com/sun/mail/iap/BadCommandException.java, com/sun/mail/iap/ResponseInputStream.java, com/sun/mail/iap/ConnectionException.java, com/sun/mail/iap/ByteArray.java, com/sun/mail/iap/ResponseHandler.java, com/sun/mail/iap/LiteralException.java, com/sun/mail/util/FolderClosedIOException.java, com/sun/mail/util/LineInputStream.java, com/sun/mail/util/QEncoderStream.java, com/sun/mail/util/QPEncoderStream.java, com/sun/mail/util/MessageRemovedIOException.java, com/sun/mail/util/BASE64DecoderStream.java, com/sun/mail/util/BEncoderStream.java, com/sun/mail/util/LineOutputStream.java, com/sun/mail/util/CRLFOutputStream.java, com/sun/mail/util/ASCIIUtility.java, com/sun/mail/util/DecodingException.java, com/sun/mail/util/QPDecoderStream.java, com/sun/mail/util/PropUtil.java, com/sun/mail/util/QDecoderStream.java, com/sun/mail/handlers/text_plain.java, com/sun/mail/handlers/image_jpeg.java, com/sun/mail/handlers/text_html.java, com/sun/mail/imap/DefaultFolder.java, com/sun/mail/imap/protocol/UIDSet.java, com/sun/mail/imap/protocol/MessageSet.java, com/sun/mail/imap/protocol/BASE64MailboxEncoder.java, com/sun/mail/imap/protocol/SaslAuthenticator.java, com/sun/mail/imap/protocol/Status.java, com/sun/mail/imap/protocol/MailboxInfo.java, com/sun/mail/imap/protocol/BASE64MailboxDecoder.java, com/sun/mail/imap/protocol/UID.java, com/sun/mail/imap/protocol/FLAGS.java, com/sun/mail/imap/protocol/ListInfo.java, com/sun/mail/imap/protocol/INTERNALDATE.java, com/sun/mail/imap/protocol/BODY.java, com/sun/mail/imap/AppendUID.java, com/sun/mail/imap/IMAPMultipartDataSource.java, com/sun/mail/imap/IMAPSSLStore.java, com/sun/mail/imap/ACL.java, com/sun/mail/imap/Utility.java, com/sun/mail/imap/SortTerm.java, com/sun/mail/imap/Rights.java, com/sun/mail/smtp/SMTPAddressFailedException.java, com/sun/mail/smtp/SMTPMessage.java, com/sun/mail/smtp/SaslAuthenticator.java, com/sun/mail/smtp/SMTPAddressSucceededException.java, com/sun/mail/smtp/SMTPOutputStream.java, com/sun/mail/smtp/SMTPSendFailedException.java, com/sun/mail/smtp/SMTPSenderFailedException.java, com/sun/mail/smtp/SMTPSSLTransport.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: javax/mail/Flags.java, javax/mail/Session.java, javax/mail/EventQueue.java, javax/mail/internet/MailDateFormat.java, javax/mail/internet/MimeMultipart.java, javax/mail/internet/MimeUtility.java, javax/mail/internet/InternetAddress.java, javax/mail/UIDFolder.java, com/sun/mail/pop3/POP3Store.java, com/sun/mail/pop3/Protocol.java, com/sun/mail/pop3/POP3Folder.java, com/sun/mail/pop3/POP3Message.java, com/sun/mail/iap/Protocol.java, com/sun/mail/util/UUEncoderStream.java, com/sun/mail/util/TraceOutputStream.java, com/sun/mail/util/TraceInputStream.java, com/sun/mail/util/UUDecoderStream.java, com/sun/mail/util/SocketFetcher.java, com/sun/mail/imap/IMAPInputStream.java, com/sun/mail/imap/protocol/ENVELOPE.java, com/sun/mail/imap/protocol/IMAPSaslAuthenticator.java, com/sun/mail/imap/protocol/FetchItem.java, com/sun/mail/imap/protocol/SearchSequence.java, com/sun/mail/imap/protocol/BODYSTRUCTURE.java, com/sun/mail/imap/protocol/IMAPResponse.java, com/sun/mail/imap/protocol/FetchResponse.java, com/sun/mail/imap/IMAPStore.java, com/sun/mail/imap/IMAPFolder.java, com/sun/mail/imap/IMAPBodyPart.java, com/sun/mail/imap/MessageCache.java, com/sun/mail/smtp/SMTPSaslAuthenticator.java, com/sun/mail/smtp/DigestMD5.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: javax/mail/util/SharedFileInputStream.java, javax/mail/util/ByteArrayDataSource.java, javax/mail/Message.java, javax/mail/Folder.java, javax/mail/Multipart.java, javax/mail/internet/MimeMessage.java, javax/mail/internet/MimePartDataSource.java, javax/mail/internet/MimeBodyPart.java, javax/mail/Transport.java, javax/mail/PasswordAuthentication.java, com/sun/mail/iap/Argument.java, com/sun/mail/util/BASE64EncoderStream.java, com/sun/mail/util/MailSSLSocketFactory.java, com/sun/mail/handlers/message_rfc822.java, com/sun/mail/handlers/multipart_mixed.java, com/sun/mail/handlers/image_gif.java, com/sun/mail/handlers/text_xml.java, com/sun/mail/imap/protocol/Item.java, com/sun/mail/imap/protocol/RFC822SIZE.java, com/sun/mail/imap/protocol/Namespaces.java, com/sun/mail/imap/protocol/RFC822DATA.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: javax/mail/internet/ParameterList.java, com/sun/mail/iap/Response.java, com/sun/mail/imap/IMAPMessage.java, com/sun/mail/imap/protocol/IMAPProtocol.java, com/sun/mail/imap/IMAPNestedMessage.java, com/sun/mail/smtp/SMTPTransport.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 1997-2013 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/pop3/TempFile.java, com/sun/mail/util/MimeUtil.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/util/SocksSupport.java, com/sun/mail/util/MailLogger.java, com/sun/mail/util/SharedByteArrayOutputStream.java, com/sun/mail/util/ReadableMime.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/util/LogOutputStream.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2008-2012 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/util/logging/MailHandler.java, com/sun/mail/util/logging/LogManagerProperties.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2009-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2009-2012 Jason Mehrens. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/auth/Ntlm.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2005-2012 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+
+Source paths: com/sun/mail/auth/MD4.java
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2005-2010 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+ * or packager/legal/LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at packager/legal/LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */

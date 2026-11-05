@@ -1,0 +1,31 @@
+Source paths: io/netty/handler/codec/redis/RedisDecoder.java, io/netty/handler/codec/redis/RedisMessage.java, io/netty/handler/codec/redis/FullBulkStringRedisMessage.java, io/netty/handler/codec/redis/RedisConstants.java, io/netty/handler/codec/redis/AbstractStringRedisMessage.java, io/netty/handler/codec/redis/FixedRedisMessagePool.java, io/netty/handler/codec/redis/IntegerRedisMessage.java, io/netty/handler/codec/redis/ArrayRedisMessage.java, io/netty/handler/codec/redis/ArrayHeaderRedisMessage.java, io/netty/handler/codec/redis/DefaultLastBulkStringRedisContent.java, io/netty/handler/codec/redis/RedisMessageType.java, io/netty/handler/codec/redis/RedisCodecUtil.java, io/netty/handler/codec/redis/DefaultBulkStringRedisContent.java, io/netty/handler/codec/redis/BulkStringRedisContent.java, io/netty/handler/codec/redis/SimpleStringRedisMessage.java, io/netty/handler/codec/redis/RedisMessagePool.java, io/netty/handler/codec/redis/RedisArrayAggregator.java, io/netty/handler/codec/redis/BulkStringHeaderRedisMessage.java, io/netty/handler/codec/redis/ErrorRedisMessage.java, io/netty/handler/codec/redis/LastBulkStringRedisContent.java, io/netty/handler/codec/redis/RedisCodecException.java, io/netty/handler/codec/redis/RedisBulkStringAggregator.java, io/netty/handler/codec/redis/package-info.java, io/netty/handler/codec/redis/RedisEncoder.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/redis/InlineCommandRedisMessage.java
+/*
+ * Copyright 2018 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */

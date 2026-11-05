@@ -1,0 +1,17 @@
+Source paths: kotlin/jvm/internal/AdaptedFunctionReference.java, kotlin/jvm/internal/FunInterfaceConstructorReference.java, kotlin/jvm/internal/FunctionAdapter.java
+/*
+ * Copyright 2010-2020 JetBrains s.r.o. and Kotlin Programming Language contributors.
+ * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
+ */
+
+Source paths: kotlin/jvm/internal/CallableReference.java, kotlin/jvm/internal/DefaultConstructorMarker.java, kotlin/jvm/internal/FunctionImpl.java, kotlin/jvm/internal/FunctionReference.java, kotlin/jvm/internal/FunctionReferenceImpl.java, kotlin/jvm/internal/InlineMarker.java, kotlin/jvm/internal/Intrinsics.java, kotlin/jvm/internal/MagicApiIntrinsics.java, kotlin/jvm/internal/MutablePropertyReference.java, kotlin/jvm/internal/MutablePropertyReference0.java, kotlin/jvm/internal/MutablePropertyReference0Impl.java, kotlin/jvm/internal/MutablePropertyReference1.java, kotlin/jvm/internal/MutablePropertyReference1Impl.java, kotlin/jvm/internal/MutablePropertyReference2.java, kotlin/jvm/internal/MutablePropertyReference2Impl.java, kotlin/jvm/internal/PropertyReference.java, kotlin/jvm/internal/PropertyReference0.java, kotlin/jvm/internal/PropertyReference0Impl.java, kotlin/jvm/internal/PropertyReference1.java, kotlin/jvm/internal/PropertyReference1Impl.java, kotlin/jvm/internal/PropertyReference2.java, kotlin/jvm/internal/PropertyReference2Impl.java, kotlin/jvm/internal/Ref.java, kotlin/jvm/internal/Reflection.java, kotlin/jvm/internal/ReflectionFactory.java, kotlin/jvm/internal/SpreadBuilder.java, kotlin/jvm/internal/TypeIntrinsics.java, kotlin/collections/ArraysUtilJVM.java
+/*
+ * Copyright 2010-2018 JetBrains s.r.o. and Kotlin Programming Language contributors.
+ * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
+ */
+
+Source paths: kotlin/jvm/internal/RepeatableContainer.java
+/*
+ * Copyright 2010-2021 JetBrains s.r.o. and Kotlin Programming Language contributors.
+ * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
+ */

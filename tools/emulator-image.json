@@ -1,0 +1,10 @@
+{
+  "version": "1.2.0",
+  "image": "maxcompute/maxcompute-emulator@sha256:c4f708449e309cdb6900641b7d90097e6c9b2633a943dac382c27683fc3daf5f",
+  "platform": "linux/amd64",
+  "source_commit": "2eb5581e085136de8f1e98e18de49b81c5e60d5d",
+  "release_url": "https://github.com/dingxin-tech/maxcompute-emulator/releases/tag/v1.2.0",
+  "image_id": "sha256:9fc7fd9bdcfb534ec22cd0806db47e7ae83d58cf273f6599b4a9b12fc79fa701",
+  "build_repository": "https://github.com/dingxin-tech/maxcompute-emulator.git",
+  "build_commit": "0757d8b747557d484d4bdfc07246a783a56aa43f"
+}

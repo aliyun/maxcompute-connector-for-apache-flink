@@ -1,0 +1,21 @@
+Source paths: com/sun/activation/registries/LogSupport.java, com/sun/activation/registries/MailcapFile.java, com/sun/activation/registries/MailcapParseException.java, com/sun/activation/registries/MailcapTokenizer.java, com/sun/activation/registries/MimeTypeEntry.java, com/sun/activation/registries/MimeTypeFile.java, com/sun/activation/viewers/ImageViewer.java, com/sun/activation/viewers/ImageViewerCanvas.java, com/sun/activation/viewers/TextEditor.java, com/sun/activation/viewers/TextViewer.java, javax/activation/ActivationDataFlavor.java, javax/activation/CommandInfo.java, javax/activation/CommandMap.java, javax/activation/CommandObject.java, javax/activation/DataContentHandler.java, javax/activation/DataContentHandlerFactory.java, javax/activation/DataHandler.java, javax/activation/DataSource.java, javax/activation/FileDataSource.java, javax/activation/FileTypeMap.java, javax/activation/MailcapCommandMap.java, javax/activation/MimeType.java, javax/activation/MimeTypeParameterList.java, javax/activation/MimeTypeParseException.java, javax/activation/MimetypesFileTypeMap.java, javax/activation/SecuritySupport.java, javax/activation/URLDataSource.java, javax/activation/UnsupportedDataTypeException.java
+/*
+ * The contents of this file are subject to the terms 
+ * of the Common Development and Distribution License 
+ * (the "License").  You may not use this file except 
+ * in compliance with the License.
+ * 
+ * You can obtain a copy of the license at 
+ * glassfish/bootstrap/legal/CDDLv1.0.txt or 
+ * https://glassfish.dev.java.net/public/CDDLv1.0.html. 
+ * See the License for the specific language governing 
+ * permissions and limitations under the License.
+ * 
+ * When distributing Covered Code, include this CDDL 
+ * HEADER in each file and include the License file at 
+ * glassfish/bootstrap/legal/CDDLv1.0.txt.  If applicable, 
+ * add the following below this CDDL HEADER, with the 
+ * fields enclosed by brackets "[]" replaced with your 
+ * own identifying information: Portions Copyright [yyyy] 
+ * [name of copyright owner]
+ */

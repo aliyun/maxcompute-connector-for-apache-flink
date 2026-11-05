@@ -1,0 +1,100 @@
+Source paths: io/netty/handler/codec/mqtt/MqttUnsubscribeMessage.java, io/netty/handler/codec/mqtt/MqttUnsubscribePayload.java, io/netty/handler/codec/mqtt/MqttIdentifierRejectedException.java, io/netty/handler/codec/mqtt/MqttUnacceptableProtocolVersionException.java, io/netty/handler/codec/mqtt/MqttMessage.java, io/netty/handler/codec/mqtt/MqttConnectReturnCode.java, io/netty/handler/codec/mqtt/MqttConnectVariableHeader.java, io/netty/handler/codec/mqtt/MqttMessageIdVariableHeader.java, io/netty/handler/codec/mqtt/MqttSubAckPayload.java, io/netty/handler/codec/mqtt/MqttTopicSubscription.java, io/netty/handler/codec/mqtt/MqttCodecUtil.java, io/netty/handler/codec/mqtt/MqttEncoder.java, io/netty/handler/codec/mqtt/MqttPublishMessage.java, io/netty/handler/codec/mqtt/MqttConnAckVariableHeader.java, io/netty/handler/codec/mqtt/MqttSubAckMessage.java, io/netty/handler/codec/mqtt/MqttFixedHeader.java, io/netty/handler/codec/mqtt/MqttDecoder.java, io/netty/handler/codec/mqtt/MqttSubscribePayload.java, io/netty/handler/codec/mqtt/MqttConnectPayload.java, io/netty/handler/codec/mqtt/MqttSubscribeMessage.java, io/netty/handler/codec/mqtt/MqttUnsubAckMessage.java, io/netty/handler/codec/mqtt/MqttMessageType.java, io/netty/handler/codec/mqtt/MqttVersion.java, io/netty/handler/codec/mqtt/MqttMessageFactory.java, io/netty/handler/codec/mqtt/MqttPublishVariableHeader.java, io/netty/handler/codec/mqtt/MqttConnectMessage.java, io/netty/handler/codec/mqtt/MqttConnAckMessage.java, io/netty/handler/codec/mqtt/MqttPubAckMessage.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/mqtt/MqttQoS.java, io/netty/handler/codec/mqtt/package-info.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License, version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: io/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader.java, io/netty/handler/codec/mqtt/MqttProperties.java, io/netty/handler/codec/mqtt/MqttReasonCodeAndPropertiesVariableHeader.java, io/netty/handler/codec/mqtt/MqttPubReplyMessageVariableHeader.java, io/netty/handler/codec/mqtt/MqttSubscriptionOption.java, io/netty/handler/codec/mqtt/MqttUnsubAckPayload.java
+/*
+ * Copyright 2020 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/mqtt/MqttReasonCodes.java
+/*
+ * Copyright 2023 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/mqtt/MqttConstant.java
+/*
+ * Copyright 2021 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/mqtt/MqttMessageBuilders.java
+/*
+ * Copyright 2017 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */

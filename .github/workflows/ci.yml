@@ -1,0 +1,115 @@
+name: Connector verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: connector-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Check public source boundaries
+        run: python3 tools/check-source.py
+      - name: Scan source for secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/gitleaks_8.30.1_linux_x64.tar.gz"
+          curl --fail --silent --show-error --location --retry 3 \
+            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
+            --output "$archive"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $archive" | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" gitleaks
+          mkdir "$RUNNER_TEMP/connector-source"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/connector-source"
+          "$RUNNER_TEMP/gitleaks" dir --redact --no-banner "$RUNNER_TEMP/connector-source"
+
+  public-candidate:
+    needs: source-checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        flink: ['1.16', '1.17', '1.20']
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: |
+            pom.xml
+            flink/*/pom.xml
+      - name: Offline and distributed jar verification
+        run: python3 tools/verify-matrix.py --flink-line ${{ matrix.flink }}
+      - name: Check dependency and legal closure
+        run: python3 tools/check-public.py --flink-line ${{ matrix.flink }}
+      - name: Retain test evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          include-hidden-files: true
+          name: connector-verification-${{ matrix.flink }}
+          path: |
+            flink/${{ matrix.flink }}/target/surefire-reports/TEST-*.xml
+            flink/${{ matrix.flink }}/target/failsafe-reports/TEST-*.xml
+            flink/${{ matrix.flink }}/target/public-dependency-tree.json
+            .verification/matrix/verification-*.json
+            .verification/matrix/flink-*.log
+          if-no-files-found: error
+          retention-days: 14
+
+  emulator:
+    needs: source-checks
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        flink: ['1.16', '1.17', '1.20']
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: |
+            pom.xml
+            flink/*/pom.xml
+      - name: Verify Docker SQL, fault recovery and production coverage
+        run: |
+          python3 tools/run-emulator-tests.py --flink-line ${{ matrix.flink }} \
+            --build-source --max-concurrent-requests 1024 --clean -- \
+            -Pcoverage-check -Demulator.stress.rows=16384 -Demulator.stress.delay.ms=1000
+          python3 tools/report-readiness.py --flink-line ${{ matrix.flink }}
+      - name: Retain Emulator evidence
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: emulator-test-results-${{ matrix.flink }}
+          path: |
+            flink/${{ matrix.flink }}/target/surefire-reports/TEST-*.xml
+            flink/${{ matrix.flink }}/target/failsafe-reports/TEST-*.xml
+            flink/${{ matrix.flink }}/target/sql-parameter-matrix.csv
+            flink/${{ matrix.flink }}/target/readiness/
+            flink/${{ matrix.flink }}/target/site/jacoco/
+            flink/${{ matrix.flink }}/target/emulator.log
+            flink/${{ matrix.flink }}/target/emulator-image.json
+          if-no-files-found: error
+          retention-days: 14
