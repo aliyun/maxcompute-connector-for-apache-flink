@@ -1,0 +1,19 @@
+.settings
+.classpath
+.project
+*.iml
+.idea
+target/
+.DS_Store
+*.pyc
+
+/.verification/
+
+# Credentials and local release material.
+.env
+.env.*
+*.key
+*.p12
+*.pfx
+*.jks
+candidate-manifest.json

@@ -1,0 +1,67 @@
+Source paths: io/netty/handler/codec/socks/SocksRequestType.java, io/netty/handler/codec/socks/SocksCmdStatus.java, io/netty/handler/codec/socks/SocksCmdType.java, io/netty/handler/codec/socks/SocksProtocolVersion.java, io/netty/handler/codec/socks/SocksMessageType.java, io/netty/handler/codec/socks/SocksResponseType.java, io/netty/handler/codec/socks/SocksSubnegotiationVersion.java, io/netty/handler/codec/socks/SocksAuthScheme.java, io/netty/handler/codec/socks/SocksAddressType.java, io/netty/handler/codec/socks/SocksAuthStatus.java, io/netty/handler/codec/socksx/v5/Socks5CommandType.java, io/netty/handler/codec/socksx/v5/Socks5AuthMethod.java, io/netty/handler/codec/socksx/v5/Socks5CommandStatus.java, io/netty/handler/codec/socksx/v5/Socks5AddressType.java, io/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus.java, io/netty/handler/codec/socksx/SocksVersion.java
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/socks/SocksCmdResponseDecoder.java, io/netty/handler/codec/socks/SocksCmdResponse.java, io/netty/handler/codec/socks/SocksMessage.java, io/netty/handler/codec/socks/SocksAuthRequest.java, io/netty/handler/codec/socks/SocksRequest.java, io/netty/handler/codec/socks/SocksCmdRequestDecoder.java, io/netty/handler/codec/socks/SocksInitResponse.java, io/netty/handler/codec/socks/SocksCommonUtils.java, io/netty/handler/codec/socks/SocksAuthResponse.java, io/netty/handler/codec/socks/SocksMessageEncoder.java, io/netty/handler/codec/socks/SocksInitRequest.java, io/netty/handler/codec/socks/SocksAuthResponseDecoder.java, io/netty/handler/codec/socks/SocksResponse.java, io/netty/handler/codec/socks/package-info.java, io/netty/handler/codec/socks/UnknownSocksRequest.java, io/netty/handler/codec/socks/UnknownSocksResponse.java, io/netty/handler/codec/socks/SocksAuthRequestDecoder.java, io/netty/handler/codec/socks/SocksInitRequestDecoder.java, io/netty/handler/codec/socks/SocksInitResponseDecoder.java, io/netty/handler/codec/socks/SocksCmdRequest.java, io/netty/handler/codec/socksx/SocksMessage.java, io/netty/handler/codec/socksx/v4/DefaultSocks4CommandRequest.java, io/netty/handler/codec/socksx/v4/Socks4CommandResponse.java, io/netty/handler/codec/socksx/v4/DefaultSocks4CommandResponse.java, io/netty/handler/codec/socksx/v4/Socks4CommandRequest.java, io/netty/handler/codec/socksx/v4/Socks4CommandType.java, io/netty/handler/codec/socksx/v4/Socks4ServerDecoder.java, io/netty/handler/codec/socksx/v4/Socks4CommandStatus.java, io/netty/handler/codec/socksx/v4/Socks4ClientDecoder.java, io/netty/handler/codec/socksx/v5/Socks5InitialResponse.java, io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthResponse.java, io/netty/handler/codec/socksx/v5/DefaultSocks5InitialRequest.java, io/netty/handler/codec/socksx/v5/DefaultSocks5CommandResponse.java, io/netty/handler/codec/socksx/v5/DefaultSocks5InitialResponse.java, io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthRequest.java, io/netty/handler/codec/socksx/v5/Socks5InitialRequest.java, io/netty/handler/codec/socksx/v5/Socks5CommandResponse.java, io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponse.java, io/netty/handler/codec/socksx/v5/Socks5CommandRequest.java, io/netty/handler/codec/socksx/v5/package-info.java, io/netty/handler/codec/socksx/v5/DefaultSocks5CommandRequest.java, io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequest.java
+/*
+ * Copyright 2012 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/socksx/v4/Socks4ServerEncoder.java, io/netty/handler/codec/socksx/v4/Socks4Message.java, io/netty/handler/codec/socksx/v4/Socks4ClientEncoder.java, io/netty/handler/codec/socksx/v4/AbstractSocks4Message.java, io/netty/handler/codec/socksx/v4/package-info.java, io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder.java, io/netty/handler/codec/socksx/v5/Socks5ClientEncoder.java, io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder.java, io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder.java, io/netty/handler/codec/socksx/v5/AbstractSocks5Message.java, io/netty/handler/codec/socksx/v5/Socks5Message.java, io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder.java, io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder.java, io/netty/handler/codec/socksx/v5/Socks5ServerEncoder.java, io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder.java, io/netty/handler/codec/socksx/package-info.java, io/netty/handler/codec/socksx/AbstractSocksMessage.java
+/*
+ * Copyright 2014 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/socksx/v5/Socks5AddressEncoder.java, io/netty/handler/codec/socksx/v5/Socks5AddressDecoder.java, io/netty/handler/codec/socksx/SocksPortUnificationServerHandler.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */

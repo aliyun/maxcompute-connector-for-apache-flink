@@ -1,0 +1,166 @@
+Source paths: org/apache/commons/compress/MemoryLimitException.java, org/apache/commons/compress/archivers/ArchiveEntry.java, org/apache/commons/compress/archivers/ArchiveException.java, org/apache/commons/compress/archivers/ArchiveInputStream.java, org/apache/commons/compress/archivers/ArchiveOutputStream.java, org/apache/commons/compress/archivers/ArchiveStreamFactory.java, org/apache/commons/compress/archivers/ArchiveStreamProvider.java, org/apache/commons/compress/archivers/EntryStreamOffsets.java, org/apache/commons/compress/archivers/StreamingNotSupportedException.java, org/apache/commons/compress/archivers/ar/ArArchiveEntry.java, org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java, org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java, org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java, org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java, org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java, org/apache/commons/compress/archivers/cpio/CpioConstants.java, org/apache/commons/compress/archivers/cpio/CpioUtil.java, org/apache/commons/compress/archivers/dump/Dirent.java, org/apache/commons/compress/archivers/dump/DumpArchiveConstants.java, org/apache/commons/compress/archivers/dump/DumpArchiveEntry.java, org/apache/commons/compress/archivers/dump/DumpArchiveException.java, org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java, org/apache/commons/compress/archivers/dump/DumpArchiveSummary.java, org/apache/commons/compress/archivers/dump/DumpArchiveUtil.java, org/apache/commons/compress/archivers/dump/InvalidFormatException.java, org/apache/commons/compress/archivers/dump/ShortFileException.java, org/apache/commons/compress/archivers/dump/TapeInputStream.java, org/apache/commons/compress/archivers/dump/UnrecognizedFormatException.java, org/apache/commons/compress/archivers/dump/UnsupportedCompressionAlgorithmException.java, org/apache/commons/compress/archivers/examples/Archiver.java, org/apache/commons/compress/archivers/examples/CloseableConsumer.java, org/apache/commons/compress/archivers/examples/CloseableConsumerAdapter.java, org/apache/commons/compress/archivers/examples/Expander.java, org/apache/commons/compress/archivers/jar/JarArchiveEntry.java, org/apache/commons/compress/archivers/jar/JarArchiveInputStream.java, org/apache/commons/compress/archivers/jar/JarArchiveOutputStream.java, org/apache/commons/compress/archivers/tar/TarArchiveEntry.java, org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java, org/apache/commons/compress/archivers/tar/TarArchiveSparseEntry.java, org/apache/commons/compress/archivers/tar/TarArchiveStructSparse.java, org/apache/commons/compress/archivers/tar/TarConstants.java, org/apache/commons/compress/archivers/tar/TarUtils.java, org/apache/commons/compress/archivers/zip/AsiExtraField.java, org/apache/commons/compress/archivers/zip/BinaryTree.java, org/apache/commons/compress/archivers/zip/BitStream.java, org/apache/commons/compress/archivers/zip/CharsetAccessor.java, org/apache/commons/compress/archivers/zip/CircularBuffer.java, org/apache/commons/compress/archivers/zip/ExplodingInputStream.java, org/apache/commons/compress/archivers/zip/NioZipEncoding.java, org/apache/commons/compress/archivers/zip/PKWareExtraHeader.java, org/apache/commons/compress/archivers/zip/ResourceAlignmentExtraField.java, org/apache/commons/compress/archivers/zip/ScatterStatistics.java, org/apache/commons/compress/archivers/zip/UnixStat.java, org/apache/commons/compress/archivers/zip/UnparseableExtraFieldBehavior.java, org/apache/commons/compress/archivers/zip/UnparseableExtraFieldData.java, org/apache/commons/compress/archivers/zip/UnrecognizedExtraField.java, org/apache/commons/compress/archivers/zip/UnshrinkingInputStream.java, org/apache/commons/compress/archivers/zip/X0014_X509Certificates.java, org/apache/commons/compress/archivers/zip/X0015_CertificateIdForFile.java, org/apache/commons/compress/archivers/zip/X0016_CertificateIdForCentralDirectory.java, org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java, org/apache/commons/compress/archivers/zip/X0019_EncryptionRecipientCertificateList.java, org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java, org/apache/commons/compress/archivers/zip/X7875_NewUnix.java, org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java, org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java, org/apache/commons/compress/archivers/zip/ZipEncoding.java, org/apache/commons/compress/archivers/zip/ZipExtraField.java, org/apache/commons/compress/changes/Change.java, org/apache/commons/compress/changes/ChangeSet.java, org/apache/commons/compress/changes/ChangeSetPerformer.java, org/apache/commons/compress/changes/ChangeSetResults.java, org/apache/commons/compress/compressors/CompressorException.java, org/apache/commons/compress/compressors/CompressorInputStream.java, org/apache/commons/compress/compressors/CompressorOutputStream.java, org/apache/commons/compress/compressors/CompressorStreamFactory.java, org/apache/commons/compress/compressors/CompressorStreamProvider.java, org/apache/commons/compress/compressors/FileNameUtil.java, org/apache/commons/compress/compressors/brotli/BrotliUtils.java, org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java, org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java, org/apache/commons/compress/compressors/bzip2/BZip2Constants.java, org/apache/commons/compress/compressors/bzip2/BZip2Utils.java, org/apache/commons/compress/compressors/bzip2/BlockSort.java, org/apache/commons/compress/compressors/bzip2/CRC.java, org/apache/commons/compress/compressors/bzip2/Rand.java, org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java, org/apache/commons/compress/compressors/deflate/DeflateCompressorOutputStream.java, org/apache/commons/compress/compressors/deflate/DeflateParameters.java, org/apache/commons/compress/compressors/gzip/GzipCompressorInputStream.java, org/apache/commons/compress/compressors/gzip/GzipCompressorOutputStream.java, org/apache/commons/compress/compressors/gzip/GzipParameters.java, org/apache/commons/compress/compressors/gzip/GzipUtils.java, org/apache/commons/compress/compressors/lz4/BlockLZ4CompressorInputStream.java, org/apache/commons/compress/compressors/lz4/BlockLZ4CompressorOutputStream.java, org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorInputStream.java, org/apache/commons/compress/compressors/lz4/FramedLZ4CompressorOutputStream.java, org/apache/commons/compress/compressors/lz4/XXHash32.java, org/apache/commons/compress/compressors/lz77support/AbstractLZ77CompressorInputStream.java, org/apache/commons/compress/compressors/lz77support/LZ77Compressor.java, org/apache/commons/compress/compressors/lz77support/Parameters.java, org/apache/commons/compress/compressors/lzma/LZMACompressorInputStream.java, org/apache/commons/compress/compressors/lzma/LZMACompressorOutputStream.java, org/apache/commons/compress/compressors/lzma/LZMAUtils.java, org/apache/commons/compress/compressors/lzw/LZWInputStream.java, org/apache/commons/compress/compressors/pack200/InMemoryCachingStreamBridge.java, org/apache/commons/compress/compressors/pack200/Pack200CompressorInputStream.java, org/apache/commons/compress/compressors/pack200/Pack200CompressorOutputStream.java, org/apache/commons/compress/compressors/pack200/Pack200Strategy.java, org/apache/commons/compress/compressors/pack200/Pack200Utils.java, org/apache/commons/compress/compressors/pack200/StreamBridge.java, org/apache/commons/compress/compressors/pack200/TempFileCachingStreamBridge.java, org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorInputStream.java, org/apache/commons/compress/compressors/snappy/FramedSnappyCompressorOutputStream.java, org/apache/commons/compress/compressors/snappy/FramedSnappyDialect.java, org/apache/commons/compress/compressors/snappy/SnappyCompressorInputStream.java, org/apache/commons/compress/compressors/snappy/SnappyCompressorOutputStream.java, org/apache/commons/compress/compressors/xz/XZCompressorInputStream.java, org/apache/commons/compress/compressors/xz/XZCompressorOutputStream.java, org/apache/commons/compress/compressors/xz/XZUtils.java, org/apache/commons/compress/compressors/z/ZCompressorInputStream.java, org/apache/commons/compress/compressors/zstandard/ZstdUtils.java, org/apache/commons/compress/parallel/InputStreamSupplier.java, org/apache/commons/compress/parallel/ScatterGatherBackingStoreSupplier.java, org/apache/commons/compress/utils/BitInputStream.java, org/apache/commons/compress/utils/CloseShieldFilterInputStream.java, org/apache/commons/compress/utils/CountingInputStream.java, org/apache/commons/compress/utils/CountingOutputStream.java, org/apache/commons/compress/utils/FixedLengthBlockOutputStream.java, org/apache/commons/compress/utils/FlushShieldFilterOutputStream.java, org/apache/commons/compress/utils/IOUtils.java, org/apache/commons/compress/utils/Iterators.java, org/apache/commons/compress/utils/Lists.java, org/apache/commons/compress/utils/ServiceLoaderIterator.java, org/apache/commons/compress/utils/Sets.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: org/apache/commons/compress/PasswordRequiredException.java, org/apache/commons/compress/archivers/Lister.java, org/apache/commons/compress/archivers/arj/ArjArchiveEntry.java, org/apache/commons/compress/archivers/arj/ArjArchiveInputStream.java, org/apache/commons/compress/archivers/arj/LocalFileHeader.java, org/apache/commons/compress/archivers/arj/MainHeader.java, org/apache/commons/compress/archivers/sevenz/AES256SHA256Decoder.java, org/apache/commons/compress/archivers/sevenz/Archive.java, org/apache/commons/compress/archivers/sevenz/BindPair.java, org/apache/commons/compress/archivers/sevenz/BoundedSeekableByteChannelInputStream.java, org/apache/commons/compress/archivers/sevenz/CLI.java, org/apache/commons/compress/archivers/sevenz/Coder.java, org/apache/commons/compress/archivers/sevenz/CoderBase.java, org/apache/commons/compress/archivers/sevenz/Coders.java, org/apache/commons/compress/archivers/sevenz/DeltaDecoder.java, org/apache/commons/compress/archivers/sevenz/Folder.java, org/apache/commons/compress/archivers/sevenz/LZMA2Decoder.java, org/apache/commons/compress/archivers/sevenz/LZMADecoder.java, org/apache/commons/compress/archivers/sevenz/NID.java, org/apache/commons/compress/archivers/sevenz/SevenZArchiveEntry.java, org/apache/commons/compress/archivers/sevenz/SevenZFile.java, org/apache/commons/compress/archivers/sevenz/SevenZFileOptions.java, org/apache/commons/compress/archivers/sevenz/SevenZMethod.java, org/apache/commons/compress/archivers/sevenz/SevenZMethodConfiguration.java, org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java, org/apache/commons/compress/archivers/sevenz/StartHeader.java, org/apache/commons/compress/archivers/sevenz/StreamMap.java, org/apache/commons/compress/archivers/sevenz/SubStreamsInfo.java, org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java, org/apache/commons/compress/archivers/tar/TarArchiveSparseZeroInputStream.java, org/apache/commons/compress/archivers/tar/TarFile.java, org/apache/commons/compress/archivers/zip/AbstractUnicodeExtraField.java, org/apache/commons/compress/archivers/zip/ExtraFieldParsingBehavior.java, org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java, org/apache/commons/compress/archivers/zip/GeneralPurposeBit.java, org/apache/commons/compress/archivers/zip/InflaterInputStreamWithStatistics.java, org/apache/commons/compress/archivers/zip/JarMarker.java, org/apache/commons/compress/archivers/zip/ParallelScatterZipCreator.java, org/apache/commons/compress/archivers/zip/ScatterZipOutputStream.java, org/apache/commons/compress/archivers/zip/StreamCompressor.java, org/apache/commons/compress/archivers/zip/UnicodeCommentExtraField.java, org/apache/commons/compress/archivers/zip/UnicodePathExtraField.java, org/apache/commons/compress/archivers/zip/UnsupportedZipFeatureException.java, org/apache/commons/compress/archivers/zip/X000A_NTFS.java, org/apache/commons/compress/archivers/zip/Zip64Mode.java, org/apache/commons/compress/archivers/zip/Zip64RequiredException.java, org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java, org/apache/commons/compress/archivers/zip/ZipArchiveEntryPredicate.java, org/apache/commons/compress/archivers/zip/ZipArchiveEntryRequest.java, org/apache/commons/compress/archivers/zip/ZipArchiveEntryRequestSupplier.java, org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java, org/apache/commons/compress/archivers/zip/ZipConstants.java, org/apache/commons/compress/archivers/zip/ZipEightByteInteger.java, org/apache/commons/compress/archivers/zip/ZipEncodingHelper.java, org/apache/commons/compress/archivers/zip/ZipFile.java, org/apache/commons/compress/archivers/zip/ZipLong.java, org/apache/commons/compress/archivers/zip/ZipMethod.java, org/apache/commons/compress/archivers/zip/ZipShort.java, org/apache/commons/compress/archivers/zip/ZipSplitOutputStream.java, org/apache/commons/compress/archivers/zip/ZipSplitReadOnlySeekableByteChannel.java, org/apache/commons/compress/archivers/zip/ZipUtil.java, org/apache/commons/compress/compressors/deflate64/Deflate64CompressorInputStream.java, org/apache/commons/compress/compressors/deflate64/HuffmanDecoder.java, org/apache/commons/compress/compressors/deflate64/HuffmanState.java, org/apache/commons/compress/parallel/FileBasedScatterGatherBackingStore.java, org/apache/commons/compress/parallel/ScatterGatherBackingStore.java, org/apache/commons/compress/utils/BoundedArchiveInputStream.java, org/apache/commons/compress/utils/BoundedInputStream.java, org/apache/commons/compress/utils/BoundedSeekableByteChannelInputStream.java, org/apache/commons/compress/utils/CRC32VerifyingInputStream.java, org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java, org/apache/commons/compress/utils/ChecksumVerifyingInputStream.java, org/apache/commons/compress/utils/InputStreamStatistics.java, org/apache/commons/compress/utils/SkipShieldingInputStream.java
+/*
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
+Source paths: org/apache/commons/compress/compressors/brotli/BrotliCompressorInputStream.java, org/apache/commons/compress/compressors/zstandard/ZstdCompressorInputStream.java, org/apache/commons/compress/compressors/zstandard/ZstdCompressorOutputStream.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: org/apache/commons/compress/compressors/snappy/PureJavaCrc32C.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Some portions of this file Copyright (c) 2004-2006 Intel Corporation
+ * and licensed under the BSD license.
+ */
+
+Source paths: org/apache/commons/compress/harmony/archive/internal/nls/Messages.java, org/apache/commons/compress/java/util/jar/Pack200.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: org/apache/commons/compress/harmony/pack200/Archive.java, org/apache/commons/compress/harmony/pack200/AttributeDefinitionBands.java, org/apache/commons/compress/harmony/pack200/BHSDCodec.java, org/apache/commons/compress/harmony/pack200/BandSet.java, org/apache/commons/compress/harmony/pack200/BcBands.java, org/apache/commons/compress/harmony/pack200/CPClass.java, org/apache/commons/compress/harmony/pack200/CPConstant.java, org/apache/commons/compress/harmony/pack200/CPDouble.java, org/apache/commons/compress/harmony/pack200/CPFloat.java, org/apache/commons/compress/harmony/pack200/CPInt.java, org/apache/commons/compress/harmony/pack200/CPLong.java, org/apache/commons/compress/harmony/pack200/CPMethodOrField.java, org/apache/commons/compress/harmony/pack200/CPNameAndType.java, org/apache/commons/compress/harmony/pack200/CPSignature.java, org/apache/commons/compress/harmony/pack200/CPString.java, org/apache/commons/compress/harmony/pack200/CPUTF8.java, org/apache/commons/compress/harmony/pack200/CanonicalCodecFamilies.java, org/apache/commons/compress/harmony/pack200/ClassBands.java, org/apache/commons/compress/harmony/pack200/Codec.java, org/apache/commons/compress/harmony/pack200/CodecEncoding.java, org/apache/commons/compress/harmony/pack200/ConstantPoolEntry.java, org/apache/commons/compress/harmony/pack200/FileBands.java, org/apache/commons/compress/harmony/pack200/IcBands.java, org/apache/commons/compress/harmony/pack200/IntList.java, org/apache/commons/compress/harmony/pack200/NewAttribute.java, org/apache/commons/compress/harmony/pack200/NewAttributeBands.java, org/apache/commons/compress/harmony/pack200/Pack200Adapter.java, org/apache/commons/compress/harmony/pack200/Pack200ClassReader.java, org/apache/commons/compress/harmony/pack200/Pack200Exception.java, org/apache/commons/compress/harmony/pack200/Pack200PackerAdapter.java, org/apache/commons/compress/harmony/pack200/PackingOptions.java, org/apache/commons/compress/harmony/pack200/PackingUtils.java, org/apache/commons/compress/harmony/pack200/PopulationCodec.java, org/apache/commons/compress/harmony/pack200/RunCodec.java, org/apache/commons/compress/harmony/pack200/SegmentHeader.java, org/apache/commons/compress/harmony/unpack200/Archive.java, org/apache/commons/compress/harmony/unpack200/AttrDefinitionBands.java, org/apache/commons/compress/harmony/unpack200/AttributeLayout.java, org/apache/commons/compress/harmony/unpack200/AttributeLayoutMap.java, org/apache/commons/compress/harmony/unpack200/BandSet.java, org/apache/commons/compress/harmony/unpack200/BcBands.java, org/apache/commons/compress/harmony/unpack200/ClassBands.java, org/apache/commons/compress/harmony/unpack200/CpBands.java, org/apache/commons/compress/harmony/unpack200/FileBands.java, org/apache/commons/compress/harmony/unpack200/IMatcher.java, org/apache/commons/compress/harmony/unpack200/IcBands.java, org/apache/commons/compress/harmony/unpack200/IcTuple.java, org/apache/commons/compress/harmony/unpack200/MetadataBandGroup.java, org/apache/commons/compress/harmony/unpack200/NewAttributeBands.java, org/apache/commons/compress/harmony/unpack200/Pack200UnpackerAdapter.java, org/apache/commons/compress/harmony/unpack200/Segment.java, org/apache/commons/compress/harmony/unpack200/SegmentConstantPool.java, org/apache/commons/compress/harmony/unpack200/SegmentConstantPoolArrayCache.java, org/apache/commons/compress/harmony/unpack200/SegmentHeader.java, org/apache/commons/compress/harmony/unpack200/SegmentOptions.java, org/apache/commons/compress/harmony/unpack200/SegmentUtils.java, org/apache/commons/compress/harmony/unpack200/bytecode/AnnotationDefaultAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/AnnotationsAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/Attribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/BCIRenumberedAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/ByteCode.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPClass.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPConstant.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPConstantNumber.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPDouble.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPField.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPFieldRef.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPFloat.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPInteger.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPLong.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPMember.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPMethod.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPMethodRef.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPNameAndType.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPRef.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPString.java, org/apache/commons/compress/harmony/unpack200/bytecode/CPUTF8.java, org/apache/commons/compress/harmony/unpack200/bytecode/ClassConstantPool.java, org/apache/commons/compress/harmony/unpack200/bytecode/ClassFile.java, org/apache/commons/compress/harmony/unpack200/bytecode/ClassFileEntry.java, org/apache/commons/compress/harmony/unpack200/bytecode/CodeAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/ConstantPoolEntry.java, org/apache/commons/compress/harmony/unpack200/bytecode/ConstantValueAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/DeprecatedAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/EnclosingMethodAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/ExceptionTableEntry.java, org/apache/commons/compress/harmony/unpack200/bytecode/ExceptionsAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/InnerClassesAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/LineNumberTableAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/LocalVariableTableAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/LocalVariableTypeTableAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/NewAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/OperandManager.java, org/apache/commons/compress/harmony/unpack200/bytecode/RuntimeVisibleorInvisibleAnnotationsAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/RuntimeVisibleorInvisibleParameterAnnotationsAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/SignatureAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/SourceFileAttribute.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ByteCodeForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ByteForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ClassRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ClassSpecificReferenceForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/DoubleForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/FieldRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/FloatRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/IMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/IincForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/InitMethodReferenceForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/IntRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/LabelForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/LocalForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/LongForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/LookupSwitchForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/MethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/MultiANewArrayForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/NarrowClassRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/NewClassRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/NewInitMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/NoArgumentForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ReferenceForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ShortForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/SingleByteReferenceForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/StringRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/SuperFieldRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/SuperInitMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/SuperMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/SwitchForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/TableSwitchForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ThisFieldRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ThisInitMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/ThisMethodRefForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/VariableInstructionForm.java, org/apache/commons/compress/harmony/unpack200/bytecode/forms/WideForm.java
+/*
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+Source paths: org/apache/commons/compress/harmony/pack200/CpBands.java, org/apache/commons/compress/harmony/pack200/MetadataBandGroup.java, org/apache/commons/compress/harmony/pack200/Segment.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements. See the NOTICE file distributed with this
+ * work for additional information regarding copyright ownership. The ASF
+ * licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: org/apache/commons/compress/harmony/unpack200/bytecode/CPInterfaceMethodRef.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements. See the NOTICE file distributed with this
+ * work for additional information regarding copyright ownership. The ASF
+ * licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+ * or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+Source paths: org/apache/commons/compress/utils/ArchiveUtils.java, org/apache/commons/compress/utils/ByteUtils.java, org/apache/commons/compress/utils/CharsetNames.java, org/apache/commons/compress/utils/Charsets.java, org/apache/commons/compress/utils/FileNameUtils.java, org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannel.java, org/apache/commons/compress/utils/OsgiUtils.java, org/apache/commons/compress/utils/SeekableInMemoryByteChannel.java
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */

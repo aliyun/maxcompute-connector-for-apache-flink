@@ -1,0 +1,1954 @@
+{
+  "sdk": "0.61.2-public",
+  "flink": "1.20.4",
+  "components": [
+    {
+      "coordinate": "com.google.code.gson:gson:2.8.9",
+      "classifier": "",
+      "sha256": "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.google.code.gson_gson_2.8.9/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9-sources.jar",
+      "source_available": true,
+      "source_sha256": "ba5bddb1a89eb721fcca39f3b34294532060f851e2407a82d82134a41eec4719",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.12.0",
+      "classifier": "",
+      "sha256": "d919d904486c037f8d193412da0c92e22a9fa24230b9d67a57855c5c31c7e94e",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.commons_commons-lang3_3.12.0/binary/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-lang3_3.12.0/binary/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-lang3_3.12.0/sources/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-lang3_3.12.0/sources/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-lang3_3.12.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "325a4551eee7d99f7616aa05b00ee3ca9d0cdc8face1b252a9864f2d945c58b3",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.commons:commons-compress:1.26.0",
+      "classifier": "",
+      "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.commons_commons-compress_1.26.0/binary/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-compress_1.26.0/binary/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-compress_1.26.0/sources/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-compress_1.26.0/sources/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-compress_1.26.0/source-attributions.txt",
+        "Apache-2.0.txt",
+        "org.apache.commons_commons-compress_1.26.0/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "e5f7753743ae75d4d76ca1bd437343ccdfc79f963afc6e0ab77f6cbec184f0a7",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "org.slf4j:slf4j-api:1.7.36",
+      "classifier": "",
+      "sha256": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0",
+      "licenses": [
+        "MIT License"
+      ],
+      "license_urls": [
+        "http://www.opensource.org/licenses/mit-license.php"
+      ],
+      "files": [
+        "org.slf4j_slf4j-api_1.7.36/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar",
+      "source_available": true,
+      "source_sha256": "15bc04357a3725b7a5153f132db71379f95e83b7b8590a86cc6d4ad77bfc150a",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:1.3.9",
+      "classifier": "",
+      "sha256": "905721a0eea90a81534abb7ee6ef4ea2e5e645fa1def0a5cd88402df1b46c9ed",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-sources.jar",
+      "source_available": false,
+      "source_sha256": null,
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.ibm.icu:icu4j:67.1",
+      "classifier": "",
+      "sha256": "c4eb904caf5fba968a2f1a3b8aef14df801e9329b21697209ca30bfcf153867d",
+      "licenses": [
+        "Unicode/ICU License"
+      ],
+      "license_urls": [
+        "https://raw.githubusercontent.com/unicode-org/icu/master/icu4c/LICENSE"
+      ],
+      "files": [
+        "com.ibm.icu_icu4j_67.1/binary/LICENSE"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/67.1/icu4j-67.1-sources.jar",
+      "source_available": false,
+      "source_sha256": null,
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.google.guava:guava:32.1.3-jre",
+      "classifier": "",
+      "sha256": "6d4e2b5a118aab62e6e5e29d185a0224eed82c85c40ac3d33cf04a270c3b3744",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.google.guava_guava_32.1.3-jre/binary/META-INF/LICENSE",
+        "com.google.guava_guava_32.1.3-jre/sources/META-INF/LICENSE",
+        "com.google.guava_guava_32.1.3-jre/source-attributions.txt",
+        "Apache-2.0.txt",
+        "com.google.guava_guava_32.1.3-jre/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar",
+      "source_available": true,
+      "source_sha256": "9f6f333b2deaf36644d14ddeed7e6b31151b0c244bab1e4d58ee443ade9a09f3",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "com.google.guava:failureaccess:1.0.1",
+      "classifier": "",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.google.guava_failureaccess_1.0.1/source-attributions.txt",
+        "Apache-2.0.txt",
+        "com.google.guava_failureaccess_1.0.1/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "092346eebbb1657b51aa7485a246bf602bb464cc0b0e2e1c7e7201fadce1e98f",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+      "classifier": "",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt",
+        "com.google.guava_listenablefuture_9999.0-empty-to-avoid-conflict-with-guava/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar",
+      "source_available": false,
+      "source_sha256": null,
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "org.checkerframework:checker-qual:3.37.0",
+      "classifier": "",
+      "sha256": "e4ce1376cc2735e1dde220b62ad0913f51297704daad155a33f386bc5db0d9f7",
+      "licenses": [
+        "The MIT License"
+      ],
+      "license_urls": [
+        "http://opensource.org/licenses/MIT"
+      ],
+      "files": [
+        "org.checkerframework_checker-qual_3.37.0/binary/META-INF/LICENSE.txt",
+        "org.checkerframework_checker-qual_3.37.0/sources/META-INF/LICENSE.txt",
+        "org.checkerframework_checker-qual_3.37.0/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.37.0/checker-qual-3.37.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "2ca31c7e959ad82fe270b2baac11a59c570f8778191233c54927e94adab7b640",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.21.1",
+      "classifier": "",
+      "sha256": "d1f3c66aa91ac52549e00ae3b208ba4b9af7d72d68f230643553beb38e6118ac",
+      "licenses": [
+        "Apache 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.google.errorprone_error_prone_annotations_2.21.1/source-attributions.txt",
+        "Apache-2.0.txt",
+        "com.google.errorprone_error_prone_annotations_2.21.1/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.21.1/error_prone_annotations-2.21.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "29012a51bb8d7d7bdd7db882f46dec8cccb36b40f34b6e5de2ec7dd647b372ca",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "com.google.j2objc:j2objc-annotations:2.8",
+      "classifier": "",
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.google.j2objc_j2objc-annotations_2.8/source-attributions.txt",
+        "Apache-2.0.txt",
+        "com.google.j2objc_j2objc-annotations_2.8/upstream.pom"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8-sources.jar",
+      "source_available": true,
+      "source_sha256": "7413eed41f111453a08837f5ac680edded7faed466cbd35745e402e13f4cc3f5",
+      "status": "documented",
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-sdk-core:0.61.2-public",
+      "classifier": "",
+      "sha256": "fa52ee09d2f1ac1c357703b1ec74b53176f648197ded20be5adb696e818b5ec8",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-sdk-core_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-sdk-core/0.61.2-public/odps-sdk-core-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "c02307196b8cb0e8cfe3373192eb75dd2e4133354dd8dbf79ee58e3401e9129c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-sdk-simplexml:0.61.2-public",
+      "classifier": "",
+      "sha256": "554028533aa63012a2da92cf0615da2bc6beef9509d3521e159008dda4f08ea8",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-sdk-simplexml_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-sdk-simplexml/0.61.2-public/odps-sdk-simplexml-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "ca2721fe6b030e210b207b6b6672fb123c9780cfeb9252aafcc5cb36890a3d4a",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-arrow-helper:0.61.2-public",
+      "classifier": "",
+      "sha256": "d734fd15209e65a4a8227c485980ff71548864d293ba547d0126fc61e8b3433e",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-arrow-helper_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-arrow-helper/0.61.2-public/odps-arrow-helper-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "b8a00879343c614c53ef99c0aed0d3a632c53121d42dc6cab3ea9df0d8bf617f",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-sdk-storage-api:0.61.2-public",
+      "classifier": "",
+      "sha256": "01080f3ce57575481c45c6976c9a29305536067b83074146cdd6a89af8958cf1",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-sdk-storage-api_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-sdk-storage-api/0.61.2-public/odps-sdk-storage-api-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "9ad96cc10591b2bf4d08798d6fbe030cc4291bd89be4b883c262c98c46affa5a",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "commons-codec:commons-codec:1.18.0",
+      "classifier": "",
+      "sha256": "ba005f304cef92a3dede24a38ad5ac9b8afccf0d8f75839d6c1338634cf7f6e4",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "commons-codec_commons-codec_1.18.0/binary/META-INF/LICENSE.txt",
+        "commons-codec_commons-codec_1.18.0/binary/META-INF/NOTICE.txt",
+        "commons-codec_commons-codec_1.18.0/sources/META-INF/LICENSE.txt",
+        "commons-codec_commons-codec_1.18.0/sources/META-INF/NOTICE.txt",
+        "commons-codec_commons-codec_1.18.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "6c50e3dd81284139baddf94b3d0f78d25135eea0853f6495267196cdcf5949e3",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.antlr:antlr4:4.11.1",
+      "classifier": "",
+      "sha256": "e9686e8a663ca512afe3a2eeb6f6ad3f303abb46188991f19ebc6a0fd9c1c14f",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "license_urls": [
+        "https://www.antlr.org/license.html"
+      ],
+      "files": [
+        "org.antlr_antlr4_4.11.1/source-attributions.txt",
+        "org.antlr_antlr4_4.11.1/upstream-LICENSE.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/antlr/antlr4/4.11.1/antlr4-4.11.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "6f0516b87d3de54c314e95981fc51d871d6f2054e00fe3f579e51747de806a72",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.antlr:antlr4-runtime:4.11.1",
+      "classifier": "",
+      "sha256": "e06c6553c1ccc14d36052ec4b0fc6f13b808cf957b5b1dc3f61bf401996ada59",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "license_urls": [
+        "https://www.antlr.org/license.html"
+      ],
+      "files": [
+        "org.antlr_antlr4-runtime_4.11.1/source-attributions.txt",
+        "org.antlr_antlr4-runtime_4.11.1/upstream-LICENSE.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/antlr/antlr4-runtime/4.11.1/antlr4-runtime-4.11.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "6fa0efb711a152842ecda1d41ceab94fb2049f833e00e360e161ac0e7a3819fe",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.antlr:antlr-runtime:3.5.3",
+      "classifier": "",
+      "sha256": "68bf9f5a33dfcb34033495c587e6236bef4e37aa6612919f5b1e843b90669fb9",
+      "licenses": [
+        "BSD licence"
+      ],
+      "license_urls": [
+        "http://antlr.org/license.html"
+      ],
+      "files": [
+        "org.antlr_antlr-runtime_3.5.3/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/antlr/antlr-runtime/3.5.3/antlr-runtime-3.5.3-sources.jar",
+      "source_available": true,
+      "source_sha256": "b4353aa5270d5ddedbc59de6fc7bb170c6d8fa6293d37533a304144a18e4b24d",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.antlr:ST4:4.3.4",
+      "classifier": "",
+      "sha256": "f927ac384c46d749f8b5ec68972a53aed21e00313509299616edb73bfa15ff33",
+      "licenses": [
+        "The BSD License"
+      ],
+      "license_urls": [
+        "http://www.antlr.org/license.html"
+      ],
+      "files": [
+        "org.antlr_ST4_4.3.4/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/antlr/ST4/4.3.4/ST4-4.3.4-sources.jar",
+      "source_available": true,
+      "source_sha256": "64904f5a5f451c0691abbd20aba8d703df11f9a04ab4e702b8d0ea10d3cf31fc",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.abego.treelayout:org.abego.treelayout.core:1.0.3",
+      "classifier": "",
+      "sha256": "fa5e31395c39c2e7d46aca0f81f72060931607b2fa41bd36038eb2cb6fb93326",
+      "licenses": [
+        "BSD 3-Clause \"New\" or \"Revised\" License (BSD-3-Clause)"
+      ],
+      "license_urls": [
+        "http://www.abego-software.de/legal/apl-v10.html"
+      ],
+      "files": [
+        "org.abego.treelayout_org.abego.treelayout.core_1.0.3/sources/org/abego/treelayout/doc-files/LICENSE.TXT",
+        "org.abego.treelayout_org.abego.treelayout.core_1.0.3/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/abego/treelayout/org.abego.treelayout.core/1.0.3/org.abego.treelayout.core-1.0.3-sources.jar",
+      "source_available": true,
+      "source_sha256": "2b87037e8a650f41b2425bf69e4cc30cc842c0615eac1ba1ca2141dd544b1dd6",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.glassfish:javax.json:1.1.4",
+      "classifier": "",
+      "sha256": "17fdeb7e22375a7fb40bb0551306f6dcf2b5743078668adcdf6c642c9a9ec955",
+      "licenses": [
+        "Dual license consisting of the CDDL v1.1 and GPL v2"
+      ],
+      "license_urls": [
+        "https://oss.oracle.com/licenses/CDDL+GPL-1.1"
+      ],
+      "files": [
+        "org.glassfish_javax.json_1.1.4/source-attributions.txt",
+        "CDDL-GPL-1.1.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/glassfish/javax.json/1.1.4/javax.json-1.1.4-sources.jar",
+      "source_available": true,
+      "source_sha256": "31d21d4721eb050616683bee90e3c7d126110dffdbf8bf4d3cc992891a60419b",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "net.sourceforge.javacsv:javacsv:2.0",
+      "classifier": "",
+      "sha256": "c287e9d431e4e05a0f7c9c023d133edf8a40112885cdb6e81b07773eee4680ed",
+      "licenses": [
+        "LGPL-2.1-or-later (upstream 2.1 header; exact 2.0 provenance pending)"
+      ],
+      "license_urls": [],
+      "files": [
+        "net.sourceforge.javacsv_javacsv_2.0/upstream-2.1-license-reference.txt",
+        "LGPL-2.1.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/net/sourceforge/javacsv/javacsv/2.0/javacsv-2.0-sources.jar",
+      "source_available": false,
+      "source_sha256": null,
+      "status": "review-required",
+      "notes": "Central 2.0 has no source artifact/embedded license; the official project currently publishes only 2.1. The 2.0 corresponding source and notice must be confirmed before redistribution; do not infer exact 2.0 licensing solely from 2.1."
+    },
+    {
+      "coordinate": "org.xerial.snappy:snappy-java:1.1.10.7",
+      "classifier": "",
+      "sha256": "4c766cb3f855415ee734b2392949a0b6f12a60879334a74518deaf6270d32e36",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.html"
+      ],
+      "files": [
+        "org.xerial.snappy_snappy-java_1.1.10.7/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/xerial/snappy/snappy-java/1.1.10.7/snappy-java-1.1.10.7-sources.jar",
+      "source_available": true,
+      "source_sha256": "17d2781f5ae987ddb0355e9a2f5bd07e2df15989063756b9c63158d0136d32d0",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "at.yawk.lz4:lz4-java:1.11.2",
+      "classifier": "",
+      "sha256": "8a7458657938e9b692224db83aac458c13abd7a59ab75c3d3b08bd2233a646a2",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/at/yawk/lz4/lz4-java/1.11.2/lz4-java-1.11.2-sources.jar",
+      "source_available": true,
+      "source_sha256": "c3eee1cec41e1607b87a9a97e479cdb312ab39f09dcf57262aa15ea66351fc5a",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.github.luben:zstd-jni:1.5.7-2",
+      "classifier": "",
+      "sha256": "c5530c6fe99df04f9ac041e1b11fcb5772a7f4218c727d7273e0a6e5948b5d12",
+      "licenses": [
+        "BSD 2-Clause License"
+      ],
+      "license_urls": [
+        "https://opensource.org/licenses/BSD-2-Clause"
+      ],
+      "files": [
+        "com.github.luben_zstd-jni_1.5.7-2/upstream-LICENSE"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.7-2/zstd-jni-1.5.7-2-sources.jar",
+      "source_available": true,
+      "source_sha256": "5bef1c8433fe03e605017d82112f42d0c59d337e85c000248781343203e225c4",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun:tea:1.3.1",
+      "classifier": "",
+      "sha256": "15662b4db45a406b0dbfb9d63286b80dfb537ca2146c7e2241760a75be986baf",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/tea/1.3.1/tea-1.3.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "7e1645117ff87e2277b0c02d13aef4f6805bb7fd6dc186217e3b9b50b5fd5348",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:2.4.1",
+      "classifier": "",
+      "sha256": "ad9769a22989e688a46af4d3accc348cc501ced22118033230542bc916e33f0b",
+      "licenses": [
+        "New BSD license"
+      ],
+      "license_urls": [
+        "http://www.opensource.org/licenses/bsd-license.php"
+      ],
+      "files": [
+        "com.google.protobuf_protobuf-java_2.4.1/upstream-COPYING.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "a9160122f8d20210317c05bef4d5f698dc7fcc75beb562b1ec60a321c6ab1885",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.20.0",
+      "classifier": "",
+      "sha256": "df90bba0fe3cb586b7f164e78fe8f8f4da3f2dd5c27fa645f888100ccc25dd72",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "commons-io_commons-io_2.20.0/binary/META-INF/LICENSE.txt",
+        "commons-io_commons-io_2.20.0/binary/META-INF/NOTICE.txt",
+        "commons-io_commons-io_2.20.0/sources/META-INF/LICENSE.txt",
+        "commons-io_commons-io_2.20.0/sources/META-INF/NOTICE.txt",
+        "commons-io_commons-io_2.20.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.20.0/commons-io-2.20.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "7a87277538cce40da6389a7163a4d9458bc7a9c39937a329881b91d144be8e0d",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "javax.mail:mail:1.4.7",
+      "classifier": "",
+      "sha256": "78c33b4f7c7b60f4b680f2d2405b1f063d71929cf1a4fbc328888379f365fcfb",
+      "licenses": [
+        "CDDL",
+        "GPLv2+CE"
+      ],
+      "license_urls": [
+        "http://www.sun.com/cddl",
+        "https://glassfish.java.net/public/CDDL+GPL_1_1.html"
+      ],
+      "files": [
+        "javax.mail_mail_1.4.7/binary/META-INF/LICENSE.txt",
+        "javax.mail_mail_1.4.7/sources/META-INF/LICENSE.txt",
+        "javax.mail_mail_1.4.7/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/javax/mail/mail/1.4.7/mail-1.4.7-sources.jar",
+      "source_available": true,
+      "source_sha256": "aea0e781aa574deb4ffda726dabee720224917a85faf15ef25883a7efe688cde",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "javax.activation:activation:1.1",
+      "classifier": "",
+      "sha256": "2881c79c9d6ef01c58e62beea13e9d1ac8b8baa16f2fc198ad6e6776defdcdd3",
+      "licenses": [
+        "CDDL-1.0"
+      ],
+      "license_urls": [],
+      "files": [
+        "javax.activation_activation_1.1/binary/META-INF/LICENSE.txt",
+        "javax.activation_activation_1.1/source-attributions.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/javax/activation/activation/1.1/activation-1.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "d1ce2ec5b4fa82d2424e38bb4efd75539f87b7e22e8c38c95cef541ef82fb037",
+      "status": "documented",
+      "notes": "Exact binary license and source headers retained; unmodified source archive is available at the recorded Maven URL."
+    },
+    {
+      "coordinate": "org.yaml:snakeyaml:2.0",
+      "classifier": "",
+      "sha256": "880c9d896e4b74a06c549c15ca496450165d6909fa15d7e662bee8f6a66d7afa",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.yaml_snakeyaml_2.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "9b336f77718ee80225d3d878fe5ab753e9863614fb84e3e859d51432dde43199",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.locationtech.jts:jts-core:1.19.0",
+      "classifier": "",
+      "sha256": "dbb8644cf324123d06c27aa982f570811e10b4cb1f2aef893b00de237d33efc0",
+      "licenses": [
+        "Eclipse Public License, Version 2.0",
+        "Eclipse Distribution License - v 1.0"
+      ],
+      "license_urls": [
+        "https://github.com/locationtech/jts/blob/master/LICENSE_EPLv2.txt",
+        "https://github.com/locationtech/jts/blob/master/LICENSE_EDLv1.txt"
+      ],
+      "files": [
+        "org.locationtech.jts_jts-core_1.19.0/source-attributions.txt",
+        "org.locationtech.jts_jts-core_1.19.0/upstream-LICENSE_EDLv1.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/locationtech/jts/jts-core/1.19.0/jts-core-1.19.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "95d114a852b313891e52fe7f5b2a7fc91201194270aac027f1c73968e216513d",
+      "status": "documented",
+      "notes": "Upstream offers EPL-2.0 or EDL-1.0; both attribution headers and the EDL text are retained."
+    },
+    {
+      "coordinate": "org.codehaus.jackson:jackson-mapper-asl:1.9.13",
+      "classifier": "",
+      "sha256": "74e7a07a76f2edbade29312a5a2ebccfa019128bc021ece3856d76197e9be0c2",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [],
+      "files": [
+        "org.codehaus.jackson_jackson-mapper-asl_1.9.13/binary/META-INF/LICENSE",
+        "org.codehaus.jackson_jackson-mapper-asl_1.9.13/binary/META-INF/NOTICE",
+        "org.codehaus.jackson_jackson-mapper-asl_1.9.13/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar",
+      "source_available": true,
+      "source_sha256": "da040569de0b23cfd0c39c303a7d9dd512d0a848e71f48f370b33442949c3e5c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.codehaus.jackson:jackson-core-asl:1.9.13",
+      "classifier": "",
+      "sha256": "440a9cb5ca95b215f953d3a20a6b1a10da1f09b529a9ddea5f8a4905ddab4f5a",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [],
+      "files": [
+        "org.codehaus.jackson_jackson-core-asl_1.9.13/binary/META-INF/LICENSE",
+        "org.codehaus.jackson_jackson-core-asl_1.9.13/binary/META-INF/NOTICE",
+        "org.codehaus.jackson_jackson-core-asl_1.9.13/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13-sources.jar",
+      "source_available": true,
+      "source_sha256": "f4dad3a1b9a20fbcfd375034309e717e16740c3d770725037f165ef2cfe852bd",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-sdk-commons:0.61.2-public",
+      "classifier": "",
+      "sha256": "1e50bf68c71e9858924357fc4e2bbf921cea1231fa62301c4320117cab0a36d8",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-sdk-commons_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-sdk-commons/0.61.2-public/odps-sdk-commons-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "cbe0746609276ade869b254d909db46075e2b3014a171aedb2d7b3cd8589a2fe",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "commons-logging:commons-logging:1.2",
+      "classifier": "",
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "commons-logging_commons-logging_1.2/binary/META-INF/NOTICE.txt",
+        "commons-logging_commons-logging_1.2/binary/META-INF/LICENSE.txt",
+        "commons-logging_commons-logging_1.2/sources/META-INF/NOTICE.txt",
+        "commons-logging_commons-logging_1.2/sources/META-INF/LICENSE.txt",
+        "commons-logging_commons-logging_1.2/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar",
+      "source_available": true,
+      "source_sha256": "44347acfe5860461728e9cb33251e97345be36f8a0dfd5c5130c172559455f41",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.aspectj:aspectjrt:1.9.7",
+      "classifier": "",
+      "sha256": "66af2d9a028d1c3f9d9f05bcf75e36ba1ded6d3d4d5ee90e7fce86891390e4ba",
+      "licenses": [
+        "Eclipse Public License - v 2.0"
+      ],
+      "license_urls": [
+        "https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt"
+      ],
+      "files": [
+        "org.aspectj_aspectjrt_1.9.7/source-attributions.txt",
+        "EPL-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/aspectj/aspectjrt/1.9.7/aspectjrt-1.9.7-sources.jar",
+      "source_available": true,
+      "source_sha256": "e2bb1b0d614deb6ef15f190e7e64ca98ddb730e0a8905e1ec480291c30cbbbe7",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun:credentials-api:1.0.0",
+      "classifier": "",
+      "sha256": "b2df5607bcab99ad58edee0425c2ead16c20f9d54e53935a7a635556ad83c8ff",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/credentials-api/1.0.0/credentials-api-1.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "0d431d2483d222c2639d0580ebe4e4fd09dcd266add18cdc717a2de878a27abf",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.aliyun.odps:odps-sdk-table-api:0.61.2-public",
+      "classifier": "",
+      "sha256": "b9e052101fbb3ca1fa59074d2a7d42a4aa52f637d43b8316c06881c57cc9df1a",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.aliyun.odps_odps-sdk-table-api_0.61.2-public/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/aliyun/odps/odps-sdk-table-api/0.61.2-public/odps-sdk-table-api-0.61.2-public-sources.jar",
+      "source_available": true,
+      "source_sha256": "c9025abca97eb2fe308f0dcb3031086fa1dd98d34f8db89214ab665185c3ccba",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.squareup.okhttp3:okhttp:4.12.0",
+      "classifier": "",
+      "sha256": "b1050081b14bb7a3a7e55a4d3ef01b5dcfabc453b4573a4fc019767191d5f4e0",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.squareup.okhttp3_okhttp_4.12.0/binary/okhttp3/internal/publicsuffix/NOTICE",
+        "com.squareup.okhttp3_okhttp_4.12.0/sources/okhttp3/internal/publicsuffix/NOTICE",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "d91a769a4140e542cddbac4e67fcf279299614e8bfd53bd23b85e60c2861341c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.squareup.okio:okio:3.6.0",
+      "classifier": "",
+      "sha256": "8e63292e5c53bb93c4a6b0c213e79f15990fed250c1340f1c343880e1c9c39b5",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/squareup/okio/okio/3.6.0/okio-3.6.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "64d5b6667f064511dd93100173f735b2d5052a1c926858f4b6a05b84e825ef94",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-jvm:3.6.0",
+      "classifier": "",
+      "sha256": "67543f0736fc422ae927ed0e504b98bc5e269fda0d3500579337cb713da28412",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "870a42a7b468af8fd24d67b7b62e5861aab398c56f15a80b10642e7001564e2f",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.10",
+      "classifier": "",
+      "sha256": "cde3341ba18a2ba262b0b7cf6c55b20c90e8d434e42c9a13e6a3f770db965a88",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.10/kotlin-stdlib-common-1.9.10-sources.jar",
+      "source_available": true,
+      "source_sha256": "63f2b6dfd58e3e1c82a4b37a2e1743996ca182bf44dc2aadd264b8fb95fddcd3",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21",
+      "classifier": "",
+      "sha256": "3db752a30074f06ee6c57984aa6f27da44f4d2bbc7f5442651f6988f1cb2b7d7",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21-sources.jar",
+      "source_available": true,
+      "source_sha256": "40e9a80f6b953d12389623760d438e69914098d0c4d7053f70f90533ec041259",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:1.8.21",
+      "classifier": "",
+      "sha256": "042a1cd1ac976cdcfe5eb63f1d8e0b0b892c9248e15a69c8cfba495d546ea52a",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.jetbrains.kotlin_kotlin-stdlib_1.8.21/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.8.21/kotlin-stdlib-1.8.21-sources.jar",
+      "source_available": true,
+      "source_sha256": "e60342da94ab52368157917916775b7f2f03bbd728aad3c9e86c3f02a93dbeec",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.jetbrains:annotations:13.0",
+      "classifier": "",
+      "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.jetbrains_annotations_13.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "42a5e144b8e81d50d6913d1007b695e62e614705268d8cf9f13dbdc478c2c68e",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21",
+      "classifier": "",
+      "sha256": "33d148db0e11debd0d90677d28242bced907f9c77730000fd597867089039d86",
+      "licenses": [
+        "The Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21-sources.jar",
+      "source_available": true,
+      "source_sha256": "ea10d3e5e6e695d8a5283cbf116321acae6ba42d0bdd3eda50f7c34a26fa25cb",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-vector:17.0.0",
+      "classifier": "",
+      "sha256": "8aeacff8d78d933e5f00310a725a9d40c254b32c32594b752dca477b169341fb",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-vector_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-vector_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-vector_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-vector_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-vector_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-vector/17.0.0/arrow-vector-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "9183c6acee8d427c9abada014639cc3832ce35eb72dbb3da42f3d8055b634778",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-format:17.0.0",
+      "classifier": "",
+      "sha256": "3110cc535059b5d8f2ac7fc776c930c1bb3ab8e103ce4863346760f1692b3ec0",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-format_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-format_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-format_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-format_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-format_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-format/17.0.0/arrow-format-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "ff46164e928b2162f72f60483cae8a3d1e5e9bee993639f9a902fdfb00189bf9",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-core:2.17.1",
+      "classifier": "",
+      "sha256": "ddb26c8a1f1a84535e8213c48b35b253370434e3287b3cf15777856fc4e58ce6",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/binary/META-INF/FastDoubleParser-LICENSE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/binary/META-INF/LICENSE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/binary/META-INF/NOTICE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/binary/META-INF/thirdparty-LICENSE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/sources/META-INF/jackson-core-LICENSE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/sources/META-INF/LICENSE",
+        "com.fasterxml.jackson.core_jackson-core_2.17.1/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "c2c97a708be197aae5fee64dcc8b5e8a09c76c79a44c0e8e5b48b235084ec395",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.17.1",
+      "classifier": "",
+      "sha256": "fccad82e13172c0e4384db71577219c9b8631c0820f4b18daaa57016fb661c76",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.fasterxml.jackson.core_jackson-annotations_2.17.1/binary/META-INF/LICENSE",
+        "com.fasterxml.jackson.core_jackson-annotations_2.17.1/binary/META-INF/NOTICE",
+        "com.fasterxml.jackson.core_jackson-annotations_2.17.1/sources/META-INF/NOTICE",
+        "com.fasterxml.jackson.core_jackson-annotations_2.17.1/sources/META-INF/LICENSE",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "21fac7bb75d7023f330b21df9b96c6f448740c84249e3ab3a3f1d6adac1f3d10",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.17.1",
+      "classifier": "",
+      "sha256": "b6ca2f7d5b1ab245cec5495ec339773d2d90554c48592590673fb18f4400a948",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.fasterxml.jackson.core_jackson-databind_2.17.1/binary/META-INF/LICENSE",
+        "com.fasterxml.jackson.core_jackson-databind_2.17.1/binary/META-INF/NOTICE",
+        "com.fasterxml.jackson.core_jackson-databind_2.17.1/sources/META-INF/NOTICE",
+        "com.fasterxml.jackson.core_jackson-databind_2.17.1/sources/META-INF/LICENSE",
+        "com.fasterxml.jackson.core_jackson-databind_2.17.1/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "4ff287ea4cb7030793be989007aa9b4bf22f88b3722a96cdec54fa9867bcc0be",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.1",
+      "classifier": "",
+      "sha256": "56765d55ac8cffdd757c1a534ec965e70b01176f64dfd7e70b0db34d8babc9fa",
+      "licenses": [
+        "The Apache Software License, Version 2.0"
+      ],
+      "license_urls": [
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "com.fasterxml.jackson.datatype_jackson-datatype-jsr310_2.17.1/binary/META-INF/LICENSE",
+        "com.fasterxml.jackson.datatype_jackson-datatype-jsr310_2.17.1/binary/META-INF/NOTICE",
+        "com.fasterxml.jackson.datatype_jackson-datatype-jsr310_2.17.1/sources/META-INF/LICENSE",
+        "com.fasterxml.jackson.datatype_jackson-datatype-jsr310_2.17.1/sources/META-INF/NOTICE",
+        "com.fasterxml.jackson.datatype_jackson-datatype-jsr310_2.17.1/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.17.1/jackson-datatype-jsr310-2.17.1-sources.jar",
+      "source_available": true,
+      "source_sha256": "f6d82e9eebbd60c7ec2f3359128c9925b73178e830bb18f2d83542ee280d9284",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "com.google.flatbuffers:flatbuffers-java:24.3.25",
+      "classifier": "",
+      "sha256": "f5b50034a53debda980aca803b8b06949f93a40163bc1db6cd69581d3718e355",
+      "licenses": [
+        "Apache License V2.0"
+      ],
+      "license_urls": [
+        "https://raw.githubusercontent.com/google/flatbuffers/master/LICENSE"
+      ],
+      "files": [
+        "com.google.flatbuffers_flatbuffers-java_24.3.25/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/flatbuffers/flatbuffers-java/24.3.25/flatbuffers-java-24.3.25-sources.jar",
+      "source_available": true,
+      "source_sha256": "97071f6fe46e684db8168380387c2f7be16d9b1c225bc5a393c1c0fd37ec5f02",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-memory-core:17.0.0",
+      "classifier": "",
+      "sha256": "27b7d85a152b23dc9b03356b71dec6ae3335c3a704ee70f6454f92791eb64e7a",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-memory-core_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-core_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-core_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-core_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-core_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-memory-core/17.0.0/arrow-memory-core-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "ccdac80e0c39f3b3c0d6778103daeed9e0120d64c3ca34d682e8fba45c496877",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-memory-netty:17.0.0",
+      "classifier": "",
+      "sha256": "1dc550cd8242056d7fcedc9ed9cd36d9b194c6ae139234c567bf0ce4af54b893",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-memory-netty_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-netty_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-netty_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-netty_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-netty_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-memory-netty/17.0.0/arrow-memory-netty-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "654a45c4bff127caf81834e6453fa2359f4a036ed27e2829ec168aa70abd8617",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-memory-netty-buffer-patch:17.0.0",
+      "classifier": "",
+      "sha256": "8540acb104d41294cfea6b027e6607da96b685c5b3cd9d77abb1152b695c5232",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-memory-netty-buffer-patch_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-netty-buffer-patch_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-netty-buffer-patch_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-memory-netty-buffer-patch_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-memory-netty-buffer-patch_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-memory-netty-buffer-patch/17.0.0/arrow-memory-netty-buffer-patch-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "76025e23a1f904ea4cd728ef8147ae09ca6e6325f37f9d0fb8281297d7879fc5",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "org.apache.arrow:arrow-compression:17.0.0",
+      "classifier": "",
+      "sha256": "88cff0a0cdf5eee022cc6ce0bec04f401d3028f341f1dd1d8844c8f8f0904358",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      ],
+      "files": [
+        "org.apache.arrow_arrow-compression_17.0.0/binary/META-INF/LICENSE",
+        "org.apache.arrow_arrow-compression_17.0.0/binary/META-INF/NOTICE",
+        "org.apache.arrow_arrow-compression_17.0.0/sources/META-INF/LICENSE",
+        "org.apache.arrow_arrow-compression_17.0.0/sources/META-INF/NOTICE",
+        "org.apache.arrow_arrow-compression_17.0.0/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/arrow/arrow-compression/17.0.0/arrow-compression-17.0.0-sources.jar",
+      "source_available": true,
+      "source_sha256": "8ee0737e532916555c23e96ffa177c8e04ef117c74e110aaa6450eda7e8f8dac",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-all:4.1.119.Final",
+      "classifier": "",
+      "sha256": "ff8f0e067a85452082d039b307cf2d3dd040725c3a7ee68d427bd8b7841ac714",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-all/4.1.119.Final/netty-all-4.1.119.Final-sources.jar",
+      "source_available": false,
+      "source_sha256": null,
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-buffer:4.1.119.Final",
+      "classifier": "",
+      "sha256": "32226218d854c2e51d4935a7ebe4663b72ecb9af4da881b86bf518e61aed48d3",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-buffer_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.119.Final/netty-buffer-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "36ba5e57939c7452c21436f071d3ec29f63effe92938d73c6e641c4cfa07e315",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec:4.1.119.Final",
+      "classifier": "",
+      "sha256": "c497934a057444b126a86e06f2b509188e48ca6c5a5e14c182a02f1e8c8d5fdb",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.119.Final/netty-codec-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "02fdba911b1ceadd8607c8f764ffc77f9573431b4afbfc5b7c4ece9ffc9f036d",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-dns:4.1.119.Final",
+      "classifier": "",
+      "sha256": "8893bb399849629eecaa1fa12d48aad73161721b7ce75fdeb72e6e40c549ad55",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-dns_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-dns/4.1.119.Final/netty-codec-dns-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "4c7317e8e6923f26d77d1421626969e625c34aa5d67209afab37a6a9a5b843c8",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-haproxy:4.1.119.Final",
+      "classifier": "",
+      "sha256": "dfbcbb4e45c5830695539ed9e8bdfe10740aa2b2ccd037f7c6c2579f2e70abfe",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-haproxy_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-haproxy/4.1.119.Final/netty-codec-haproxy-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "2ec4e906ab97bfe9537a96c6c60f8a3556676fb6c7bb4d0c5c521fc241cf0655",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-http:4.1.119.Final",
+      "classifier": "",
+      "sha256": "ff48db63e44e273e677832e52cc2a1ce2670da796f22af129a8bd4c3786a2d34",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-http_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-http/4.1.119.Final/netty-codec-http-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "b68caca68d53e6ece229f03caf10e35f64f14e580c1f322286f809367b701cb6",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-http2:4.1.119.Final",
+      "classifier": "",
+      "sha256": "5ea89af402b6f59715a84780c4cd0388f4e602e339a5b7b888c17ce9f5537d1a",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-http2_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-http2/4.1.119.Final/netty-codec-http2-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "f2f3a4abd0e98451173078dabbe6df08c617f34300f6399d844c60aea218d79c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-memcache:4.1.119.Final",
+      "classifier": "",
+      "sha256": "995012f640c21f26d8763c43059cb9a35e529da00960e03dceef42df3eb40abf",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-memcache_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-memcache/4.1.119.Final/netty-codec-memcache-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "140f5fddcf588df3367a421923136d59971c65f443d36234e22c185b0e488f6f",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-mqtt:4.1.119.Final",
+      "classifier": "",
+      "sha256": "3983330501e36e91975e60ea311858de64da5122a0b51f6e3c28dd77fbf14441",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-mqtt_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-mqtt/4.1.119.Final/netty-codec-mqtt-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "e0a2df3739606295c38c3f8f024bffd64150ff74f1c379aa4090807099002d13",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-redis:4.1.119.Final",
+      "classifier": "",
+      "sha256": "8d903c1f939566ee6d9c775fe2cdf7ed9933e772793e6a80d2595da62d647ef5",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-redis_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-redis/4.1.119.Final/netty-codec-redis-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "d75f87d1d92f2d5e718de61091e812493f096bafbf38d0d07865f483e0e5e288",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-smtp:4.1.119.Final",
+      "classifier": "",
+      "sha256": "a6c230dc9d523138890cea3c7cf2403739c6fc2b1643fe8b6e377ea3ec267eb4",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-smtp_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-smtp/4.1.119.Final/netty-codec-smtp-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "b273beaf3bcb268eaba99e3c1fdfcb6159da33d1ff19d27d751226dba150d257",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-socks:4.1.119.Final",
+      "classifier": "",
+      "sha256": "a85103bb1a32cf56b8d77e57f6647a859751cab6be189085df76eed18bb54c9a",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-socks_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-socks/4.1.119.Final/netty-codec-socks-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "a42ec8cfb2b4c4fdcaba8b04e65906124ffe91fadafaee390b9a6b7e2c094d27",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-stomp:4.1.119.Final",
+      "classifier": "",
+      "sha256": "f432949fd3944889a7eba221fa467179f3f8fc77189b891bedf8865da10dcebd",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-stomp_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-stomp/4.1.119.Final/netty-codec-stomp-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "3c753827867f3d37a5426e79b6ead747427644db2317605922c2cf373e460876",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-codec-xml:4.1.119.Final",
+      "classifier": "",
+      "sha256": "50b4a68dfc9e6815453da5edd366877d951a64dc1b14286be4c3438b5966e0b8",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-codec-xml_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-codec-xml/4.1.119.Final/netty-codec-xml-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "01a22dd84f843111f4e7151a14ccb978bcd0002cf3cc1968b3de1dbd4f348b48",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-common:4.1.119.Final",
+      "classifier": "",
+      "sha256": "991a69b1594dcad9926e268e7e94530cfdaa89feef42af26922a302d3e2e9212",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-common_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.119.Final/netty-common-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "6246ab027355d9d7a7d964db19172bb426d9fa8957e9aaeef3fb71b9e9d0e5ed",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-handler:4.1.119.Final",
+      "classifier": "",
+      "sha256": "9b49be98e36bb79a2025ffb5159aec87da2720cfa545f56de39c3bc108587b1b",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-handler_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.119.Final/netty-handler-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "38ba7ef33e099c5a84e8051448227199d381a4134ccf6955fd7da9f8f6237f6f",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-unix-common:4.1.119.Final",
+      "classifier": "",
+      "sha256": "8ae5618f69326e6d17b77b0140f9d277118dbd23906ca07638bc01365728c650",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-native-unix-common_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.119.Final/netty-transport-native-unix-common-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "3fd3cd8e075800cb3d9bcb476d1b9e7828dbe659b75ac182c0f7dbba97614376",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-handler-proxy:4.1.119.Final",
+      "classifier": "",
+      "sha256": "7a35e62259a43e5dbdc2e402934b1f64084ce73aecf7b42ce647c918a6e5f617",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-handler-proxy_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-handler-proxy/4.1.119.Final/netty-handler-proxy-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "fb3ea88fb8a537c004302d0a2db94e47bd08bf3e65b269ae03fc21f9f70ba92d",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-handler-ssl-ocsp:4.1.119.Final",
+      "classifier": "",
+      "sha256": "d2e93050a826042ee5c8463fc58a2d37769f18024200ba11cd5c48c160c1bdf7",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-handler-ssl-ocsp_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-handler-ssl-ocsp/4.1.119.Final/netty-handler-ssl-ocsp-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "62c518c9243febded98902eb8cd33103f6aad89ff793a72c9ecc00d16f953113",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-resolver:4.1.119.Final",
+      "classifier": "",
+      "sha256": "3b6c9f9f6f360747213d154971dec1fc8852820dc1a98d055ff09d09676f8836",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-resolver_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.119.Final/netty-resolver-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "26d3278a6f46f0b8969cae08c6201b1c4087a95709baeec469149d130d3075ea",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-resolver-dns:4.1.119.Final",
+      "classifier": "",
+      "sha256": "119e1dae4b207197ec6a4b434894894930b0b089a2459a88706d1407cf975b09",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-resolver-dns_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns/4.1.119.Final/netty-resolver-dns-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "a5b089ef8dfc38f3c49f09516260afe802c425c1f1c515015a7e0a15791e3eb6",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport:4.1.119.Final",
+      "classifier": "",
+      "sha256": "c0921ea0e79c3b936daabe08a26e926642a4ad24951d6115fb43362c21dfeb10",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.119.Final/netty-transport-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "a697925b52e7323464879e31b856a14d6bef70255877dc1b0b88e82f12daad68",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-rxtx:4.1.119.Final",
+      "classifier": "",
+      "sha256": "0ac1a499381b788cd46c385aa7602cfbd5220e4f625e95b7dc01f697f89879cb",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-rxtx_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-rxtx/4.1.119.Final/netty-transport-rxtx-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "81017dc318c9ebac7de4f6312a0d359da7c3c8336a1ab8bbc253afadcc0e37cd",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-sctp:4.1.119.Final",
+      "classifier": "",
+      "sha256": "56dfd88d0f679bade22480c6d581f780e36b22b87c33fbaec4419916e88b56cc",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-sctp_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-sctp/4.1.119.Final/netty-transport-sctp-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "23447bfe7988100459846549ad8fee4f97bff009179bbf5465b8edc487b00562",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-udt:4.1.119.Final",
+      "classifier": "",
+      "sha256": "9038729f758cc859012dfebebb7de7764b78bd03db3c5a517f60fb144d62c4d8",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-udt_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-udt/4.1.119.Final/netty-transport-udt-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "52ff7990c4e81859779e226487de748b4a35e1fcdaec150a3498a89346b88837",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-classes-epoll:4.1.119.Final",
+      "classifier": "",
+      "sha256": "38edbceb4d0f3c1c87bc8db9f812d317342c9c8e95a4a052fb796a2f78ad098e",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-classes-epoll_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-classes-epoll/4.1.119.Final/netty-transport-classes-epoll-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "573c41c7895b1b737da57be8061adfcdc9f91315cbe4cb01b88585b9ac6b4f23",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-classes-kqueue:4.1.119.Final",
+      "classifier": "",
+      "sha256": "af84f71a0bcde9e4ca2d8f1cb7bf6a6d4d249923a79ace14a86fea818a8f90f7",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-transport-classes-kqueue_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-classes-kqueue/4.1.119.Final/netty-transport-classes-kqueue-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "c8d1468630c11b6f639d22441753ffb5b4c74e3cc42615a584d9b27849204957",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-resolver-dns-classes-macos:4.1.119.Final",
+      "classifier": "",
+      "sha256": "c707e72bb03de399a0594c2ed0b017b5eaa2b7ae31892d1944d835deb61a3c1f",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "io.netty_netty-resolver-dns-classes-macos_4.1.119.Final/source-attributions.txt",
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns-classes-macos/4.1.119.Final/netty-resolver-dns-classes-macos-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "3eee8402295d0d86698cfa863f51a1f8e3304332c13207cfb95a6d8a738ac556",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-epoll:4.1.119.Final",
+      "classifier": "linux-x86_64",
+      "sha256": "12557923a5069e736a9305c73a87b303ba9e89b32da3ec95dea6a856f3fd6397",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-epoll/4.1.119.Final/netty-transport-native-epoll-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "5df087a4612446c475cb734fe6ca70f7abc207c936353afb7118e4ff43250567",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-epoll:4.1.119.Final",
+      "classifier": "linux-aarch_64",
+      "sha256": "225aef9562189662e03c92bd5e5b3eb851a5499d87ef902b264cb924988b187d",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-epoll/4.1.119.Final/netty-transport-native-epoll-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "5df087a4612446c475cb734fe6ca70f7abc207c936353afb7118e4ff43250567",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-epoll:4.1.119.Final",
+      "classifier": "linux-riscv64",
+      "sha256": "565c6603d3bdb5bf0f3c3764a671035f5602ea5b15d8c985a40985e2309a550f",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-epoll/4.1.119.Final/netty-transport-native-epoll-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "5df087a4612446c475cb734fe6ca70f7abc207c936353afb7118e4ff43250567",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-kqueue:4.1.119.Final",
+      "classifier": "osx-x86_64",
+      "sha256": "bc3977b0cd56a3df61c6117a8df41dfd3aefee862e3c51ca0d4a38c333ff4aa0",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-kqueue/4.1.119.Final/netty-transport-native-kqueue-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "d754731277844651397233795974416b2b21f455f43e5b9f5eb7ff6dce5b3d3c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-transport-native-kqueue:4.1.119.Final",
+      "classifier": "osx-aarch_64",
+      "sha256": "52d80683a7644cef4294a719d285cd68979a824319081e240d149cb2e65cc751",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-kqueue/4.1.119.Final/netty-transport-native-kqueue-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "d754731277844651397233795974416b2b21f455f43e5b9f5eb7ff6dce5b3d3c",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-resolver-dns-native-macos:4.1.119.Final",
+      "classifier": "osx-x86_64",
+      "sha256": "7a1be00ce8dbce562cdb5b59f977aabfd003a62e1b0861eb1b48c0634ec5e8b0",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns-native-macos/4.1.119.Final/netty-resolver-dns-native-macos-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "ee094e4ee570e67f99a9f49e0aee8e5fbe765193daad69b6d8ff507191d0ec3b",
+      "status": "documented",
+      "notes": ""
+    },
+    {
+      "coordinate": "io.netty:netty-resolver-dns-native-macos:4.1.119.Final",
+      "classifier": "osx-aarch_64",
+      "sha256": "c25672328e662cd6a414b72efba961af0a45d7f194b9e43b4a7d619339479e75",
+      "licenses": [
+        "Apache License, Version 2.0"
+      ],
+      "license_urls": [
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "files": [
+        "Apache-2.0.txt"
+      ],
+      "source_url": "https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns-native-macos/4.1.119.Final/netty-resolver-dns-native-macos-4.1.119.Final-sources.jar",
+      "source_available": true,
+      "source_sha256": "ee094e4ee570e67f99a9f49e0aee8e5fbe765193daad69b6d8ff507191d0ec3b",
+      "status": "documented",
+      "notes": ""
+    }
+  ]
+}

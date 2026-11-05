@@ -1,0 +1,67 @@
+Source paths: io/netty/handler/codec/dns/TcpDnsResponseEncoder.java, io/netty/handler/codec/dns/TcpDnsQueryDecoder.java
+/*
+ * Copyright 2021 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/dns/DatagramDnsResponseEncoder.java, io/netty/handler/codec/dns/DnsRecord.java, io/netty/handler/codec/dns/DatagramDnsQuery.java, io/netty/handler/codec/dns/DatagramDnsQueryDecoder.java, io/netty/handler/codec/dns/DnsMessage.java, io/netty/handler/codec/dns/DnsRecordDecoder.java, io/netty/handler/codec/dns/DefaultDnsRecordEncoder.java, io/netty/handler/codec/dns/DnsOpCode.java, io/netty/handler/codec/dns/DefaultDnsQuestion.java, io/netty/handler/codec/dns/DnsRecordType.java, io/netty/handler/codec/dns/DnsResponse.java, io/netty/handler/codec/dns/DefaultDnsRawRecord.java, io/netty/handler/codec/dns/DnsQuery.java, io/netty/handler/codec/dns/AbstractDnsRecord.java, io/netty/handler/codec/dns/DnsSection.java, io/netty/handler/codec/dns/AbstractDnsMessage.java, io/netty/handler/codec/dns/DnsMessageUtil.java, io/netty/handler/codec/dns/DatagramDnsResponseDecoder.java, io/netty/handler/codec/dns/DnsRawRecord.java, io/netty/handler/codec/dns/DefaultDnsRecordDecoder.java, io/netty/handler/codec/dns/DnsRecordEncoder.java, io/netty/handler/codec/dns/DatagramDnsQueryEncoder.java, io/netty/handler/codec/dns/DnsResponseCode.java, io/netty/handler/codec/dns/DatagramDnsResponse.java, io/netty/handler/codec/dns/DnsQuestion.java, io/netty/handler/codec/dns/DefaultDnsQuery.java, io/netty/handler/codec/dns/package-info.java, io/netty/handler/codec/dns/DefaultDnsResponse.java
+/*
+ * Copyright 2015 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/dns/DnsOptEcsRecord.java, io/netty/handler/codec/dns/DnsPtrRecord.java, io/netty/handler/codec/dns/AbstractDnsOptPseudoRrRecord.java, io/netty/handler/codec/dns/DefaultDnsOptEcsRecord.java, io/netty/handler/codec/dns/DefaultDnsPtrRecord.java, io/netty/handler/codec/dns/DnsOptPseudoRecord.java
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+Source paths: io/netty/handler/codec/dns/TcpDnsQueryEncoder.java, io/netty/handler/codec/dns/DnsCodecUtil.java, io/netty/handler/codec/dns/DnsQueryEncoder.java, io/netty/handler/codec/dns/TcpDnsResponseDecoder.java, io/netty/handler/codec/dns/DnsResponseDecoder.java
+/*
+ * Copyright 2019 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
