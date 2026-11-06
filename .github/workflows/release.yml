@@ -1,108 +1,55 @@
-name: Stage approved Maven release
+name: Check Maven signing key
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Approved public release tag
-        required: true
 permissions:
   contents: read
 jobs:
-  resolve:
-    if: github.event.repository.private == false
+  signing-probe:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
-    outputs:
-      commit: ${{ steps.commit.outputs.sha }}
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: refs/tags/${{ inputs.tag }}
-          persist-credentials: false
-      - name: Resolve the release tag to a commit
-        id: commit
-        run: |
-          commit=$(git rev-parse --verify HEAD)
-          printf 'sha=%s\n' "$commit" >> "$GITHUB_OUTPUT"
-
-  verify:
-    needs: resolve
-    uses: ./.github/workflows/ci.yml
-    with:
-      source_ref: ${{ needs.resolve.outputs.commit }}
-
-  stage:
-    needs: [resolve, verify]
-    environment: maven-central
-    runs-on: ubuntu-24.04
-    timeout-minutes: 45
     env:
-      RELEASE_TAG: ${{ inputs.tag }}
-      PUBLIC_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
       MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
-      MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ needs.resolve.outputs.commit }}
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Verify Central credentials and exact tag
-        shell: bash
-        run: |
-          : "${MAVEN_USERNAME:?Configure CENTRAL_USERNAME}" "${MAVEN_PASSWORD:?Configure CENTRAL_PASSWORD}"
-          commit=$(git rev-parse --verify HEAD)
-          tagged_commit=$(git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}")
-          test "$commit" = "$tagged_commit"
       - name: Create an isolated signing keyring
         shell: bash
         run: |
-          keyring=$(mktemp -d "$RUNNER_TEMP/connector-gpg.XXXXXX")
+          keyring=$(mktemp -d "$RUNNER_TEMP/signing-probe.XXXXXX")
           printf 'GNUPGHOME=%s\n' "$keyring" >> "$GITHUB_ENV"
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
           java-version: '17'
-          server-id: central
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Read the imported signing key fingerprint
+      - name: Report signing key validity
         shell: bash
         run: |
-          fingerprint=$(gpg --batch --with-colons --list-secret-keys |
-            awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; primary = 0 }')
-          if [[ ! "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]; then
-            echo "::error::GPG_PRIVATE_KEY must contain exactly one primary secret key with a 40-character hex fingerprint."
+          key_records="$RUNNER_TEMP/key-records"
+          gpg --batch --with-colons --list-options show-unusable-subkeys --list-secret-keys > "$key_records"
+          python3 - "$key_records" <<'PYTHON'
+          from datetime import datetime, timezone
+          from pathlib import Path
+          import sys
+          for line in Path(sys.argv[1]).read_text().splitlines():
+              record = line.split(':')
+              if record[0] not in ('sec', 'ssb'):
+                  continue
+              expiry = datetime.fromtimestamp(int(record[6]), timezone.utc) if record[6] else None
+              local_secret = record[14] == '+'
+              print(f"{record[0]} expired={bool(expiry and expiry <= datetime.now(timezone.utc))}"
+                    f" revoked={record[1] == 'r'} local_secret={local_secret}"
+                    f" signing_capability={'s' in record[11]} expires_utc={expiry or 'none'}")
+          PYTHON
+          fingerprint=$(awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; primary = 0 }' "$key_records")
+          [[ "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]
+          printf '%s\n' 'Disposable signing probe' > "$RUNNER_TEMP/signing-probe.txt"
+          if printf '%s\n' "$MAVEN_GPG_PASSPHRASE" |
+              gpg --batch --pinentry-mode loopback --passphrase-fd 0 --local-user "$fingerprint" \
+                --status-fd 1 --output "$RUNNER_TEMP/signing-probe.sig" --detach-sign \
+                "$RUNNER_TEMP/signing-probe.txt" > "$RUNNER_TEMP/signing-status" 2> "$RUNNER_TEMP/signing-errors"; then
+            echo "Disposable signature created successfully."
+          else
+            awk '$1 == "[GNUPG:]" && $2 ~ /^(KEYEXPIRED|KEYREVOKED|INV_SGNR|BAD_PASSPHRASE|NO_SECKEY|FAILURE)$/ { print $2, $3 }' "$RUNNER_TEMP/signing-status"
+            echo "::error::The imported key could not sign the disposable probe."
             exit 1
           fi
-          printf 'SIGNING_KEY_FINGERPRINT=%s\n' "$fingerprint" >> "$GITHUB_ENV"
-      - name: Check strict source and dependency closure before staging
-        shell: bash
-        run: |
-          mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
-            -B -ntp -Ppublic org.apache.maven.plugins:maven-dependency-plugin:3.8.1:tree \
-            -DoutputType=json -DoutputFile=target/public-dependency-tree.json
-          for line in 1.16 1.17 1.20; do
-            python3 tools/check-public.py --release --flink-line "$line"
-          done
-      - name: Test, sign and stage for manual Central publication
-        shell: bash
-        run: |
-          mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
-            -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
-            -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
-            -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
-      - name: Verify signatures and record distributed artifact hashes
-        shell: bash
-        run: |
-          shopt -s nullglob
-          signatures=(target/*.asc flink/1.16/target/*.asc flink/1.17/target/*.asc flink/1.20/target/*.asc)
-          test "${#signatures[@]}" -ge 4
-          for signature in "${signatures[@]}"; do
-            gpg --batch --verify "$signature" "${signature%.asc}"
-          done
-          sha256sum flink/*/target/*.jar "${signatures[@]}" > target/release-sha256.txt
