@@ -12,16 +12,16 @@ receipts, private CI configuration and binary build outputs outside the source t
 
 ## Bundled binary and Maven publication
 
-The first Maven release uses one source tag, `v1.20.0`, for the parent POM and the
+The first Maven release uses one source tag, `v1.0.0`, for the parent POM and the
 three connector modules. Submit all four coordinates in the same Central deployment.
 The shaded classifier is the deployable Flink connector for each runtime.
 
 | Artifact in `com.aliyun.odps` | Version |
 | --- | --- |
-| `flink-connector-maxcompute-parent` | `1.20.0` |
-| `flink-connector-maxcompute-1.16` | `1.16.0` |
-| `flink-connector-maxcompute-1.17` | `1.17.0` |
-| `flink-connector-maxcompute-1.20` | `1.20.0` |
+| `flink-connector-maxcompute-parent` | `1.0.0` |
+| `flink-connector-maxcompute` | `1.0.0-1.16` |
+| `flink-connector-maxcompute` | `1.0.0-1.17` |
+| `flink-connector-maxcompute` | `1.0.0-1.20` |
 
 1. Obtain the organizational open-source approval, confirm copyright/provenance and
    approve the source whitelist and third-party redistribution obligations. Resolve

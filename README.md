@@ -19,11 +19,10 @@ cd maxcompute-connector-for-apache-flink
 python3 tools/verify-matrix.py
 ```
 
-The `public` profile builds `flink/<line>/target/flink-connector-maxcompute-<line>-<version>-shaded.jar`
-with its SDK dependencies and verifies it in an isolated consumer. Install that jar
-in the Flink cluster's `lib/` directory and restart the cluster. Flink dependencies
-are provided by the runtime. The version is the current source version; this guide
-does not imply that it has been published to Maven Central.
+The `public` profile builds `flink/<line>/target/flink-connector-maxcompute-<release>-<line>-shaded.jar`
+with its SDK dependencies and verifies it in an isolated consumer. Install the JAR
+for your Flink runtime in the cluster's `lib/` directory and restart the cluster.
+The runtime provides the Flink dependencies.
 
 See [multi-version builds](docs/multi-version.md) for source sharing, version selection and CI.
 

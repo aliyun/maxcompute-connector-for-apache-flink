@@ -8,7 +8,7 @@
 | Build/runtime JDK | 17 |
 | Maven | 3.9 |
 | MaxCompute Java SDK | 0.61.2-public |
-| Connector source version | 1.20.0 |
+| Connector release | 1.0.0 |
 
 Java 8 bytecode is a compiler target, not JDK 8 runtime acceptance. Other Flink
 versions and VVR distributions need separate validation. See [multi-version builds](multi-version.md) for the adapter layout and reproducible matrix; recorded historical results below retain their original version scope. Existing deployments must
