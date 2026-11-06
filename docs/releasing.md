@@ -12,10 +12,22 @@ receipts, private CI configuration and binary build outputs outside the source t
 
 ## Bundled binary and Maven publication
 
+The first Maven release uses one source tag, `v1.20.0`, for the parent POM and the
+three connector modules. Submit all four coordinates in the same Central deployment.
+The shaded classifier is the deployable Flink connector for each runtime.
+
+| Artifact in `com.aliyun.odps` | Version |
+| --- | --- |
+| `flink-connector-maxcompute-parent` | `1.20.0` |
+| `flink-connector-maxcompute-1.16` | `1.16.0` |
+| `flink-connector-maxcompute-1.17` | `1.17.0` |
+| `flink-connector-maxcompute-1.20` | `1.20.0` |
+
 1. Obtain the organizational open-source approval, confirm copyright/provenance and
    approve the source whitelist and third-party redistribution obligations. Resolve
-   every `review-required` entry in `licenses/third-party.json`; JavaCsv 2.0 currently
-   blocks release. Retain exact corresponding-source/notice proof in the review.
+   every `review-required` entry in `licenses/third-party.json`. Retain exact
+   corresponding-source and notice evidence in the review, including the
+   [archived JavaCsv 2.0 source](../licenses/net.sourceforge.javacsv_javacsv_2.0/source-provenance.txt).
 2. Select the actual public repository and release version/tag. Export the reviewed
    commit with `python3 tools/export-public.py --ref <commit> --output <new-directory>`.
    The exporter omits Git history and legacy fixed-environment examples, records file

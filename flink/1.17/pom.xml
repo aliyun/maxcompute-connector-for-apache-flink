@@ -8,6 +8,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <artifactId>flink-connector-maxcompute-1.17</artifactId>
+    <version>1.17.0</version>
     <properties>
         <connector.root>${project.basedir}/../..</connector.root>
         <flink.line>1.17</flink.line>

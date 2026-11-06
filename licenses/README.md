@@ -16,16 +16,11 @@ texts; Activation 1.1 retains its CDDL-1.0 text and source reference. AspectJ re
 EPL-2.0, JTS its dual-license attribution and EDL-1.0, ICU its exact Unicode license.
 These obligations require the organization's redistribution review before release.
 
-## Release blocker: JavaCsv 2.0
+## JavaCsv 2.0
 
-`net.sourceforge.javacsv:javacsv:2.0` is used by the SDK's SQL CSV readback and cannot
-be discarded without breaking it. Central serves the binary but no corresponding
-sources/license artifact. The official SourceForge project currently supplies 2.1,
-whose source declares LGPL-2.1-or-later; the 2.0 download returns 404 and its binary
-hash differs from 2.1. The 2.1 header is retained only as an explicitly labeled
-reference. Confirm the exact 2.0 license/corresponding source, or deliver a reviewed
-SDK/dependency replacement, before redistributing this jar. `review-required` is a
-release failure; a candidate build passing tests does not clear it.
-
-Official project: https://sourceforge.net/projects/javacsv/files/JavaCsv/
-Official current source: https://sourceforge.net/projects/javacsv/files/JavaCsv/JavaCsv%202.1/javacsv2.1.zip/download
+The SDK uses `net.sourceforge.javacsv:javacsv:2.0` for SQL CSV readback. The Fedora
+source RPM preserves the original 2.0 archive. Its embedded JAR is byte-identical
+to the Central artifact and both library source files declare LGPL-2.1-or-later.
+The [provenance record](net.sourceforge.javacsv_javacsv_2.0/source-provenance.txt)
+contains the pinned checksums and source extraction command. Include this material
+in the organizational redistribution review.
