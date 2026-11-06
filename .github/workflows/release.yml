@@ -8,9 +8,29 @@ on:
 permissions:
   contents: read
 jobs:
-  stage:
-    # A public source repository and a protected maven-central environment are prerequisites.
+  resolve:
     if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+          persist-credentials: false
+      - name: Resolve the release tag to a commit
+        id: commit
+        run: printf 'sha=%s\n' "$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  verify:
+    needs: resolve
+    uses: ./.github/workflows/ci.yml
+    with:
+      source_ref: ${{ needs.resolve.outputs.commit }}
+
+  stage:
+    needs: [resolve, verify]
     environment: maven-central
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -22,15 +42,10 @@ jobs:
       MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
-      ODPS_ACCESS_ID: ${{ secrets.MAXCOMPUTE_ACCESS_ID }}
-      ODPS_ACCESS_KEY: ${{ secrets.MAXCOMPUTE_ACCESS_KEY }}
-      ODPS_SECURITY_TOKEN: ${{ secrets.MAXCOMPUTE_SECURITY_TOKEN }}
-      MAXCOMPUTE_PROJECT: ${{ vars.MAXCOMPUTE_TEST_PROJECT }}
-      MAXCOMPUTE_ENDPOINT: ${{ vars.MAXCOMPUTE_TEST_ENDPOINT }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ inputs.tag }}
+          ref: ${{ needs.resolve.outputs.commit }}
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
@@ -48,8 +63,7 @@ jobs:
           python3 - <<'PYTHON'
           import os
           required = ['APPROVAL_REFERENCE', 'APPROVED_KEY_FINGERPRINT', 'MAVEN_USERNAME',
-                      'MAVEN_PASSWORD', 'ODPS_ACCESS_ID', 'ODPS_ACCESS_KEY',
-                      'MAXCOMPUTE_PROJECT', 'MAXCOMPUTE_ENDPOINT']
+                      'MAVEN_PASSWORD']
           missing = [name for name in required if not os.environ.get(name)]
           if missing:
               raise SystemExit('Missing protected release configuration: ' + ', '.join(missing))
@@ -72,8 +86,7 @@ jobs:
             -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
             -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
             -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$APPROVED_KEY_FINGERPRINT" \
-            -Dmaxcompute.e2e.allow-write=true clean deploy
+            -Dgpg.keyname="$APPROVED_KEY_FINGERPRINT" clean deploy
       - name: Verify signatures and record distributed artifact hashes
         shell: bash
         run: |

@@ -34,18 +34,22 @@ The shaded classifier is the deployable Flink connector for each runtime.
    hashes, and never pushes. Rebuild this exported tree with a clean Maven repository,
    run `tools/check-public.py --flink-line <line>` for all three runtime lines,
    inspect source/javadoc jars and review the final diff.
-3. Run offline and isolated distributed-jar checks, then the two real-service suites
-   from `docs/testing.md` on an approved test project. Record commit, JDK/SDK/Flink
-   versions, run URLs, counts, fault injection and cleanup/readback. CI compilation,
-   historical tests and skipped service tests cannot replace this evidence.
+3. Verify the exact release tag with the [connector CI workflow](../.github/workflows/ci.yml).
+   The release workflow runs its source, distributed-jar and Docker Emulator checks
+   on the tagged commit before requesting access to the publishing environment.
+   All three Flink lines must pass. See [testing](testing.md) for the separate
+   real-service suites.
 4. Provision Central namespace/token and the approved PGP identity in the protected
-   publishing environment. Verify fingerprint, validity and public-key distribution.
-   Keep private key/passphrase in secrets. The Maven GPG plugin reads its passphrase
-   from `MAVEN_GPG_PASSPHRASE`; never pass it with `-Dgpg.passphrase`.
+   `maven-central` environment. Set `GPG_KEY_FINGERPRINT` to the 40-hex-digit
+   fingerprint of the approved signing key. Verify validity and public-key
+   distribution. Set `OPEN_SOURCE_APPROVAL_REFERENCE` to the organizational
+   approval ID or link covering source publication and bundled redistribution.
+   Store `GPG_PRIVATE_KEY` and `GPG_PASSPHRASE` as secrets. The Maven GPG plugin
+   reads its passphrase from `MAVEN_GPG_PASSPHRASE`.
 5. The signing/publishing profile requires verified approval reference, public SCM URL,
    exact tag, signing fingerprint, JDK 17, release dependencies and all test skip flags
-   set to false. It also executes the real-service suites. `release-artifacts` must be
-   present to attach sources/javadoc; `public` supplies the distributed-jar gate.
+   set to false. `release-artifacts` attaches sources and Javadoc jars.
+   `public` supplies the distributed-jar gate.
 
 ```sh
 mvn -Ppublic,release-artifacts,release \
@@ -53,8 +57,7 @@ mvn -Ppublic,release-artifacts,release \
   -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
   -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
   -Dconnector.scm.tag="$RELEASE_TAG" \
-  -Dgpg.keyname="$APPROVED_KEY_FINGERPRINT" \
-  -Dmaxcompute.e2e.allow-write=true clean verify
+  -Dgpg.keyname="$APPROVED_KEY_FINGERPRINT" clean verify
 for line in 1.16 1.17 1.20; do
   python3 tools/check-public.py --release --flink-line "$line"
 done
