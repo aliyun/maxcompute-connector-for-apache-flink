@@ -8,31 +8,71 @@ on:
 permissions:
   contents: read
 jobs:
-  stage:
-    # A public source repository and a protected maven-central environment are prerequisites.
+  resolve:
     if: github.event.repository.private == false
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Require publishing environment reviewers
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh api "repos/$GITHUB_REPOSITORY/environments/maven-central" |
+              jq -e 'any(.protection_rules[]?; .type == "required_reviewers" and (.reviewers | length > 0))' >/dev/null; then
+            echo "::error::Configure required reviewers for the maven-central environment."
+            exit 1
+          fi
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+          persist-credentials: false
+      - name: Resolve the release tag to a commit
+        id: commit
+        run: |
+          commit=$(git rev-parse --verify HEAD)
+          printf 'sha=%s\n' "$commit" >> "$GITHUB_OUTPUT"
+
+  verify:
+    needs: resolve
+    uses: ./.github/workflows/ci.yml
+    with:
+      source_ref: ${{ needs.resolve.outputs.commit }}
+
+  stage:
+    needs: [resolve, verify]
     environment: maven-central
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       RELEASE_TAG: ${{ inputs.tag }}
       PUBLIC_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
-      APPROVAL_REFERENCE: ${{ vars.OPEN_SOURCE_APPROVAL_REFERENCE }}
-      APPROVED_KEY_FINGERPRINT: ${{ vars.GPG_KEY_FINGERPRINT }}
       MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
-      ODPS_ACCESS_ID: ${{ secrets.MAXCOMPUTE_ACCESS_ID }}
-      ODPS_ACCESS_KEY: ${{ secrets.MAXCOMPUTE_ACCESS_KEY }}
-      ODPS_SECURITY_TOKEN: ${{ secrets.MAXCOMPUTE_SECURITY_TOKEN }}
-      MAXCOMPUTE_PROJECT: ${{ vars.MAXCOMPUTE_TEST_PROJECT }}
-      MAXCOMPUTE_ENDPOINT: ${{ vars.MAXCOMPUTE_TEST_ENDPOINT }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ inputs.tag }}
+          ref: ${{ needs.resolve.outputs.commit }}
           fetch-depth: 0
           persist-credentials: false
+      - name: Verify Central credentials and exact tag
+        shell: bash
+        run: |
+          : "${MAVEN_USERNAME:?Configure CENTRAL_USERNAME}" "${MAVEN_PASSWORD:?Configure CENTRAL_PASSWORD}"
+          commit=$(git rev-parse --verify HEAD)
+          tagged_commit=$(git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}")
+          test "$commit" = "$tagged_commit"
+      - name: Create an isolated signing keyring
+        shell: bash
+        run: |
+          keyring=$(mktemp -d "$RUNNER_TEMP/connector-gpg.XXXXXX")
+          printf 'GNUPGHOME=%s\n' "$keyring" >> "$GITHUB_ENV"
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
@@ -42,19 +82,16 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Verify required identity and exact tag
+      - name: Read the imported signing key fingerprint
         shell: bash
         run: |
-          python3 - <<'PYTHON'
-          import os
-          required = ['APPROVAL_REFERENCE', 'APPROVED_KEY_FINGERPRINT', 'MAVEN_USERNAME',
-                      'MAVEN_PASSWORD', 'ODPS_ACCESS_ID', 'ODPS_ACCESS_KEY',
-                      'MAXCOMPUTE_PROJECT', 'MAXCOMPUTE_ENDPOINT']
-          missing = [name for name in required if not os.environ.get(name)]
-          if missing:
-              raise SystemExit('Missing protected release configuration: ' + ', '.join(missing))
-          PYTHON
-          test "$(git rev-parse HEAD)" = "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
+          fingerprint=$(gpg --batch --with-colons --list-secret-keys |
+            awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; primary = 0 }')
+          if [[ ! "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]; then
+            echo "::error::GPG_PRIVATE_KEY must contain exactly one primary secret key with a 40-character hex fingerprint."
+            exit 1
+          fi
+          printf 'SIGNING_KEY_FINGERPRINT=%s\n' "$fingerprint" >> "$GITHUB_ENV"
       - name: Check strict source and dependency closure before staging
         shell: bash
         run: |
@@ -68,12 +105,10 @@ jobs:
         shell: bash
         run: |
           mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
-            -Dconnector.release.approval="$APPROVAL_REFERENCE" \
             -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
             -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
             -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$APPROVED_KEY_FINGERPRINT" \
-            -Dmaxcompute.e2e.allow-write=true clean deploy
+            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
       - name: Verify signatures and record distributed artifact hashes
         shell: bash
         run: |

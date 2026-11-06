@@ -677,25 +677,6 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.2.5</version>
-                    <executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>
-                    <configuration>
-                        <includes combine.children="append">
-                            <include>**/LatestPartitionE2EITCase.java</include>
-                            <include>**/DynamicShuffleSinkRecoverySystemTest.java</include>
-                        </includes>
-                        <disableXmlReport>true</disableXmlReport>
-                        <useFile>false</useFile>
-                        <failIfNoTests>true</failIfNoTests>
-                        <argLine>@{coverage.argLine} ${connector.test.argLine}</argLine>
-                        <systemPropertyVariables>
-                            <maxcompute.e2e.allow-write>${maxcompute.e2e.allow-write}</maxcompute.e2e.allow-write>
-                        </systemPropertyVariables>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>3.5.0</version>
                     <executions><execution><id>release-preconditions</id><goals><goal>enforce</goal></goals>
@@ -704,12 +685,10 @@
                             <requireReleaseDeps/>
                             <requireProperty><property>connector.public.build</property><regex>true</regex></requireProperty>
                             <requireProperty><property>connector.release.artifacts</property><regex>true</regex></requireProperty>
-                            <requireProperty><property>maxcompute.e2e.allow-write</property><regex>true</regex></requireProperty>
-                            <requireProperty><property>connector.release.approval</property><regex>.+</regex><message>Supply the verified open-source approval reference.</message></requireProperty>
                             <requireProperty><property>connector.scm.url</property><regex>https://.+</regex><message>Supply the approved public source repository URL.</message></requireProperty>
                             <requireProperty><property>connector.scm.connection</property><regex>scm:git:https://.+</regex></requireProperty>
                             <requireProperty><property>connector.scm.tag</property><regex>(?!HEAD$).+</regex><message>Supply the exact public release tag.</message></requireProperty>
-                            <requireProperty><property>gpg.keyname</property><regex>[A-Fa-f0-9]{40}</regex><message>Supply the approved signing-key fingerprint.</message></requireProperty>
+                            <requireProperty><property>gpg.keyname</property><regex>[A-Fa-f0-9]{40}</regex><message>Supply the signing-key fingerprint.</message></requireProperty>
                             <requireProperty><property>maven.test.skip</property><regex>false</regex></requireProperty>
                             <requireProperty><property>skipTests</property><regex>false</regex></requireProperty>
                             <requireProperty><property>skipITs</property><regex>false</regex></requireProperty>

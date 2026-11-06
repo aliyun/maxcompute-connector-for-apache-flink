@@ -83,7 +83,8 @@ listed in the [dependency catalog](licenses/third-party.json).
 
 The connector source is available in this repository. Maven Central publication and
 distribution of bundled binary artifacts require signing, namespace authorization,
-real-service acceptance and third-party redistribution review. CI retains test reports.
+Emulator acceptance on all three runtimes and third-party redistribution review.
+CI retains test reports.
 See the [release procedure](docs/releasing.md).
 
 ## Trademarks
