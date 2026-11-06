@@ -50,6 +50,13 @@ jobs:
             echo "Disposable signature created successfully."
           else
             awk '$1 == "[GNUPG:]" && $2 ~ /^(KEYEXPIRED|KEYREVOKED|INV_SGNR|BAD_PASSPHRASE|NO_SECKEY|FAILURE)$/ { print $2, $3 }' "$RUNNER_TEMP/signing-status"
+            if grep -qi 'bad passphrase' "$RUNNER_TEMP/signing-errors"; then
+              echo "::error::GnuPG rejected the stored GPG passphrase."
+            elif grep -qi 'no passphrase given' "$RUNNER_TEMP/signing-errors"; then
+              echo "::error::GnuPG did not receive a passphrase."
+            elif grep -qi 'no pinentry\|connect to the agent\|inappropriate ioctl' "$RUNNER_TEMP/signing-errors"; then
+              echo "::error::GnuPG could not communicate with its signing agent."
+            fi
             echo "::error::The imported key could not sign the disposable probe."
             exit 1
           fi
