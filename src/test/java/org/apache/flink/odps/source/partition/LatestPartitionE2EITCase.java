@@ -212,7 +212,9 @@ public class LatestPartitionE2EITCase {
 
     private static void sql(Odps odps, String statement) throws Exception {
         Map<String, String> hints = new HashMap<>();
-        hints.put("odps.namespace.schema", "true"); hints.put("odps.sql.type.system.odps2", "true");
+        hints.put("odps.namespace.schema", "true");
+        hints.put("odps.sql.allow.namespace.schema", "true");
+        hints.put("odps.sql.type.system.odps2", "true");
         Instance instance = SQLTask.run(odps, odps.getDefaultProject(), statement, hints, null);
         report("E2E SQL " + instance.getId());
         instance.waitForSuccess();

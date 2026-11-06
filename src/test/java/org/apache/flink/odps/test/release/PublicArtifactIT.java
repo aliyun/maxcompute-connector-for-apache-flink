@@ -44,9 +44,11 @@ public class PublicArtifactIT {
             String runtime = (String) loader.loadClass("org.apache.flink.runtime.util.EnvironmentInformation")
                     .getMethod("getVersion").invoke(null);
             assertEquals(version.getProperty("flink.version"), runtime);
-            assertTrue(runtime.startsWith(version.getProperty("flink.line") + "."));
-            assertTrue(jar.getName().startsWith("flink-connector-maxcompute-"
-                    + version.getProperty("flink.line") + "-"));
+            String flinkLine = version.getProperty("flink.line");
+            String connectorVersion = version.getProperty("connector.version");
+            assertTrue(runtime.startsWith(flinkLine + "."));
+            assertTrue(connectorVersion.endsWith("-" + flinkLine));
+            assertEquals("flink-connector-maxcompute-" + connectorVersion + "-shaded.jar", jar.getName());
             assertNotNull(zip.getEntry("org/apache/flink/odps/storage/StorageWriter.class"));
             assertNotNull(zip.getEntry("org/apache/flink/odps/sink/shuffle/AssignmentComputer.class"));
             assertNotNull(zip.getEntry("org/apache/flink/odps/shim/FlinkSinkAdapter.class"));

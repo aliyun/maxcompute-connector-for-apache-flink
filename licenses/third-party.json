@@ -23,28 +23,29 @@
       "notes": ""
     },
     {
-      "coordinate": "org.apache.commons:commons-lang3:3.12.0",
+      "coordinate": "org.apache.commons:commons-lang3:3.18.0",
       "classifier": "",
-      "sha256": "d919d904486c037f8d193412da0c92e22a9fa24230b9d67a57855c5c31c7e94e",
+      "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720",
       "licenses": [
-        "Apache License, Version 2.0"
+        "Apache-2.0"
       ],
       "license_urls": [
         "https://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "org.apache.commons_commons-lang3_3.12.0/binary/META-INF/LICENSE.txt",
-        "org.apache.commons_commons-lang3_3.12.0/binary/META-INF/NOTICE.txt",
-        "org.apache.commons_commons-lang3_3.12.0/sources/META-INF/LICENSE.txt",
-        "org.apache.commons_commons-lang3_3.12.0/sources/META-INF/NOTICE.txt",
-        "org.apache.commons_commons-lang3_3.12.0/source-attributions.txt",
-        "Apache-2.0.txt"
+        "org.apache.commons_commons-lang3_3.18.0/binary/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-lang3_3.18.0/binary/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-lang3_3.18.0/sources/META-INF/LICENSE.txt",
+        "org.apache.commons_commons-lang3_3.18.0/sources/META-INF/NOTICE.txt",
+        "org.apache.commons_commons-lang3_3.18.0/source-attributions.txt",
+        "Apache-2.0.txt",
+        "org.apache.commons_commons-lang3_3.18.0/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0-sources.jar",
       "source_available": true,
-      "source_sha256": "325a4551eee7d99f7616aa05b00ee3ca9d0cdc8face1b252a9864f2d945c58b3",
+      "source_sha256": "b15732a13e40df7f07c30f2cb8572874798e8dde581f1398943d2ad3765bafaa",
       "status": "documented",
-      "notes": ""
+      "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
     {
       "coordinate": "org.apache.commons:commons-compress:1.26.0",
@@ -129,9 +130,9 @@
       "notes": ""
     },
     {
-      "coordinate": "com.google.guava:guava:32.1.3-jre",
+      "coordinate": "com.google.guava:guava:33.7.2-jre",
       "classifier": "",
-      "sha256": "6d4e2b5a118aab62e6e5e29d185a0224eed82c85c40ac3d33cf04a270c3b3744",
+      "sha256": "b530942257fb935f8b2cfaa5f8eb5bd59c555fd8e8d01b8ce98912e077ea606c",
       "licenses": [
         "Apache License, Version 2.0"
       ],
@@ -139,36 +140,38 @@
         "http://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "com.google.guava_guava_32.1.3-jre/binary/META-INF/LICENSE",
-        "com.google.guava_guava_32.1.3-jre/sources/META-INF/LICENSE",
-        "com.google.guava_guava_32.1.3-jre/source-attributions.txt",
+        "com.google.guava_guava_33.7.2-jre/binary/META-INF/LICENSE",
+        "com.google.guava_guava_33.7.2-jre/sources/META-INF/LICENSE",
+        "com.google.guava_guava_33.7.2-jre/source-attributions.txt",
         "Apache-2.0.txt",
-        "com.google.guava_guava_32.1.3-jre/upstream.pom"
+        "com.google.guava_guava_33.7.2-jre/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/33.7.2-jre/guava-33.7.2-jre-sources.jar",
       "source_available": true,
-      "source_sha256": "9f6f333b2deaf36644d14ddeed7e6b31151b0c244bab1e4d58ee443ade9a09f3",
+      "source_sha256": "ab6a8934d352629e6d87087a79808b827b64ed18cff6c6b551be99cd8e03244c",
       "status": "documented",
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
     {
-      "coordinate": "com.google.guava:failureaccess:1.0.1",
+      "coordinate": "com.google.guava:failureaccess:1.0.3",
       "classifier": "",
-      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb",
       "licenses": [
-        "The Apache Software License, Version 2.0"
+        "Apache License, Version 2.0"
       ],
       "license_urls": [
         "http://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "com.google.guava_failureaccess_1.0.1/source-attributions.txt",
+        "com.google.guava_failureaccess_1.0.3/binary/META-INF/LICENSE",
+        "com.google.guava_failureaccess_1.0.3/sources/META-INF/LICENSE",
+        "com.google.guava_failureaccess_1.0.3/source-attributions.txt",
         "Apache-2.0.txt",
-        "com.google.guava_failureaccess_1.0.1/upstream.pom"
+        "com.google.guava_failureaccess_1.0.3/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3-sources.jar",
       "source_available": true,
-      "source_sha256": "092346eebbb1657b51aa7485a246bf602bb464cc0b0e2e1c7e7201fadce1e98f",
+      "source_sha256": "6fef4dfd2eb9f961655f2a3c4ea87c023618d9fcbfb6b104c17862e5afe66b97",
       "status": "documented",
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
@@ -193,30 +196,30 @@
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
     {
-      "coordinate": "org.checkerframework:checker-qual:3.37.0",
+      "coordinate": "org.jspecify:jspecify:1.0.1",
       "classifier": "",
-      "sha256": "e4ce1376cc2735e1dde220b62ad0913f51297704daad155a33f386bc5db0d9f7",
+      "sha256": "070d75f261fe4c5b8202508366715f7f2d4660f88c8ef7e6d3575e48c9683b66",
       "licenses": [
-        "The MIT License"
+        "The Apache License, Version 2.0"
       ],
       "license_urls": [
-        "http://opensource.org/licenses/MIT"
+        "http://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "org.checkerframework_checker-qual_3.37.0/binary/META-INF/LICENSE.txt",
-        "org.checkerframework_checker-qual_3.37.0/sources/META-INF/LICENSE.txt",
-        "org.checkerframework_checker-qual_3.37.0/upstream.pom"
+        "org.jspecify_jspecify_1.0.1/source-attributions.txt",
+        "Apache-2.0.txt",
+        "org.jspecify_jspecify_1.0.1/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.37.0/checker-qual-3.37.0-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/org/jspecify/jspecify/1.0.1/jspecify-1.0.1-sources.jar",
       "source_available": true,
-      "source_sha256": "2ca31c7e959ad82fe270b2baac11a59c570f8778191233c54927e94adab7b640",
+      "source_sha256": "230c491aac6d2a2b7e66b68d4331b1d2626f1bf3a372c33bbe2b077297e46c45",
       "status": "documented",
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
     {
-      "coordinate": "com.google.errorprone:error_prone_annotations:2.21.1",
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.50.0",
       "classifier": "",
-      "sha256": "d1f3c66aa91ac52549e00ae3b208ba4b9af7d72d68f230643553beb38e6118ac",
+      "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a",
       "licenses": [
         "Apache 2.0"
       ],
@@ -224,20 +227,20 @@
         "http://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "com.google.errorprone_error_prone_annotations_2.21.1/source-attributions.txt",
+        "com.google.errorprone_error_prone_annotations_2.50.0/source-attributions.txt",
         "Apache-2.0.txt",
-        "com.google.errorprone_error_prone_annotations_2.21.1/upstream.pom"
+        "com.google.errorprone_error_prone_annotations_2.50.0/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.21.1/error_prone_annotations-2.21.1-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.50.0/error_prone_annotations-2.50.0-sources.jar",
       "source_available": true,
-      "source_sha256": "29012a51bb8d7d7bdd7db882f46dec8cccb36b40f34b6e5de2ec7dd647b372ca",
+      "source_sha256": "f7f5b870d5f18bcdcd9d8dc44d6ae3593cc299d32f888aeb29fefe87661473d7",
       "status": "documented",
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
     {
-      "coordinate": "com.google.j2objc:j2objc-annotations:2.8",
+      "coordinate": "com.google.j2objc:j2objc-annotations:3.1",
       "classifier": "",
-      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed",
+      "sha256": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b",
       "licenses": [
         "Apache License, Version 2.0"
       ],
@@ -245,13 +248,13 @@
         "http://www.apache.org/licenses/LICENSE-2.0.txt"
       ],
       "files": [
-        "com.google.j2objc_j2objc-annotations_2.8/source-attributions.txt",
+        "com.google.j2objc_j2objc-annotations_3.1/source-attributions.txt",
         "Apache-2.0.txt",
-        "com.google.j2objc_j2objc-annotations_2.8/upstream.pom"
+        "com.google.j2objc_j2objc-annotations_3.1/upstream.pom"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8-sources.jar",
+      "source_url": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/3.1/j2objc-annotations-3.1-sources.jar",
       "source_available": true,
-      "source_sha256": "7413eed41f111453a08837f5ac680edded7faed466cbd35745e402e13f4cc3f5",
+      "source_sha256": "295938307f4016b3f128f7347101b236ada1394808104519c9e93cd61b64602b",
       "status": "documented",
       "notes": "Exact Central binary/source legal material; redistribution approval remains separate."
     },
@@ -482,18 +485,19 @@
       "classifier": "",
       "sha256": "c287e9d431e4e05a0f7c9c023d133edf8a40112885cdb6e81b07773eee4680ed",
       "licenses": [
-        "LGPL-2.1-or-later (upstream 2.1 header; exact 2.0 provenance pending)"
+        "LGPL-2.1-or-later"
       ],
       "license_urls": [],
       "files": [
-        "net.sourceforge.javacsv_javacsv_2.0/upstream-2.1-license-reference.txt",
+        "net.sourceforge.javacsv_javacsv_2.0/source-attributions.txt",
+        "net.sourceforge.javacsv_javacsv_2.0/source-provenance.txt",
         "LGPL-2.1.txt"
       ],
-      "source_url": "https://repo.maven.apache.org/maven2/net/sourceforge/javacsv/javacsv/2.0/javacsv-2.0-sources.jar",
-      "source_available": false,
-      "source_sha256": null,
-      "status": "review-required",
-      "notes": "Central 2.0 has no source artifact/embedded license; the official project currently publishes only 2.1. The 2.0 corresponding source and notice must be confirmed before redistribution; do not infer exact 2.0 licensing solely from 2.1."
+      "source_url": "https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/18/Everything/source/SRPMS/j/javacsv-2.0-6.fc18.src.rpm",
+      "source_available": true,
+      "source_sha256": "c74d6d975bb95a58679c42001d819de16985da2a2b78d721ad4221ed5c422c51",
+      "status": "documented",
+      "notes": "The source RPM contains the original javacsv2.0.zip with source, build files and a byte-identical Central JAR. See source-provenance.txt for the archive hash and extraction instructions."
     },
     {
       "coordinate": "org.xerial.snappy:snappy-java:1.1.10.7",

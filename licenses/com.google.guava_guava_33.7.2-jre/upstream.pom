@@ -6,35 +6,31 @@
   <parent>
     <groupId>com.google.guava</groupId>
     <artifactId>guava-parent</artifactId>
-    <version>32.1.3-jre</version>
+    <version>33.7.2-jre</version>
   </parent>
   <artifactId>guava</artifactId>
   <packaging>bundle</packaging>
   <name>Guava: Google Core Libraries for Java</name>
-  <url>https://github.com/google/guava</url>
   <description>
     Guava is a suite of core and expanded libraries that include
     utility classes, Google's collections, I/O classes, and
     much more.
   </description>
+  <url>https://github.com/google/guava</url>
   <dependencies>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>failureaccess</artifactId>
-      <version>1.0.1</version>
+      <version>${failureaccess.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>listenablefuture</artifactId>
-      <version>9999.0-empty-to-avoid-conflict-with-guava</version>
+      <version>${listenablefuture.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>jsr305</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.checkerframework</groupId>
-      <artifactId>checker-qual</artifactId>
+      <groupId>org.jspecify</groupId>
+      <artifactId>jspecify</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.errorprone</groupId>
@@ -44,8 +40,6 @@
       <groupId>com.google.j2objc</groupId>
       <artifactId>j2objc-annotations</artifactId>
     </dependency>
-    <!-- TODO(cpovirk): does this comment belong on the <dependency> in <profiles>? -->
-    <!-- TODO(cpovirk): want this only for dependency plugin but seems not to work there? Maven runs without failure, but the resulting Javadoc is missing the hoped-for inherited text -->
   </dependencies>
   <build>
     <resources>
@@ -60,20 +54,20 @@
     </resources>
     <plugins>
       <plugin>
+        <groupId>org.mvnsearch</groupId>
+        <artifactId>toolchains-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-toolchains-plugin</artifactId>
+      </plugin>
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Automatic-Module-Name>com.google.common</Automatic-Module-Name>
-            </manifestEntries>
-          </archive>
-        </configuration>
       </plugin>
       <plugin>
         <extensions>true</extensions>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>5.1.8</version>
+        <version>${maven-bundle-plugin.version}</version>
         <executions>
           <execution>
             <id>bundle-manifest</id>
@@ -85,14 +79,17 @@
         </executions>
         <configuration>
           <instructions>
+            <!-- Silence a warning that claims that META-INF/versions/9/... is the "wrong directory" for our classes. -->
+            <_fixupmessages>^Classes found in the wrong directory: .*</_fixupmessages>
             <Export-Package>
               !com.google.common.base.internal,
               !com.google.common.util.concurrent.internal,
+              !META-INF.*,
               com.google.common.*
             </Export-Package>
             <Import-Package>
               com.google.common.util.concurrent.internal,
-              javax.annotation;resolution:=optional,
+              org.jspecify.annotations;resolution:=optional,
               javax.crypto.*;resolution:=optional,
               sun.misc.*;resolution:=optional
             </Import-Package>
@@ -102,27 +99,47 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-      </plugin>
-      <!-- TODO(cpovirk): include JDK sources when building testlib doc, too -->
-      <plugin>
-        <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <id>unpack-jdk-sources</id>
-            <phase>generate-sources</phase>
-            <goals><goal>unpack-dependencies</goal></goals>
+            <id>default-compile</id>
             <configuration>
-              <includeArtifactIds>srczip</includeArtifactIds>
-              <outputDirectory>${project.build.directory}/jdk-sources</outputDirectory>
-              <silent>false</silent>
-              <!-- Exclude module-info files (since we're using -source 8 to avoid other modules problems) and FileDescriptor (which uses a language feature not available in Java 8). -->
-              <excludes>**/module-info.java,**/java/io/FileDescriptor.java</excludes>
+              <compilerArgs combine.children="append" combine.self="append">
+                <arg>-XDignore.symbol.file</arg>
+              </compilerArgs>
+            </configuration>
+          </execution>
+          <execution>
+            <id>compile-java9</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <release>9</release>
+              <compileSourceRoots>
+                <compileSourceRoot>${project.basedir}/src</compileSourceRoot>
+              </compileSourceRoots>
+              <includes>
+                <include>module-info.java</include>
+              </includes>
+
+              <!--
+                JPMS needs access to the module sources to complete a modular Java build. We also need to override the
+                base compile settings (in the root `pom.xml`) to enable MRJAR output.
+              -->
+              <compilerArgs combine.self="override">
+                <arg>-sourcepath</arg>
+                <arg>${project.basedir}/src</arg>
+                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
+                <!-- https://errorprone.info/docs/installation#maven -->
+                <arg>-XDcompilePolicy=simple</arg>
+              </compilerArgs>
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -131,11 +148,6 @@
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
-          <!-- TODO(cpovirk): Move this to the parent after making jdk-sources available there. -->
-          <!-- TODO(cpovirk): can we use includeDependencySources and a local com.oracle.java:jdk-lib:noversion:sources instead of all this unzipping and manual sourcepath modification? -->
-          <!-- (We need JDK *sources*, not just -link, so that {@inheritDoc} works.) -->
-          <sourcepath>${project.build.sourceDirectory}:${project.build.directory}/jdk-sources</sourcepath>
-
           <!-- Passing `-subpackages com.google.common` breaks things, so we explicitly exclude everything else instead. -->
           <!-- excludePackageNames requires specification of packages separately from "all subpackages".
                https://issues.apache.org/jira/browse/MJAVADOC-584 -->
@@ -171,45 +183,25 @@
           </tags>
 
           <!-- TODO(cpovirk): Move this to the parent after making the package-list files available there. -->
-          <!-- We add the link ourselves, both so that we can choose Java 9 over the version that -source suggests and so that we can solve the JSR305 problem described below. -->
+          <!-- We add the link ourselves so that we can choose Java 26 over the version that -source suggests. -->
           <detectJavaApiLink>false</detectJavaApiLink>
           <offlineLinks>
             <!-- We need local copies of some of these for 2 reasons: a User-Agent problem (https://stackoverflow.com/a/47891403/28465) and an SSL problem (https://issues.apache.org/jira/browse/MJAVADOC-507). If we choose to work around the User-Agent problem, we can go back to <links>, sidestepping the SSL problem. -->
-            <!-- Even after we stop using JSR305 annotations in our own code, we'll want this link so that NullPointerTester's docs can link to @CheckForNull and friends... at least once we start using this config for guava-testlib. -->
             <offlineLink>
-              <url>https://static.javadoc.io/com.google.code.findbugs/jsr305/3.0.1/</url>
-              <location>${project.basedir}/javadoc-link/jsr305</location>
-            </offlineLink>
-            <offlineLink>
-              <url>https://static.javadoc.io/com.google.j2objc/j2objc-annotations/1.1/</url>
+              <url>https://javadoc.io/doc/com.google.j2objc/j2objc-annotations/latest/</url>
               <location>${project.basedir}/javadoc-link/j2objc-annotations</location>
             </offlineLink>
-            <!-- The JDK doc must be listed after JSR305 (and as an <offlineLink>, not a <link>) so that JSR305 "claims" javax.annotation. -->
             <offlineLink>
-              <url>https://docs.oracle.com/javase/9/docs/api/</url>
-              <location>https://docs.oracle.com/javase/9/docs/api/</location>
-            </offlineLink>
-            <!-- The Checker Framework likewise would claim javax.annotations, despite providing only a subset of the JSR305 annotations, so it must likewise come after JSR305. -->
-            <offlineLink>
-              <url>https://checkerframework.org/api/</url>
-              <location>${project.basedir}/javadoc-link/checker-framework</location>
+              <url>https://errorprone.info/api/latest/</url>
+              <location>${project.basedir}/javadoc-link/error_prone_annotations</location>
             </offlineLink>
           </offlineLinks>
           <links>
-            <link>https://errorprone.info/api/latest/</link>
+            <link>https://docs.oracle.com/en/java/javase/26/docs/api/</link>
+            <link>https://jspecify.dev/docs/api/</link>
           </links>
           <overview>../overview.html</overview>
         </configuration>
-        <executions>
-          <execution>
-            <id>attach-docs</id>
-          </execution>
-          <execution>
-            <id>generate-javadoc-site-report</id>
-            <phase>site</phase>
-            <goals><goal>javadoc</goal></goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
@@ -257,53 +249,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>srczip-parent</id>
-      <activation>
-        <file>
-          <exists>${java.home}/../src.zip</exists>
-        </file>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>jdk</groupId>
-          <artifactId>srczip</artifactId>
-          <version>999</version>
-          <scope>system</scope>
-          <systemPath>${java.home}/../src.zip</systemPath>
-          <optional>true</optional>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>srczip-lib</id>
-      <activation>
-        <file>
-          <exists>${java.home}/lib/src.zip</exists>
-        </file>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>jdk</groupId>
-          <artifactId>srczip</artifactId>
-          <version>999</version>
-          <scope>system</scope>
-          <systemPath>${java.home}/lib/src.zip</systemPath>
-          <optional>true</optional>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-              <!-- We need to point at the java.base subdirectory because Maven appears to assume that package foo.bar is located in foo/bar and not java.base/foo/bar when translating excludePackageNames into filenames to pass to javadoc. (Note that manually passing -exclude to javadoc appears to possibly not work at all for java.* types??) Also, referring only to java.base avoids a lot of other sources. -->
-              <sourcepath>${project.build.sourceDirectory}:${project.build.directory}/jdk-sources/java.base</sourcepath>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>

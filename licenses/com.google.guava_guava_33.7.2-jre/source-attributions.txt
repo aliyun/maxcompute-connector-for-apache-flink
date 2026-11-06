@@ -76,7 +76,7 @@ Source paths: com/google/common/base/Absent.java, com/google/common/base/Enums.j
  * the License.
  */
 
-Source paths: com/google/common/base/AbstractIterator.java, com/google/common/base/Charsets.java, com/google/common/base/Defaults.java, com/google/common/base/FinalizablePhantomReference.java, com/google/common/base/FinalizableReference.java, com/google/common/base/FinalizableReferenceQueue.java, com/google/common/base/FinalizableSoftReference.java, com/google/common/base/FinalizableWeakReference.java, com/google/common/base/Function.java, com/google/common/base/Functions.java, com/google/common/base/Objects.java, com/google/common/base/Preconditions.java, com/google/common/base/Predicate.java, com/google/common/base/Predicates.java, com/google/common/base/Supplier.java, com/google/common/base/Suppliers.java, com/google/common/base/Throwables.java, com/google/common/collect/EnumMultiset.java, com/google/common/collect/HashBiMap.java, com/google/common/collect/Interners.java, com/google/common/eventbus/AllowConcurrentEvents.java, com/google/common/eventbus/AsyncEventBus.java, com/google/common/eventbus/DeadEvent.java, com/google/common/eventbus/EventBus.java, com/google/common/eventbus/Subscribe.java, com/google/common/io/ByteStreams.java, com/google/common/io/CharStreams.java, com/google/common/io/Closeables.java, com/google/common/io/CountingInputStream.java, com/google/common/io/CountingOutputStream.java, com/google/common/io/Files.java, com/google/common/io/Flushables.java, com/google/common/io/LineBuffer.java, com/google/common/io/LineReader.java, com/google/common/io/LittleEndianDataInputStream.java, com/google/common/io/LittleEndianDataOutputStream.java, com/google/common/io/MultiInputStream.java, com/google/common/io/Resources.java, com/google/common/io/TempFileCreator.java, com/google/common/primitives/Primitives.java, com/google/common/util/concurrent/AbstractFuture.java, com/google/common/util/concurrent/DirectExecutor.java, com/google/common/util/concurrent/ExecutionList.java, com/google/common/util/concurrent/ListenableFuture.java, com/google/common/util/concurrent/MoreExecutors.java
+Source paths: com/google/common/base/AbstractIterator.java, com/google/common/base/Charsets.java, com/google/common/base/Defaults.java, com/google/common/base/FinalizablePhantomReference.java, com/google/common/base/FinalizableReference.java, com/google/common/base/FinalizableReferenceQueue.java, com/google/common/base/FinalizableSoftReference.java, com/google/common/base/FinalizableWeakReference.java, com/google/common/base/Function.java, com/google/common/base/Functions.java, com/google/common/base/Objects.java, com/google/common/base/Preconditions.java, com/google/common/base/Predicate.java, com/google/common/base/Predicates.java, com/google/common/base/Supplier.java, com/google/common/base/Suppliers.java, com/google/common/base/Throwables.java, com/google/common/collect/EnumMultiset.java, com/google/common/collect/HashBiMap.java, com/google/common/collect/Interners.java, com/google/common/eventbus/AllowConcurrentEvents.java, com/google/common/eventbus/AsyncEventBus.java, com/google/common/eventbus/DeadEvent.java, com/google/common/eventbus/EventBus.java, com/google/common/eventbus/Subscribe.java, com/google/common/io/ByteStreams.java, com/google/common/io/CharStreams.java, com/google/common/io/Closeables.java, com/google/common/io/CountingInputStream.java, com/google/common/io/CountingOutputStream.java, com/google/common/io/Files.java, com/google/common/io/Flushables.java, com/google/common/io/LineBuffer.java, com/google/common/io/LineReader.java, com/google/common/io/LittleEndianDataInputStream.java, com/google/common/io/LittleEndianDataOutputStream.java, com/google/common/io/MultiInputStream.java, com/google/common/io/Resources.java, com/google/common/io/TempFileCreator.java, com/google/common/primitives/Primitives.java, com/google/common/util/concurrent/AbstractFuture.java, com/google/common/util/concurrent/AbstractFutureState.java, com/google/common/util/concurrent/DirectExecutor.java, com/google/common/util/concurrent/ExecutionList.java, com/google/common/util/concurrent/ListenableFuture.java, com/google/common/util/concurrent/MoreExecutors.java
 /*
  * Copyright (C) 2007 The Guava Authors
  *
@@ -91,7 +91,7 @@ Source paths: com/google/common/base/AbstractIterator.java, com/google/common/ba
  * the License.
  */
 
-Source paths: com/google/common/base/CharMatcher.java, com/google/common/base/Converter.java, com/google/common/base/Joiner.java, com/google/common/base/Stopwatch.java, com/google/common/base/internal/Finalizer.java, com/google/common/collect/FluentIterable.java, com/google/common/escape/Escaper.java, com/google/common/escape/UnicodeEscaper.java, com/google/common/io/FileBackedOutputStream.java, com/google/common/io/MultiReader.java, com/google/common/net/InetAddresses.java, com/google/common/net/PercentEscaper.java, com/google/common/primitives/Booleans.java, com/google/common/primitives/Bytes.java, com/google/common/primitives/Chars.java, com/google/common/primitives/Doubles.java, com/google/common/primitives/Floats.java, com/google/common/primitives/Ints.java, com/google/common/primitives/Longs.java, com/google/common/primitives/Shorts.java, com/google/common/util/concurrent/ListenableFutureTask.java, com/google/common/util/concurrent/SequentialExecutor.java, com/google/thirdparty/publicsuffix/TrieParser.java
+Source paths: com/google/common/base/CharMatcher.java, com/google/common/base/Converter.java, com/google/common/base/Joiner.java, com/google/common/base/Stopwatch.java, com/google/common/base/internal/Finalizer.java, com/google/common/collect/FluentIterable.java, com/google/common/escape/Escaper.java, com/google/common/escape/UnicodeEscaper.java, com/google/common/io/FileBackedOutputStream.java, com/google/common/io/MultiReader.java, com/google/common/net/InetAddresses.java, com/google/common/net/PercentEscaper.java, com/google/common/primitives/Booleans.java, com/google/common/primitives/Bytes.java, com/google/common/primitives/Chars.java, com/google/common/primitives/Doubles.java, com/google/common/primitives/Floats.java, com/google/common/primitives/Ints.java, com/google/common/primitives/Longs.java, com/google/common/primitives/Shorts.java, com/google/common/util/concurrent/ListenableFutureTask.java, com/google/common/util/concurrent/SequentialExecutor.java
 /*
  * Copyright (C) 2008 The Guava Authors
  *
@@ -121,21 +121,34 @@ Source paths: com/google/common/base/CommonMatcher.java, com/google/common/base/
  * the License.
  */
 
-Source paths: com/google/common/base/ElementTypesAreNonnullByDefault.java, com/google/common/base/ParametricNullness.java, com/google/common/cache/ElementTypesAreNonnullByDefault.java, com/google/common/cache/ParametricNullness.java, com/google/common/collect/ElementTypesAreNonnullByDefault.java, com/google/common/collect/ParametricNullness.java, com/google/common/escape/ElementTypesAreNonnullByDefault.java, com/google/common/escape/ParametricNullness.java, com/google/common/eventbus/ElementTypesAreNonnullByDefault.java, com/google/common/eventbus/ParametricNullness.java, com/google/common/graph/ElementTypesAreNonnullByDefault.java, com/google/common/graph/ParametricNullness.java, com/google/common/hash/ElementTypesAreNonnullByDefault.java, com/google/common/hash/ParametricNullness.java, com/google/common/html/ElementTypesAreNonnullByDefault.java, com/google/common/html/ParametricNullness.java, com/google/common/io/ElementTypesAreNonnullByDefault.java, com/google/common/io/ParametricNullness.java, com/google/common/math/ElementTypesAreNonnullByDefault.java, com/google/common/math/ParametricNullness.java, com/google/common/net/ElementTypesAreNonnullByDefault.java, com/google/common/net/ParametricNullness.java, com/google/common/primitives/ElementTypesAreNonnullByDefault.java, com/google/common/primitives/ParametricNullness.java, com/google/common/reflect/ElementTypesAreNonnullByDefault.java, com/google/common/reflect/ParametricNullness.java, com/google/common/util/concurrent/ElementTypesAreNonnullByDefault.java, com/google/common/util/concurrent/ParametricNullness.java, com/google/common/xml/ElementTypesAreNonnullByDefault.java, com/google/common/xml/ParametricNullness.java
+Source paths: com/google/common/base/IgnoreJRERequirement.java, com/google/common/cache/IgnoreJRERequirement.java, com/google/common/collect/IgnoreJRERequirement.java, com/google/common/hash/IgnoreJRERequirement.java, com/google/common/io/IgnoreJRERequirement.java, com/google/common/math/IgnoreJRERequirement.java, com/google/common/primitives/IgnoreJRERequirement.java, com/google/common/reflect/IgnoreJRERequirement.java, com/google/common/util/concurrent/IgnoreJRERequirement.java
 /*
- * Copyright (C) 2021 The Guava Authors
+ * Copyright 2019 The Guava Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: com/google/common/base/Internal.java, com/google/common/collect/Internal.java, com/google/common/util/concurrent/Internal.java
+/*
+ * Copyright (C) 2019 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 Source paths: com/google/common/base/Java8Compatibility.java, com/google/common/hash/Java8Compatibility.java, com/google/common/io/Java8Compatibility.java, com/google/common/math/BigDecimalMath.java, com/google/common/math/ToDoubleRounder.java, com/google/common/primitives/DoublesMethodsForWeb.java, com/google/common/primitives/FloatsMethodsForWeb.java, com/google/common/primitives/IntsMethodsForWeb.java, com/google/common/primitives/ShortsMethodsForWeb.java, com/google/common/util/concurrent/OverflowAvoidingLockSupport.java
@@ -168,7 +181,7 @@ Source paths: com/google/common/base/MoreObjects.java, com/google/common/eventbu
  * the License.
  */
 
-Source paths: com/google/common/base/NullnessCasts.java, com/google/common/collect/NullnessCasts.java, com/google/common/util/concurrent/NullnessCasts.java
+Source paths: com/google/common/base/NullnessCasts.java, com/google/common/cache/NullnessCasts.java, com/google/common/collect/NullnessCasts.java, com/google/common/util/concurrent/NullnessCasts.java
 /*
  * Copyright (C) 2021 The Guava Authors
  *
@@ -183,7 +196,24 @@ Source paths: com/google/common/base/NullnessCasts.java, com/google/common/colle
  * the License.
  */
 
-Source paths: com/google/common/base/SmallCharMatcher.java, com/google/common/base/StandardSystemProperty.java, com/google/common/cache/LongAddable.java, com/google/common/cache/LongAddables.java, com/google/common/collect/CartesianList.java, com/google/common/collect/FilteredKeyMultimap.java, com/google/common/collect/ImmutableRangeMap.java, com/google/common/collect/ImmutableRangeSet.java, com/google/common/hash/AbstractByteHasher.java, com/google/common/hash/ChecksumHashFunction.java, com/google/common/hash/LongAddable.java, com/google/common/hash/LongAddables.java, com/google/common/io/BaseEncoding.java, com/google/common/io/ByteSink.java, com/google/common/io/ByteSource.java, com/google/common/io/CharSink.java, com/google/common/io/CharSource.java, com/google/common/io/Closer.java, com/google/common/io/FileWriteMode.java, com/google/common/math/LinearTransformation.java, com/google/common/math/PairedStats.java, com/google/common/math/PairedStatsAccumulator.java, com/google/common/math/Stats.java, com/google/common/math/StatsAccumulator.java, com/google/common/reflect/AbstractInvocationHandler.java, com/google/common/reflect/ClassPath.java, com/google/common/reflect/ImmutableTypeToInstanceMap.java, com/google/common/reflect/Invokable.java, com/google/common/reflect/MutableTypeToInstanceMap.java, com/google/common/reflect/Parameter.java, com/google/common/reflect/TypeCapture.java, com/google/common/reflect/TypeToInstanceMap.java, com/google/common/util/concurrent/ListenableScheduledFuture.java, com/google/common/util/concurrent/RateLimiter.java, com/google/common/util/concurrent/ServiceManager.java, com/google/common/util/concurrent/SmoothRateLimiter.java
+Source paths: com/google/common/base/ParametricNullness.java, com/google/common/cache/ParametricNullness.java, com/google/common/collect/ParametricNullness.java, com/google/common/escape/ParametricNullness.java, com/google/common/eventbus/ParametricNullness.java, com/google/common/graph/ParametricNullness.java, com/google/common/hash/ParametricNullness.java, com/google/common/html/ParametricNullness.java, com/google/common/io/ParametricNullness.java, com/google/common/math/ParametricNullness.java, com/google/common/net/ParametricNullness.java, com/google/common/primitives/ParametricNullness.java, com/google/common/reflect/ParametricNullness.java, com/google/common/util/concurrent/ParametricNullness.java, com/google/common/xml/ParametricNullness.java
+/*
+ * Copyright (C) 2021 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/google/common/base/SmallCharMatcher.java, com/google/common/base/StandardSystemProperty.java, com/google/common/cache/LongAddable.java, com/google/common/cache/LongAddables.java, com/google/common/collect/CartesianList.java, com/google/common/collect/FilteredKeyMultimap.java, com/google/common/collect/ImmutableRangeMap.java, com/google/common/collect/ImmutableRangeSet.java, com/google/common/hash/AbstractByteHasher.java, com/google/common/hash/ChecksumHashFunction.java, com/google/common/io/BaseEncoding.java, com/google/common/io/ByteSink.java, com/google/common/io/ByteSource.java, com/google/common/io/CharSink.java, com/google/common/io/CharSource.java, com/google/common/io/Closer.java, com/google/common/io/FileWriteMode.java, com/google/common/math/LinearTransformation.java, com/google/common/math/PairedStats.java, com/google/common/math/PairedStatsAccumulator.java, com/google/common/math/Stats.java, com/google/common/math/StatsAccumulator.java, com/google/common/reflect/AbstractInvocationHandler.java, com/google/common/reflect/ClassPath.java, com/google/common/reflect/ImmutableTypeToInstanceMap.java, com/google/common/reflect/Invokable.java, com/google/common/reflect/MutableTypeToInstanceMap.java, com/google/common/reflect/Parameter.java, com/google/common/reflect/TypeCapture.java, com/google/common/reflect/TypeToInstanceMap.java, com/google/common/util/concurrent/ListenableScheduledFuture.java, com/google/common/util/concurrent/RateLimiter.java, com/google/common/util/concurrent/ServiceManager.java, com/google/common/util/concurrent/SmoothRateLimiter.java
 /*
  * Copyright (C) 2012 The Guava Authors
  *
@@ -196,6 +226,23 @@ Source paths: com/google/common/base/SmallCharMatcher.java, com/google/common/ba
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
+ */
+
+Source paths: com/google/common/base/SneakyThrows.java, com/google/common/collect/SneakyThrows.java, com/google/common/collect/Streams.java, com/google/common/hash/SneakyThrows.java, com/google/common/util/concurrent/SneakyThrows.java
+/*
+ * Copyright (C) 2015 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you
+ * may not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.  See the License for the specific language governing
+ * permissions and limitations under the License.
  */
 
 Source paths: com/google/common/base/Utf8.java, com/google/common/base/Verify.java, com/google/common/base/VerifyException.java, com/google/common/collect/AbstractTable.java, com/google/common/collect/FilteredMultimapValues.java, com/google/common/eventbus/SubscriberExceptionContext.java, com/google/common/eventbus/SubscriberExceptionHandler.java, com/google/common/hash/HashingInputStream.java, com/google/common/io/CharSequenceReader.java, com/google/common/reflect/TypeVisitor.java, com/google/common/util/concurrent/Runnables.java, com/google/common/util/concurrent/WrappingScheduledExecutorService.java, com/google/thirdparty/publicsuffix/PublicSuffixType.java
@@ -249,7 +296,7 @@ Source paths: com/google/common/cache/package-info.java
  */
 
 /**
- * <a href="https://guava.dev/CacheBuilder">Discouraged</a> (in favor of <a
+ * {@linkplain CacheBuilder Discouraged} (in favor of <a
  * href="https://github.com/ben-manes/caffeine/wiki">Caffeine</a>) caching utilities.
  *
  * <p>The core interface used to represent caches is {@link Cache}. In-memory caches can be
@@ -278,7 +325,7 @@ Source paths: com/google/common/collect/AbstractBiMap.java, com/google/common/co
  * limitations under the License.
  */
 
-Source paths: com/google/common/collect/AbstractIndexedListIterator.java, com/google/common/collect/ArrayTable.java, com/google/common/collect/ComparisonChain.java, com/google/common/collect/ComputationException.java, com/google/common/collect/DiscreteDomain.java, com/google/common/collect/EmptyImmutableSetMultimap.java, com/google/common/collect/ForwardingTable.java, com/google/common/collect/ImmutableAsList.java, com/google/common/collect/ImmutableClassToInstanceMap.java, com/google/common/collect/ImmutableEnumSet.java, com/google/common/collect/ImmutableSetMultimap.java, com/google/common/collect/ImmutableSortedMap.java, com/google/common/collect/ImmutableSortedMapFauxverideShim.java, com/google/common/collect/ImmutableSortedSetFauxverideShim.java, com/google/common/collect/ImmutableTable.java, com/google/common/collect/RegularImmutableList.java, com/google/common/collect/RegularImmutableSortedSet.java, com/google/common/collect/SingletonImmutableList.java, com/google/common/collect/SingletonImmutableTable.java, com/google/common/collect/TableCollectors.java
+Source paths: com/google/common/collect/AbstractIndexedListIterator.java, com/google/common/collect/ArrayTable.java, com/google/common/collect/ComparisonChain.java, com/google/common/collect/ComputationException.java, com/google/common/collect/DiscreteDomain.java, com/google/common/collect/EmptyImmutableSetMultimap.java, com/google/common/collect/ForwardingTable.java, com/google/common/collect/ImmutableAsList.java, com/google/common/collect/ImmutableClassToInstanceMap.java, com/google/common/collect/ImmutableEnumSet.java, com/google/common/collect/ImmutableSetMultimap.java, com/google/common/collect/ImmutableSortedMap.java, com/google/common/collect/ImmutableTable.java, com/google/common/collect/RegularImmutableList.java, com/google/common/collect/RegularImmutableSortedSet.java, com/google/common/collect/SingletonImmutableList.java, com/google/common/collect/SingletonImmutableTable.java, com/google/common/collect/TableCollectors.java
 /*
  * Copyright (C) 2009 The Guava Authors
  *
@@ -312,7 +359,7 @@ Source paths: com/google/common/collect/AbstractMultimap.java, com/google/common
  * limitations under the License.
  */
 
-Source paths: com/google/common/collect/AbstractRangeSet.java, com/google/common/collect/Count.java, com/google/common/collect/ForwardingSortedMultiset.java, com/google/common/collect/GeneralRange.java, com/google/common/collect/ImmutableSortedMultiset.java, com/google/common/collect/ImmutableSortedMultisetFauxverideShim.java, com/google/common/collect/RangeSet.java, com/google/common/collect/RegularImmutableSortedMultiset.java, com/google/common/collect/SortedIterable.java, com/google/common/collect/SortedIterables.java
+Source paths: com/google/common/collect/AbstractRangeSet.java, com/google/common/collect/Count.java, com/google/common/collect/ForwardingSortedMultiset.java, com/google/common/collect/GeneralRange.java, com/google/common/collect/ImmutableSortedMultiset.java, com/google/common/collect/RangeSet.java, com/google/common/collect/RegularImmutableSortedMultiset.java, com/google/common/collect/SortedIterable.java, com/google/common/collect/SortedIterables.java
 /*
  * Copyright (C) 2011 The Guava Authors
  *
@@ -327,26 +374,9 @@ Source paths: com/google/common/collect/AbstractRangeSet.java, com/google/common
  * limitations under the License.
  */
 
-Source paths: com/google/common/collect/AbstractSequentialIterator.java, com/google/common/collect/ForwardingImmutableCollection.java, com/google/common/collect/ForwardingListMultimap.java, com/google/common/collect/ForwardingSetMultimap.java, com/google/common/collect/ForwardingSortedSetMultimap.java, com/google/common/collect/MinMaxPriorityQueue.java, com/google/common/collect/RowSortedTable.java, com/google/common/collect/SortedMapDifference.java, com/google/common/collect/UnmodifiableListIterator.java
+Source paths: com/google/common/collect/AbstractSequentialIterator.java, com/google/common/collect/ForwardingListMultimap.java, com/google/common/collect/ForwardingSetMultimap.java, com/google/common/collect/ForwardingSortedSetMultimap.java, com/google/common/collect/MinMaxPriorityQueue.java, com/google/common/collect/RowSortedTable.java, com/google/common/collect/SortedMapDifference.java, com/google/common/collect/UnmodifiableListIterator.java
 /*
  * Copyright (C) 2010 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-Source paths: com/google/common/collect/ArrayListMultimapGwtSerializationDependencies.java, com/google/common/collect/CollectCollectors.java, com/google/common/collect/Comparators.java, com/google/common/collect/HashMultimapGwtSerializationDependencies.java, com/google/common/collect/ImmutableMultisetGwtSerializationDependencies.java, com/google/common/collect/LinkedHashMultimapGwtSerializationDependencies.java, com/google/common/collect/MoreCollectors.java, com/google/common/collect/RangeGwtSerializationDependencies.java, com/google/common/graph/AbstractDirectedNetworkConnections.java, com/google/common/graph/AbstractGraph.java, com/google/common/graph/AbstractGraphBuilder.java, com/google/common/graph/AbstractNetwork.java, com/google/common/graph/AbstractUndirectedNetworkConnections.java, com/google/common/graph/AbstractValueGraph.java, com/google/common/graph/DirectedGraphConnections.java, com/google/common/graph/DirectedMultiNetworkConnections.java, com/google/common/graph/DirectedNetworkConnections.java, com/google/common/graph/EdgesConnecting.java, com/google/common/graph/ElementOrder.java, com/google/common/graph/EndpointPair.java, com/google/common/graph/EndpointPairIterator.java, com/google/common/graph/ForwardingGraph.java, com/google/common/graph/ForwardingNetwork.java, com/google/common/graph/ForwardingValueGraph.java, com/google/common/graph/GraphBuilder.java, com/google/common/graph/GraphConnections.java, com/google/common/graph/GraphConstants.java, com/google/common/graph/ImmutableValueGraph.java, com/google/common/graph/MapIteratorCache.java, com/google/common/graph/MapRetrievalCache.java, com/google/common/graph/MultiEdgesConnecting.java, com/google/common/graph/MutableValueGraph.java, com/google/common/graph/NetworkBuilder.java, com/google/common/graph/NetworkConnections.java, com/google/common/graph/StandardMutableGraph.java, com/google/common/graph/StandardMutableNetwork.java, com/google/common/graph/StandardMutableValueGraph.java, com/google/common/graph/StandardNetwork.java, com/google/common/graph/StandardValueGraph.java, com/google/common/graph/UndirectedGraphConnections.java, com/google/common/graph/UndirectedMultiNetworkConnections.java, com/google/common/graph/UndirectedNetworkConnections.java, com/google/common/graph/ValueGraph.java, com/google/common/graph/ValueGraphBuilder.java
-/*
- * Copyright (C) 2016 The Guava Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -378,7 +408,24 @@ Source paths: com/google/common/collect/BaseImmutableMultimap.java, com/google/c
  * limitations under the License.
  */
 
-Source paths: com/google/common/collect/CollectPreconditions.java, com/google/common/collect/Collections2.java, com/google/common/collect/EmptyImmutableListMultimap.java, com/google/common/collect/HashBasedTable.java, com/google/common/collect/Hashing.java, com/google/common/collect/ImmutableBiMap.java, com/google/common/collect/ImmutableCollection.java, com/google/common/collect/ImmutableEntry.java, com/google/common/collect/ImmutableListMultimap.java, com/google/common/collect/ImmutableMap.java, com/google/common/collect/ImmutableMapEntrySet.java, com/google/common/collect/ImmutableMapKeySet.java, com/google/common/collect/ImmutableMapValues.java, com/google/common/collect/ImmutableMultimap.java, com/google/common/collect/ImmutableMultiset.java, com/google/common/collect/ImmutableSortedSet.java, com/google/common/collect/PeekingIterator.java, com/google/common/collect/Platform.java, com/google/common/collect/Range.java, com/google/common/collect/RegularImmutableBiMap.java, com/google/common/collect/RegularImmutableMap.java, com/google/common/collect/Serialization.java, com/google/common/collect/SingletonImmutableBiMap.java, com/google/common/collect/StandardRowSortedTable.java, com/google/common/collect/StandardTable.java, com/google/common/collect/Table.java, com/google/common/collect/Tables.java, com/google/common/collect/TreeBasedTable.java, com/google/common/collect/UnmodifiableIterator.java
+Source paths: com/google/common/collect/CollectCollectors.java, com/google/common/collect/Comparators.java, com/google/common/collect/MoreCollectors.java, com/google/common/graph/AbstractDirectedNetworkConnections.java, com/google/common/graph/AbstractGraph.java, com/google/common/graph/AbstractGraphBuilder.java, com/google/common/graph/AbstractNetwork.java, com/google/common/graph/AbstractUndirectedNetworkConnections.java, com/google/common/graph/AbstractValueGraph.java, com/google/common/graph/DirectedGraphConnections.java, com/google/common/graph/DirectedMultiNetworkConnections.java, com/google/common/graph/DirectedNetworkConnections.java, com/google/common/graph/EdgesConnecting.java, com/google/common/graph/ElementOrder.java, com/google/common/graph/EndpointPair.java, com/google/common/graph/EndpointPairIterator.java, com/google/common/graph/ForwardingGraph.java, com/google/common/graph/ForwardingNetwork.java, com/google/common/graph/ForwardingValueGraph.java, com/google/common/graph/GraphBuilder.java, com/google/common/graph/GraphConnections.java, com/google/common/graph/GraphConstants.java, com/google/common/graph/ImmutableValueGraph.java, com/google/common/graph/MapIteratorCache.java, com/google/common/graph/MapRetrievalCache.java, com/google/common/graph/MultiEdgesConnecting.java, com/google/common/graph/MutableValueGraph.java, com/google/common/graph/NetworkBuilder.java, com/google/common/graph/NetworkConnections.java, com/google/common/graph/StandardMutableGraph.java, com/google/common/graph/StandardMutableNetwork.java, com/google/common/graph/StandardMutableValueGraph.java, com/google/common/graph/StandardNetwork.java, com/google/common/graph/StandardValueGraph.java, com/google/common/graph/UndirectedGraphConnections.java, com/google/common/graph/UndirectedMultiNetworkConnections.java, com/google/common/graph/UndirectedNetworkConnections.java, com/google/common/graph/ValueGraph.java, com/google/common/graph/ValueGraphBuilder.java
+/*
+ * Copyright (C) 2016 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/google/common/collect/CollectPreconditions.java, com/google/common/collect/Collections2.java, com/google/common/collect/EmptyImmutableListMultimap.java, com/google/common/collect/HashBasedTable.java, com/google/common/collect/Hashing.java, com/google/common/collect/ImmutableBiMap.java, com/google/common/collect/ImmutableCollection.java, com/google/common/collect/ImmutableListMultimap.java, com/google/common/collect/ImmutableMap.java, com/google/common/collect/ImmutableMapEntrySet.java, com/google/common/collect/ImmutableMapKeySet.java, com/google/common/collect/ImmutableMapValues.java, com/google/common/collect/ImmutableMultimap.java, com/google/common/collect/ImmutableMultiset.java, com/google/common/collect/ImmutableSortedSet.java, com/google/common/collect/PeekingIterator.java, com/google/common/collect/Platform.java, com/google/common/collect/Range.java, com/google/common/collect/RegularImmutableBiMap.java, com/google/common/collect/RegularImmutableMap.java, com/google/common/collect/Serialization.java, com/google/common/collect/SingletonImmutableBiMap.java, com/google/common/collect/StandardRowSortedTable.java, com/google/common/collect/StandardTable.java, com/google/common/collect/Table.java, com/google/common/collect/Tables.java, com/google/common/collect/TreeBasedTable.java, com/google/common/collect/UnmodifiableIterator.java
 /*
  * Copyright (C) 2008 The Guava Authors
  *
@@ -395,7 +442,7 @@ Source paths: com/google/common/collect/CollectPreconditions.java, com/google/co
  * limitations under the License.
  */
 
-Source paths: com/google/common/collect/CollectSpliterators.java, com/google/common/collect/ImmutableBiMapFauxverideShim.java
+Source paths: com/google/common/collect/CollectSpliterators.java
 /*
  * Copyright (C) 2015 The Guava Authors
  *
@@ -432,38 +479,6 @@ Source paths: com/google/common/collect/CompactHashing.java, com/google/common/g
 Source paths: com/google/common/collect/ConsumingQueueIterator.java, com/google/common/hash/FarmHashFingerprint64.java, com/google/common/hash/LittleEndianByteArray.java, com/google/common/hash/MacHashFunction.java, com/google/common/io/ReaderInputStream.java, com/google/common/util/concurrent/AggregateFutureState.java, com/google/common/util/concurrent/AsyncCallable.java, com/google/common/util/concurrent/CombinedFuture.java, com/google/common/util/concurrent/InterruptibleTask.java, com/google/common/util/concurrent/Platform.java
 /*
  * Copyright (C) 2015 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- */
-
-Source paths: com/google/common/collect/GwtTransient.java, com/google/common/util/concurrent/AtomicLongMap.java
-/*
- * Copyright (C) 2011 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-Source paths: com/google/common/collect/IgnoreJRERequirement.java, com/google/common/hash/IgnoreJRERequirement.java, com/google/common/io/IgnoreJRERequirement.java, com/google/common/reflect/IgnoreJRERequirement.java
-/*
- * Copyright 2019 The Guava Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -538,23 +553,6 @@ Source paths: com/google/common/collect/SortedMultiset.java, com/google/common/c
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- */
-
-Source paths: com/google/common/collect/Streams.java
-/*
- * Copyright (C) 2015 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you
- * may not use this file except in compliance with the License.  You may
- * obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.  See the License for the specific language governing
- * permissions and limitations under the License.
  */
 
 Source paths: com/google/common/collect/TopKSelector.java, com/google/common/graph/Graph.java, com/google/common/graph/Graphs.java, com/google/common/graph/ImmutableGraph.java, com/google/common/graph/ImmutableNetwork.java, com/google/common/graph/MutableGraph.java, com/google/common/graph/MutableNetwork.java, com/google/common/graph/Network.java, com/google/common/graph/PredecessorsFunction.java, com/google/common/graph/SuccessorsFunction.java, com/google/common/io/InsecureRecursiveDeleteException.java, com/google/common/io/RecursiveDeleteOption.java
@@ -636,16 +634,16 @@ Source paths: com/google/common/eventbus/package-info.java
  */
 
 /**
- * <a href="https://guava.dev/EventBus">Discouraged</a> in favor of dependency injection and
- * concurrency frameworks, EventBus allows publish-subscribe-style communication.
+ * {@linkplain EventBus Discouraged} in favor of dependency injection and concurrency frameworks,
+ * EventBus allows publish-subscribe-style communication.
  *
  * <p>See the Guava User Guide article on <a
  * href="https://github.com/google/guava/wiki/EventBusExplained">{@code EventBus}</a>.
  */
 @CheckReturnValue
-@ParametersAreNonnullByDefault
+@NullMarked
 
-Source paths: com/google/common/graph/AbstractBaseGraph.java, com/google/common/graph/BaseGraph.java, com/google/common/graph/Traverser.java, com/google/common/util/concurrent/ClosingFuture.java
+Source paths: com/google/common/graph/AbstractBaseGraph.java, com/google/common/graph/ArchetypeGraph.java, com/google/common/graph/BaseGraph.java, com/google/common/graph/Traverser.java, com/google/common/util/concurrent/ClosingFuture.java
 /*
  * Copyright (C) 2017 The Guava Authors
  *
@@ -755,6 +753,21 @@ Source paths: com/google/common/hash/Murmur3_32HashFunction.java
  * (Modified to adapt to Guava coding conventions and to use the HashFunction interface)
  */
 
+Source paths: com/google/common/hash/Platform.java, com/google/thirdparty/publicsuffix/PublicSuffixTrie.java
+/*
+ * Copyright (C) 2026 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 Source paths: com/google/common/hash/SipHashFunction.java
 /*
  * Copyright (C) 2012 The Guava Authors
@@ -798,7 +811,7 @@ Source paths: com/google/common/hash/package-info.java
  * href="https://github.com/google/guava/wiki/HashingExplained">hashing</a>.
  */
 @CheckReturnValue
-@ParametersAreNonnullByDefault
+@NullMarked
 
 Source paths: com/google/common/html/package-info.java
 /*
@@ -938,9 +951,41 @@ Source paths: com/google/common/reflect/package-info.java
 /**
  * Utilities for reflection. This
 
-Source paths: com/google/common/util/concurrent/Internal.java
+Source paths: com/google/common/util/concurrent/AtomicLongMap.java
 /*
- * Copyright (C) 2019 The Guava Authors
+ * Copyright (C) 2011 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Source paths: com/google/common/util/concurrent/DirectExecutorService.java
+/*
+ * Copyright (C) 2024 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+Source paths: com/google/common/util/concurrent/LazyLogger.java
+/*
+ * Copyright (C) 2023 The Guava Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -1036,3 +1081,47 @@ Source paths: com/google/thirdparty/publicsuffix/PublicSuffixPatterns.java
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+Source paths: module-info.java
+/*
+ * Copyright (C) 2008 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/** Google Guava */
+module com.google.common {
+  requires java.logging;
+  requires transitive com.google.common.util.concurrent.internal;
+  requires static jdk.unsupported;
+  requires static com.google.errorprone.annotations;
+  requires static com.google.j2objc.annotations;
+  requires static org.jspecify;
+
+  exports com.google.common.annotations;
+  exports com.google.common.base;
+  exports com.google.common.cache;
+  exports com.google.common.collect;
+  exports com.google.common.escape;
+  exports com.google.common.eventbus;
+  exports com.google.common.graph;
+  exports com.google.common.hash;
+  exports com.google.common.html;
+  exports com.google.common.io;
+  exports com.google.common.math;
+  exports com.google.common.net;
+  exports com.google.common.primitives;
+  exports com.google.common.reflect;
+  exports com.google.common.util.concurrent;
+  exports com.google.common.xml;
+}

@@ -1,0 +1,17 @@
+JavaCsv 2.0 corresponding source
+
+Fedora 18 source RPM
+https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/18/Everything/source/SRPMS/j/javacsv-2.0-6.fc18.src.rpm
+SHA-256 c74d6d975bb95a58679c42001d819de16985da2a2b78d721ad4221ed5c422c51
+
+Extract the original upstream archive with libarchive bsdtar.
+    bsdtar -xOf javacsv-2.0-6.fc18.src.rpm javacsv2.0.zip > javacsv2.0.zip
+Archive SHA-256 810bf4dc9d712c8a358ff59f71e6f1dca3e22687418c7cc01968f23e0c35d736
+Archive SHA-1 3c9208d4584b7163023757ff7c928befca7ef56c
+The Fedora package review recorded the same SHA-1 for the upstream download.
+https://bugzilla.redhat.com/show_bug.cgi?id=539912
+
+The ZIP contains src/com/csvreader/CsvReader.java, src/com/csvreader/CsvWriter.java,
+and build.xml. Both library sources declare LGPL-2.1-or-later. The ZIP's
+javacsv.jar is byte-identical to net.sourceforge.javacsv:javacsv:2.0 in Central.
+JAR SHA-256 c287e9d431e4e05a0f7c9c023d133edf8a40112885cdb6e81b07773eee4680ed
