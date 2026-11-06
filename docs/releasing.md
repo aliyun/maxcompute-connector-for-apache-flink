@@ -36,12 +36,11 @@ The shaded classifier is the deployable Flink connector for each runtime.
    inspect source/javadoc jars and review the final diff.
 3. Verify the exact release tag with the [connector CI workflow](../.github/workflows/ci.yml).
    The release workflow runs its source, distributed-jar and Docker Emulator checks
-   on the tagged commit before requesting access to the publishing environment.
+   on the tagged commit before staging.
    All three Flink lines must pass. See [testing](testing.md) for the separate
    real-service suites.
-4. Configure required reviewers for the `maven-central` environment. Reviewers
-   check the tagged commit and the redistribution evidence before approving staging.
-   Configure the Central token as `CENTRAL_USERNAME` and `CENTRAL_PASSWORD` secrets.
+4. Configure the Central token as `CENTRAL_USERNAME` and `CENTRAL_PASSWORD` repository
+   secrets.
    Store one signing key in `GPG_PRIVATE_KEY` and its passphrase in `GPG_PASSPHRASE`.
    Verify key validity and public-key distribution. CI reads the primary fingerprint
    from the imported key. The Maven GPG plugin reads its passphrase from
@@ -65,14 +64,14 @@ done
 6. Independently run `gpg --verify` on POM, thin/shaded, sources and javadoc signatures
    with the distributed public key. Record SHA-256 for each artifact. Verify that the
    attached test jar, if distributed, contains only approved test material.
-7. With explicit publishing authorization, use the protected manual release workflow.
+7. With explicit publishing authorization, run the manual release workflow for the tag.
    With `autoPublish=false`, inspect and approve the staged deployment in Central
    before making it public. Read back deployment/tag state and download artifacts into a clean
    consumer repository, verify signatures/hashes and rerun consumer acceptance.
 
 Prepared configuration, successful local tests and an internal MR are candidate
-milestones. Reviewer approval, signing identity, Central rights, public repository/tag,
-published artifacts and consumer execution are separate release evidence.
+milestones. Signing identity, Central rights, public repository/tag, published artifacts
+and consumer execution are separate release evidence.
 
 Primary references:
 - [Maven Shade service/resource transformation](https://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html)

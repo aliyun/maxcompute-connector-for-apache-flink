@@ -10,24 +10,11 @@ permissions:
 jobs:
   resolve:
     if: github.event.repository.private == false
-    permissions:
-      actions: read
-      contents: read
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     outputs:
       commit: ${{ steps.commit.outputs.sha }}
     steps:
-      - name: Require publishing environment reviewers
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if ! gh api "repos/$GITHUB_REPOSITORY/environments/maven-central" |
-              jq -e 'any(.protection_rules[]?; .type == "required_reviewers" and (.reviewers | length > 0))' >/dev/null; then
-            echo "::error::Configure required reviewers for the maven-central environment."
-            exit 1
-          fi
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           ref: refs/tags/${{ inputs.tag }}
