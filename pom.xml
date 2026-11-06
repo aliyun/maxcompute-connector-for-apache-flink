@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aliyun.odps</groupId>
-    <artifactId>maxcompute-connector-for-apache-flink-parent</artifactId>
+    <artifactId>flink-connector-maxcompute-parent</artifactId>
     <version>1.20.0</version>
     <packaging>pom</packaging>
     <modules>

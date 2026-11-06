@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.aliyun.odps</groupId>
-        <artifactId>maxcompute-connector-for-apache-flink-parent</artifactId>
+        <artifactId>flink-connector-maxcompute-parent</artifactId>
         <version>1.20.0</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>maxcompute-connector-for-apache-flink-1-17</artifactId>
+    <artifactId>flink-connector-maxcompute-1.17</artifactId>
     <version>1.17.0</version>
     <properties>
         <connector.root>${project.basedir}/../..</connector.root>
