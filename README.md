@@ -19,7 +19,7 @@ cd maxcompute-connector-for-apache-flink
 python3 tools/verify-matrix.py
 ```
 
-The `public` profile builds `flink/<line>/target/flink-connector-maxcompute-<line>-<version>-shaded.jar`
+The `public` profile builds `flink/<line>/target/<artifactId>-<version>-shaded.jar`
 with its SDK dependencies and verifies it in an isolated consumer. Install that jar
 in the Flink cluster's `lib/` directory and restart the cluster. Flink dependencies
 are provided by the runtime. The version is the current source version; this guide
@@ -84,9 +84,8 @@ listed in the [dependency catalog](licenses/third-party.json).
 
 The connector source is available in this repository. Maven Central publication and
 distribution of bundled binary artifacts require signing, namespace authorization,
-real-service acceptance and third-party redistribution review. JavaCsv 2.0 provenance
-remains unresolved and the strict binary release check rejects it. CI retains test
-reports rather than publishing bundled jars. See the [release procedure](docs/releasing.md).
+real-service acceptance and third-party redistribution review. CI retains test reports.
+See the [release procedure](docs/releasing.md).
 
 ## Trademarks
 

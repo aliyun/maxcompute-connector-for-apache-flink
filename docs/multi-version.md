@@ -4,9 +4,9 @@ One source branch builds three distinct distributions. The Connector feature ver
 
 | Module | Artifact ID | First Maven version | Pinned Flink dependency | Verification JDK |
 | --- | --- | --- | --- | --- |
-| `flink/1.16` | `flink-connector-maxcompute-1.16` | `1.16.0` | 1.16.3 | 17 |
-| `flink/1.17` | `flink-connector-maxcompute-1.17` | `1.17.0` | 1.17.2 | 17 |
-| `flink/1.20` | `flink-connector-maxcompute-1.20` | `1.20.0` | 1.20.4 | 17 |
+| `flink/1.16` | `maxcompute-connector-for-apache-flink-1-16` | `1.16.0` | 1.16.3 | 17 |
+| `flink/1.17` | `maxcompute-connector-for-apache-flink-1-17` | `1.17.0` | 1.17.2 | 17 |
+| `flink/1.20` | `maxcompute-connector-for-apache-flink-1-20` | `1.20.0` | 1.20.4 | 17 |
 
 ## Source layout
 
@@ -50,7 +50,7 @@ python3 tools/run-emulator-tests.py --flink-line 1.20 --clean -- -Pcoverage-chec
 python3 tools/report-readiness.py --flink-line 1.20
 ```
 
-Each child writes to its own `flink/<line>/target/`. For example, the 1.16 shaded candidate is `flink/1.16/target/flink-connector-maxcompute-1.16-1.16.0-shaded.jar`. Install only the matching runtime's jar in a cluster.
+Each child writes to its own `flink/<line>/target/`. For example, the 1.16 shaded candidate is `flink/1.16/target/maxcompute-connector-for-apache-flink-1-16-1.16.0-shaded.jar`. Install only the matching runtime's jar in a cluster.
 
 The matrix runner retains logs and a JSON receipt under `.verification/matrix/`, outside Maven clean directories. It rejects missing/skipped/failed regressions, absent MiniCluster recovery, absent Storage lifecycle tests, wrong runtime/artifact identity and divergent shared class hashes. The distributed consumer loads the actual jar with provided Flink dependencies, not target/classes or the unshaded SDK.
 
