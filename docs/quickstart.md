@@ -1,7 +1,9 @@
 # Flink SQL quickstart
 
 Use the [tested runtime baseline](compatibility.md) and the shaded jar built in
-[README](../README.md). Start with a disposable local service before using cloud tables.
+the [source build guide](../README.md#build-from-source). Follow the
+[cluster installation steps](../README.md#install-in-your-flink-cluster) before
+running SQL. Start with a disposable local service before using cloud tables.
 
 ## Local table
 
