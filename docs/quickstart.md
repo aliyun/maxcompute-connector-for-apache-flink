@@ -54,6 +54,12 @@ Inline cloud credentials can enter SQL logs, execution plans and checkpoints; us
 the deployment's secret/provider mechanism. Environment variables in a SQL string
 are not automatically expanded by this Connector.
 
+For new ordinary append jobs that accept realtime visibility and at-least-once
+replay, we recommend adding `'sink.coordinator.enable'='false'` to select the
+modern Storage writer. Existing coordinated Insert users should review the
+[migration differences](compatibility.md#choosing-the-storage-writer), including
+commit visibility and savepoint compatibility, before switching.
+
 For primary-key tables, declare the matching Flink columns `NOT NULL` and
 `PRIMARY KEY (...) NOT ENFORCED`. Enable `sink.operation=upsert` for the legacy
 coordinator path. Keep the backing primary key, schema and partition specification

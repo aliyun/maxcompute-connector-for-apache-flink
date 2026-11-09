@@ -308,12 +308,13 @@ python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
   -Dit.test=EmulatorFileCachedMailboxITCase
 ```
 
-The same fixture's opt-in `EmulatorInsertMailboxReproducer` selects the original
-coordinated in-memory Insert path. It is a diagnostic reproducer for an unresolved
-production-code defect, and is expected to fail on the published baseline. It is
-not named `*ITCase` and is not counted as a passing default regression. Run it
-explicitly to capture the RUNNING job and its `InsertFunction.processElement`
-sleep stack; `target/mailbox-diagnostics/insert-mailbox-*.json` records the observations.
+The opt-in `EmulatorInsertMailboxReproducer` selects coordinated in-memory Insert
+with an aggressive checkpoint interval and no restart. The sleep-based baseline
+can stall even at startup. Cooperative yielding restores mailbox progress, but
+rollover can still fail when a checkpoint gateway holds the session ACK. This
+probe is not a passing default regression. Run it explicitly to capture the
+RUNNING job and its `InsertFunction.processElement` sleep or yield stack;
+`target/mailbox-diagnostics/insert-mailbox-*.json` records the observations.
 
 ```sh
 python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
@@ -340,3 +341,31 @@ in-memory-path repair needs buffering that lets barriers progress, bounded memor
 with spill or equivalent flow control, and explicit request/epoch handling for
 late ACKs and checkpoint aborts. The original commit/abort protocol must remain
 covered; blindly clearing less state or retrying bootstrap changes that protocol.
+
+
+## Mailbox responsiveness, recovery and the Storage alternative
+
+`EmulatorYieldMitigationITCase` covers the in-memory writer with a two-second
+checkpoint interval and a one-second minimum pause. `EmulatorYieldRecoveryITCase`
+uses the same quiet window, with one deliberately slow upstream callback on the
+first attempt to overlap a checkpoint. It verifies timeout, one actual restart and
+restoration of the upstream burst state. Recovery checks every key and value and
+allows only bounded append replay. These classes use three subtasks and an existing
+dynamic partition; their timing values are fixture settings.
+
+`EmulatorModernMailboxITCase` runs the same startup and rollover bursts through
+Storage realtime writing with no coordinator session handshake. The 300 ms Tunnel
+create delay is specific to the legacy path and is not a Storage fault injection.
+
+```bash
+python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
+  -Dit.test=EmulatorYieldMitigationITCase,EmulatorYieldRecoveryITCase,EmulatorModernMailboxITCase \
+  -Dtest=CachedCoordinatorAckContractTest,FlinkSinkAdapterTest,StorageWriterTest
+```
+
+Reports remain in `target/mailbox-diagnostics/`, separate from the readiness matrix.
+For a local comparison with no injected session delay, the opt-in reproducer accepts
+`-Demulator.mailbox.create-delay-ms=0`, `-Demulator.mailbox.rows=100000` and
+`-Demulator.mailbox.modern=true` or `-Demulator.mailbox.arrow=true`. Compare the
+`job_elapsed_ms` field separately from readback time; these cold-job local results
+are not production throughput measurements.
