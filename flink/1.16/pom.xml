@@ -9,6 +9,7 @@
     </parent>
     <artifactId>flink-connector-maxcompute</artifactId>
     <version>1.0.0-1.16</version>
+    <name>MaxCompute Connector for Apache Flink® (1.16)</name>
     <properties>
         <connector.root>${project.basedir}/../..</connector.root>
         <flink.line>1.16</flink.line>
