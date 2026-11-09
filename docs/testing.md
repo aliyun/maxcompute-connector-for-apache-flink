@@ -38,6 +38,26 @@ matrix before claiming coverage for those configurations.
 
 Passing offline/SPI tests does not prove service acceptance or a published artifact.
 
+## Skip automatic Connector verification for one change
+
+For a change that intentionally does not need another automatic run, include
+GitHub's `[skip ci]` directive in the latest commit message:
+
+```sh
+git commit -m "docs: clarify the test procedure [skip ci]"
+```
+
+The directive must be in the PR's HEAD commit message. It skips Actions workflows
+triggered by `push` or `pull_request`, including `Connector verification`; it also
+applies to other workflows using those events. A PR title alone does not opt out.
+It does not disable the workflow or skip manual `workflow_dispatch` runs or
+`workflow_call` verification invoked by the Maven release workflow. A maintainer
+can still select **Actions → Connector verification → Run workflow** for the branch.
+
+Skipped verification is not passing test evidence. Required checks can remain
+pending and prevent merging; push a new commit without the directive when those
+checks need to run. See [GitHub's skip-workflow documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs).
+
 ## Emulator regression
 
 The Storage v1 suite defaults to the released Emulator `1.2.0`, pinned by digest in
