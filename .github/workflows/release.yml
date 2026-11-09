@@ -1,60 +1,21 @@
-name: Stage approved Maven release
+name: Publish the verified v1.0.0 artifacts
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Approved public release tag
-        required: true
 permissions:
   contents: read
+  actions: read
 jobs:
-  resolve:
-    if: github.event.repository.private == false
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    outputs:
-      commit: ${{ steps.commit.outputs.sha }}
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: refs/tags/${{ inputs.tag }}
-          persist-credentials: false
-      - name: Resolve the release tag to a commit
-        id: commit
-        run: |
-          commit=$(git rev-parse --verify HEAD)
-          printf 'sha=%s\n' "$commit" >> "$GITHUB_OUTPUT"
-
-  verify:
-    needs: resolve
-    uses: ./.github/workflows/ci.yml
-    with:
-      source_ref: ${{ needs.resolve.outputs.commit }}
-
-  stage:
-    needs: [resolve, verify]
+  publish-verified-release:
+    if: github.repository == 'aliyun/maxcompute-connector-for-apache-flink'
     environment: maven-central
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 25
     env:
-      RELEASE_TAG: ${{ inputs.tag }}
-      PUBLIC_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
+      GH_TOKEN: ${{ github.token }}
       MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ needs.resolve.outputs.commit }}
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Verify Central credentials and exact tag
-        shell: bash
-        run: |
-          : "${MAVEN_USERNAME:?Configure CENTRAL_USERNAME}" "${MAVEN_PASSWORD:?Configure CENTRAL_PASSWORD}"
-          commit=$(git rev-parse --verify HEAD)
-          tagged_commit=$(git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}")
-          test "$commit" = "$tagged_commit"
       - name: Create an isolated signing keyring
         shell: bash
         run: |
@@ -64,57 +25,213 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-          server-id: central
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Pin the supported Maven 3.9.16 toolchain
+      - name: Verify unchanged JARs, repair POM display names and publish the four coordinates
         shell: bash
         run: |
           set -euo pipefail
-          archive="$RUNNER_TEMP/apache-maven-3.9.16-bin.tar.gz"
-          curl --fail --silent --show-error --location --retry 3 \
-            https://archive.apache.org/dist/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz \
-            --output "$archive"
-          echo "831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0cafb8338851f90780735568773e0a6cd07bbec107cda0b896b008b861075358b6f6  $archive" | sha512sum --check
-          tar -xzf "$archive" -C "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/apache-maven-3.9.16/bin" >> "$GITHUB_PATH"
-          "$RUNNER_TEMP/apache-maven-3.9.16/bin/mvn" --version
-      - name: Read the imported signing key fingerprint
-        shell: bash
-        run: |
-          fingerprint=$(gpg --batch --with-colons --list-secret-keys |
-            awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; primary = 0 }')
-          if [[ ! "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]; then
-            echo "::error::GPG_PRIVATE_KEY must contain exactly one primary secret key with a 40-character hex fingerprint."
-            exit 1
-          fi
-          printf 'SIGNING_KEY_FINGERPRINT=%s\n' "$fingerprint" >> "$GITHUB_ENV"
-      - name: Check strict source and dependency closure before staging
-        shell: bash
-        run: |
-          mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
-            -B -ntp -Ppublic org.apache.maven.plugins:maven-dependency-plugin:3.8.1:tree \
-            -DoutputType=json -DoutputFile=target/public-dependency-tree.json
-          for line in 1.16 1.17 1.20; do
-            python3 tools/check-public.py --release --flink-line "$line"
-          done
-      - name: Test, sign and stage for manual Central publication
-        shell: bash
-        run: |
-          mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
-            -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
-            -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
-            -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
-      - name: Verify signatures and record distributed artifact hashes
-        shell: bash
-        run: |
-          shopt -s nullglob
-          signatures=(target/*.asc flink/1.16/target/*.asc flink/1.17/target/*.asc flink/1.20/target/*.asc)
-          test "${#signatures[@]}" -ge 4
-          for signature in "${signatures[@]}"; do
-            gpg --batch --verify "$signature" "${signature%.asc}"
-          done
-          sha256sum flink/*/target/*.jar "${signatures[@]}" > target/release-sha256.txt
+          python3 - <<'PY'
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          import uuid
+          import xml.etree.ElementTree as ET
+          import zipfile
+
+          REPOSITORY = 'aliyun/maxcompute-connector-for-apache-flink'
+          SOURCE = 'de6bd8b3ed23344d5e3df9cf83d13ccc6ba9c83a'
+          BUILD = 'de323c890f6bc1bb068ff0beaa966c7bebb6dde1'
+          BUNDLE_SHA256 = '1479dcc49ea0c2ed0126665ae8672f780ded0fd8034649804137f9e6e5a05449'
+          LINES = ('1.16', '1.17', '1.20')
+          HASHES = ('md5', 'sha1', 'sha256', 'sha512')
+          NAMESPACE = '{http://maven.apache.org/POM/4.0.0}'
+
+
+          def project_name(line):
+              return 'MaxCompute Connector for Apache Flink® (' + line + ')'
+
+
+          def add_project_name(data, line):
+              before = ET.fromstring(data)
+              assert before.find(NAMESPACE + 'name') is None
+              marker = ('    <version>1.0.0-' + line + '</version>').encode()
+              assert data.count(marker) == 1
+              changed = data.replace(marker, marker + ('\n    <name>' + project_name(line) + '</name>').encode(), 1)
+              after = ET.fromstring(changed)
+              name = after.find(NAMESPACE + 'name')
+              assert name is not None and name.text == project_name(line)
+              after.remove(name)
+              assert ET.tostring(after) == ET.tostring(before), 'Only the project display name may change'
+              return changed
+
+
+          def coordinates():
+              root = 'com/aliyun/odps/'
+              parent = root + 'flink-connector-maxcompute-parent/1.0.0/flink-connector-maxcompute-parent-1.0.0'
+              raw = {parent + '.pom'}
+              poms = {}
+              for line in LINES:
+                  base = root + 'flink-connector-maxcompute/1.0.0-' + line + '/flink-connector-maxcompute-1.0.0-' + line
+                  poms[line] = base + '.pom'
+                  raw.update(base + suffix for suffix in ('.pom', '.jar', '-shaded.jar', '-sources.jar', '-javadoc.jar', '-tests.jar'))
+              return raw, poms
+
+
+          def read_bundle(path):
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == BUNDLE_SHA256
+              with zipfile.ZipFile(path) as archive:
+                  payload = {item.filename: archive.read(item) for item in archive.infolist() if not item.is_dir()}
+              raw, poms = coordinates()
+              expected = raw | {name + '.asc' for name in raw} | {name + '.' + algo for name in raw for algo in HASHES}
+              assert set(payload) == expected, 'Unexpected deployment files or coordinates'
+              for name in raw:
+                  for algo in HASHES:
+                      assert payload[name + '.' + algo].decode().strip() == hashlib.new(algo, payload[name]).hexdigest()
+              return payload, raw, poms
+
+
+          def gh(path):
+              return json.loads(subprocess.check_output(['gh', 'api', 'repos/' + REPOSITORY + '/' + path], text=True))
+
+
+          def main():
+              assert os.environ['GITHUB_REPOSITORY'] == REPOSITORY
+              temp = Path(os.environ['RUNNER_TEMP'])
+              source = gh('actions/runs/42180472634')
+              assert source['head_sha'] == SOURCE and source['head_branch'] == 'v1.0.0'
+              jobs = gh('actions/runs/42180472634/jobs')['jobs']
+              required = {'verify / source-checks'} | {'verify / ' + kind + ' (' + line + ')'
+                  for kind in ('public-candidate', 'emulator') for line in LINES}
+              results = {job['name']: job['conclusion'] for job in jobs}
+              assert required <= results.keys() and all(results[name] == 'success' for name in required)
+              assert gh('actions/runs/42572684053')['head_sha'] == BUILD
+              original = temp / 'original-artifacts'
+              subprocess.run(['gh', 'run', 'download', '42572684053', '--repo', REPOSITORY,
+                              '--name', 'flink-v1.0.0-release-recovery', '--dir', str(original)], check=True)
+              bundles = list(original.rglob('central-bundle.zip'))
+              assert len(bundles) == 1
+              payload, raw, poms = read_bundle(bundles[0])
+              reports = list(original.rglob('TEST-*.xml'))
+              counts = {key: 0 for key in ('tests', 'failures', 'errors', 'skipped')}
+              for report in reports:
+                  suite = ET.parse(report).getroot()
+                  for key in counts:
+                      counts[key] += int(suite.get(key, '0'))
+              assert counts == {'tests': 585, 'failures': 0, 'errors': 0, 'skipped': 0}
+              work = temp / 'verified-release'
+              for name, data in payload.items():
+                  destination = work / name
+                  destination.parent.mkdir(parents=True, exist_ok=True)
+                  destination.write_bytes(data)
+              def verify_all():
+                  for name in sorted(raw):
+                      result = subprocess.run(['gpg', '--batch', '--verify', str(work / (name + '.asc')), str(work / name)], capture_output=True)
+                      assert result.returncode == 0, 'A distributed artifact failed signature verification: ' + name
+              verify_all()
+              listing = subprocess.check_output(['gpg', '--batch', '--with-colons', '--list-secret-keys'], text=True)
+              fingerprints = []
+              primary = False
+              for line in listing.splitlines():
+                  row = line.split(':')
+                  if row[0] == 'sec':
+                      primary = True
+                  elif primary and row[0] == 'fpr':
+                      fingerprints.append(row[9])
+                      primary = False
+              assert len(fingerprints) == 1 and re.fullmatch(r'[A-Fa-f0-9]{40}', fingerprints[0])
+              jars = {name: hashlib.sha256(payload[name]).hexdigest() for name in raw if name.endswith('.jar')}
+              for line, name in poms.items():
+                  payload[name] = add_project_name(payload[name], line)
+                  (work / name).write_bytes(payload[name])
+                  signature = work / (name + '.new.asc')
+                  result = subprocess.run(['gpg', '--batch', '--pinentry-mode', 'loopback', '--passphrase-fd', '0',
+                      '--local-user', fingerprints[0], '--armor', '--output', str(signature), '--detach-sign', str(work / name)],
+                      input=(os.environ['MAVEN_GPG_PASSPHRASE'] + '\n').encode(), capture_output=True)
+                  assert result.returncode == 0, 'The publication POM could not be signed'
+                  payload[name + '.asc'] = signature.read_bytes()
+                  (work / (name + '.asc')).write_bytes(payload[name + '.asc'])
+                  for algo in HASHES:
+                      payload[name + '.' + algo] = hashlib.new(algo, payload[name]).hexdigest().encode()
+              assert jars == {name: hashlib.sha256(payload[name]).hexdigest() for name in jars}
+              verify_all()
+              bundle = temp / 'flink-v1.0.0-central-bundle.zip'
+              with zipfile.ZipFile(bundle, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+                  for name, data in sorted(payload.items()):
+                      archive.writestr(name, data)
+              evidence = {'source_commit': SOURCE, 'build_run_id': 42572684053, 'original_bundle_sha256': BUNDLE_SHA256,
+                  'bundle_sha256': hashlib.sha256(bundle.read_bytes()).hexdigest(), 'coordinates': [],
+                  'unchanged_jar_sha256': jars, 'unchanged_jar_count': len(jars), 'verified_signatures': len(raw),
+                  'pom_display_names': {line: project_name(line) for line in LINES}, 'build_tests': counts}
+              record = temp / 'flink-central-publication.json'
+              record.write_text(json.dumps(evidence, indent=2) + '\n')
+              token = base64.b64encode((os.environ['MAVEN_USERNAME'] + ':' + os.environ['MAVEN_PASSWORD']).encode()).decode()
+              class NoRedirect(urllib.request.HTTPRedirectHandler):
+                  def redirect_request(self, request, response, code, message, headers, url):
+                      return None
+              opener = urllib.request.build_opener(NoRedirect())
+              def call(path, data=None, content_type=None):
+                  headers = {'Authorization': 'Bearer ' + token}
+                  if content_type:
+                      headers['Content-Type'] = content_type
+                  request = urllib.request.Request('https://central.sonatype.com/api/v1/publisher/' + path, data=data, headers=headers, method='POST')
+                  try:
+                      with opener.open(request, timeout=180) as response:
+                          return response.read()
+                  except urllib.error.HTTPError as error:
+                      raise SystemExit('Central request failed: HTTP ' + str(error.code)) from None
+              boundary = 'flink-release-' + uuid.uuid4().hex
+              body = ('--' + boundary + '\r\nContent-Disposition: form-data; name="bundle"; filename="flink-v1.0.0-central-bundle.zip"\r\nContent-Type: application/octet-stream\r\n\r\n').encode() + bundle.read_bytes() + ('\r\n--' + boundary + '--\r\n').encode()
+              deployment = call('upload?publishingType=USER_MANAGED&name=flink-v1.0.0', body, 'multipart/form-data; boundary=' + boundary).decode().strip()
+              assert re.fullmatch(r'[0-9a-f-]{36}', deployment)
+              evidence['deployment_id'] = deployment
+              expected = {'pkg:maven/com.aliyun.odps/flink-connector-maxcompute-parent@1.0.0'} | {
+                  'pkg:maven/com.aliyun.odps/flink-connector-maxcompute@1.0.0-' + line for line in LINES}
+              def wait_for(target, allowed):
+                  previous = None
+                  for _ in range(120):
+                      status = json.loads(call('status?id=' + deployment))
+                      state = status['deploymentState']
+                      evidence['deployment_state'] = state
+                      evidence['validation_errors'] = status.get('errors', {})
+                      record.write_text(json.dumps(evidence, indent=2) + '\n')
+                      if state != previous:
+                          print(json.dumps({'deployment_id': deployment, 'deployment_state': state, 'errors': evidence['validation_errors']}), flush=True)
+                          previous = state
+                      if state == target:
+                          return status
+                      assert state in allowed, 'Central rejected this deployment'
+                      time.sleep(5)
+                  raise SystemExit('Central is still processing this deployment; inspect it before retrying')
+              status = wait_for('VALIDATED', ('PENDING', 'VALIDATING'))
+              actual = {urllib.parse.unquote(value.split('?', 1)[0]) for value in status.get('purls', [])}
+              assert status['deploymentId'] == deployment and actual == expected
+              evidence['coordinates'] = sorted(actual)
+              evidence['prepublish_state'] = 'VALIDATED'
+              record.write_text(json.dumps(evidence, indent=2) + '\n')
+              print(json.dumps({'deployment_id': deployment, 'coordinates': sorted(actual), 'unchanged_jars': len(jars), 'verified_signatures': len(raw)}), flush=True)
+              call('deployment/' + deployment)
+              wait_for('PUBLISHED', ('VALIDATED', 'PUBLISHING'))
+
+
+          if __name__ == '__main__':
+              main()
+          PY
+      - name: Retain publication evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: flink-v1.0.0-publication-evidence
+          path: |
+            ${{ runner.temp }}/flink-central-publication.json
+            ${{ runner.temp }}/flink-v1.0.0-central-bundle.zip
+          if-no-files-found: warn
+          retention-days: 14
