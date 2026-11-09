@@ -1,60 +1,50 @@
-name: Stage approved Maven release
+name: Recover the approved v1.0.0 Maven release
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Approved public release tag
-        required: true
 permissions:
   contents: read
+  actions: read
 jobs:
-  resolve:
-    if: github.event.repository.private == false
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    outputs:
-      commit: ${{ steps.commit.outputs.sha }}
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: refs/tags/${{ inputs.tag }}
-          persist-credentials: false
-      - name: Resolve the release tag to a commit
-        id: commit
-        run: |
-          commit=$(git rev-parse --verify HEAD)
-          printf 'sha=%s\n' "$commit" >> "$GITHUB_OUTPUT"
-
-  verify:
-    needs: resolve
-    uses: ./.github/workflows/ci.yml
-    with:
-      source_ref: ${{ needs.resolve.outputs.commit }}
-
-  stage:
-    needs: [resolve, verify]
+  recover-release:
+    if: github.repository == 'aliyun/maxcompute-connector-for-apache-flink'
     environment: maven-central
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 30
     env:
-      RELEASE_TAG: ${{ inputs.tag }}
-      PUBLIC_SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
+      RELEASE_TAG: v1.0.0
+      PUBLIC_SOURCE_URL: https://github.com/aliyun/maxcompute-connector-for-apache-flink
       MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ needs.resolve.outputs.commit }}
+          ref: refs/tags/v1.0.0
           fetch-depth: 0
           persist-credentials: false
-      - name: Verify Central credentials and exact tag
+      - name: Verify the exact tag and its successful acceptance matrix
+        env:
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          : "${MAVEN_USERNAME:?Configure CENTRAL_USERNAME}" "${MAVEN_PASSWORD:?Configure CENTRAL_PASSWORD}"
-          commit=$(git rev-parse --verify HEAD)
-          tagged_commit=$(git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}")
-          test "$commit" = "$tagged_commit"
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import subprocess
+          expected = 'de6bd8b3ed23344d5e3df9cf83d13ccc6ba9c83a'
+          assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() == expected
+          assert subprocess.check_output(['git', 'rev-parse', 'refs/tags/v1.0.0^{commit}'], text=True).strip() == expected
+          base = 'repos/aliyun/maxcompute-connector-for-apache-flink/actions/runs/42180472634'
+          run = json.loads(subprocess.check_output(['gh', 'api', base], text=True))
+          assert run['head_sha'] == expected and run['head_branch'] == 'v1.0.0'
+          jobs = json.loads(subprocess.check_output(['gh', 'api', base + '/jobs'], text=True))['jobs']
+          required = {'verify / source-checks'} | {
+              'verify / ' + kind + ' (' + line + ')'
+              for kind in ('public-candidate', 'emulator') for line in ('1.16', '1.17', '1.20')}
+          results = {job['name']: job['conclusion'] for job in jobs}
+          assert required <= results.keys() and all(results[name] == 'success' for name in required)
+          print('Exact v1.0.0 source and all seven acceptance checks verified.')
+          PY
       - name: Create an isolated signing keyring
         shell: bash
         run: |
@@ -69,40 +59,128 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Pin the supported Maven 3.9.16 toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/apache-maven-3.9.16-bin.tar.gz"
+          curl --fail --silent --show-error --location --retry 3 \
+            https://archive.apache.org/dist/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz \
+            --output "$archive"
+          echo "831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0cafb8338851f90780735568773e0a6cd07bbec107cda0b896b008b861075358b6f6  $archive" | sha512sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/apache-maven-3.9.16/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/apache-maven-3.9.16/bin/mvn" --version
       - name: Read the imported signing key fingerprint
         shell: bash
         run: |
           fingerprint=$(gpg --batch --with-colons --list-secret-keys |
             awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; primary = 0 }')
-          if [[ ! "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]; then
-            echo "::error::GPG_PRIVATE_KEY must contain exactly one primary secret key with a 40-character hex fingerprint."
-            exit 1
-          fi
+          [[ "$fingerprint" =~ ^[0-9A-Fa-f]{40}$ ]]
           printf 'SIGNING_KEY_FINGERPRINT=%s\n' "$fingerprint" >> "$GITHUB_ENV"
-      - name: Check strict source and dependency closure before staging
+      - name: Check strict source and dependency closure
         shell: bash
         run: |
+          set -euo pipefail
           mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
             -B -ntp -Ppublic org.apache.maven.plugins:maven-dependency-plugin:3.8.1:tree \
             -DoutputType=json -DoutputFile=target/public-dependency-tree.json
           for line in 1.16 1.17 1.20; do
             python3 tools/check-public.py --release --flink-line "$line"
           done
-      - name: Test, sign and stage for manual Central publication
+      - name: Build, test, sign and stage the original release
         shell: bash
         run: |
+          set -euo pipefail
           mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
             -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
             -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
             -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
-      - name: Verify signatures and record distributed artifact hashes
+            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy 2>&1 | tee "$RUNNER_TEMP/central-stage.log"
+      - name: Independently verify every distributed signature
         shell: bash
         run: |
+          set -euo pipefail
           shopt -s nullglob
           signatures=(target/*.asc flink/1.16/target/*.asc flink/1.17/target/*.asc flink/1.20/target/*.asc)
-          test "${#signatures[@]}" -ge 4
+          test "${#signatures[@]}" -eq 19
+          : > target/release-sha256.txt
           for signature in "${signatures[@]}"; do
             gpg --batch --verify "$signature" "${signature%.asc}"
+            sha256sum "$signature" "${signature%.asc}" >> target/release-sha256.txt
           done
-          sha256sum flink/*/target/*.jar "${signatures[@]}" > target/release-sha256.txt
+      - name: Verify the four coordinates and publish this validated deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          log = (Path(os.environ['RUNNER_TEMP']) / 'central-stage.log').read_text()
+          ids = set(re.findall(r'deploymentId:\s*([0-9a-f-]{36})', log))
+          assert len(ids) == 1, 'Expected exactly one Central deployment from this build'
+          deployment = ids.pop()
+          expected = {'pkg:maven/com.aliyun.odps/flink-connector-maxcompute-parent@1.0.0'} | {
+              'pkg:maven/com.aliyun.odps/flink-connector-maxcompute@1.0.0-' + line
+              for line in ('1.16', '1.17', '1.20')}
+          token = base64.b64encode((os.environ['MAVEN_USERNAME'] + ':' + os.environ['MAVEN_PASSWORD']).encode()).decode()
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, request, response, code, message, headers, url):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect())
+          def call(path):
+              request = urllib.request.Request('https://central.sonatype.com/api/v1/publisher/' + path,
+                  headers={'Authorization': 'Bearer ' + token}, method='POST')
+              try:
+                  with opener.open(request, timeout=60) as response:
+                      body = response.read()
+                      return json.loads(body) if body else None
+              except urllib.error.HTTPError as error:
+                  raise SystemExit('Central request failed: HTTP ' + str(error.code)) from None
+          status = call('status?id=' + deployment)
+          actual = {urllib.parse.unquote(value.split('?', 1)[0]) for value in status.get('purls', [])}
+          assert status['deploymentId'] == deployment and status['deploymentState'] == 'VALIDATED'
+          assert actual == expected, 'The deployment must contain exactly the parent and all three runtime versions'
+          evidence = {'deployment_id': deployment, 'release_tag': 'v1.0.0',
+              'source_commit': 'de6bd8b3ed23344d5e3df9cf83d13ccc6ba9c83a', 'coordinates': sorted(actual),
+              'independently_verified_signatures': 19, 'prepublish_state': status['deploymentState']}
+          print(json.dumps(evidence), flush=True)
+          output = Path(os.environ['RUNNER_TEMP']) / 'central-final-status.json'
+          output.write_text(json.dumps(evidence, indent=2) + '\n')
+          call('deployment/' + deployment)
+          previous = None
+          for _ in range(90):
+              status = call('status?id=' + deployment)
+              state = status['deploymentState']
+              evidence['deployment_state'] = state
+              output.write_text(json.dumps(evidence, indent=2) + '\n')
+              if state != previous:
+                  print(json.dumps({'deployment_id': deployment, 'deployment_state': state}), flush=True)
+                  previous = state
+              if state == 'PUBLISHED':
+                  break
+              assert state in ('VALIDATED', 'PUBLISHING'), 'Unexpected deployment state'
+              time.sleep(10)
+          else:
+              raise SystemExit('Central publication is still processing; inspect this deployment before retrying')
+          PY
+      - name: Retain release evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: flink-v1.0.0-release-recovery
+          path: |
+            target/release-sha256.txt
+            **/target/central-publishing/central-bundle.zip
+            flink/*/target/surefire-reports/TEST-*.xml
+            flink/*/target/failsafe-reports/TEST-*.xml
+            ${{ runner.temp }}/central-final-status.json
+          if-no-files-found: error
+          retention-days: 14
