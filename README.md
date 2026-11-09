@@ -11,24 +11,78 @@ target; other Flink/JDK combinations require separate acceptance.
 
 ## Get started
 
-Build the connector with JDK 17:
+Follow [Build from source](#build-from-source) to create a shaded JAR for your
+Flink version, then [install it in your cluster](#install-in-your-flink-cluster).
+The [SQL quickstart](docs/quickstart.md) covers a local Emulator example and
+real-service setup. For credentials, partitions, source planning and sink selection,
+see [configuration](docs/configuration.md).
+
+## Build from source
+
+Install **JDK 17, Maven 3.9 and Git**. Set `JAVA_HOME` to your JDK 17 installation.
+Clone the repository and check that `mvn -version` reports Java 17:
 
 ```sh
 git clone https://github.com/aliyun/maxcompute-connector-for-apache-flink.git
 cd maxcompute-connector-for-apache-flink
-python3 tools/verify-matrix.py
+mvn -version
 ```
 
-The `public` profile builds `flink/<line>/target/flink-connector-maxcompute-<release>-<line>-shaded.jar`
-with its SDK dependencies and verifies it in an isolated consumer. Install the JAR
-for your Flink runtime in the cluster's `lib/` directory and restart the cluster.
-The runtime provides the Flink dependencies.
+From the repository root, choose the command matching your cluster's Flink runtime
+line:
 
-See [multi-version builds](docs/multi-version.md) for source sharing, version selection and CI.
+```sh
+# Flink 1.16 (tested with 1.16.3)
+mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
+  -Ppublic -pl flink/1.16 -am clean verify
 
-Follow the [SQL quickstart](docs/quickstart.md) for a local Emulator example and
-real-service setup. For credentials, partitions, source planning and sink selection,
-see [configuration](docs/configuration.md).
+# Flink 1.17 (tested with 1.17.2)
+mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
+  -Ppublic -pl flink/1.17 -am clean verify
+
+# Flink 1.20 (tested with 1.20.4)
+mvn -s tools/maven-central-settings.xml -gs tools/maven-central-settings.xml \
+  -Ppublic -pl flink/1.20 -am clean verify
+```
+
+`-Ppublic` enables shading and bundles the MaxCompute SDK and connector dependencies;
+Flink dependencies remain provided by the runtime. `-pl` selects the version module
+and `-am` includes its parent in the build. The supplied Maven settings resolve
+dependencies from Maven Central. These commands run offline tests and verify the
+packaged JAR in an isolated consumer; they require no MaxCompute credentials,
+Docker or signing keys.
+
+For Connector release `1.0.0`, the resulting deployment artifacts are:
+
+| Flink runtime line | Shaded JAR |
+| --- | --- |
+| 1.16 | `flink/1.16/target/flink-connector-maxcompute-1.0.0-1.16-shaded.jar` |
+| 1.17 | `flink/1.17/target/flink-connector-maxcompute-1.0.0-1.17-shaded.jar` |
+| 1.20 | `flink/1.20/target/flink-connector-maxcompute-1.0.0-1.20-shaded.jar` |
+
+Use the file ending in `-shaded.jar` for cluster installation. The JAR without that
+suffix does not bundle the SDK dependencies. The Connector release (`1.0.0`) and
+Flink runtime line (`1.16`, `1.17` or `1.20`) are separate parts of the artifact
+version. See [multi-version builds](docs/multi-version.md) for source sharing and
+the complete verification matrix.
+
+## Install in your Flink cluster
+
+Set `FLINK_HOME` to your Flink installation directory and copy the matching shaded
+JAR into its `lib/` directory. For example, for Flink 1.20:
+
+```sh
+cp flink/1.20/target/flink-connector-maxcompute-1.0.0-1.20-shaded.jar "$FLINK_HOME/lib/"
+```
+
+Install the same JAR on the JobManager, every TaskManager and any separate SQL
+Client or SQL Gateway installation. Keep only one version of this connector on
+each classpath, replacing any older connector JAR. Restart the affected Flink
+processes using your deployment's normal procedure so they load the new library.
+
+With the JAR installed, start the SQL Client with `"$FLINK_HOME/bin/sql-client.sh"`
+and follow the [SQL quickstart](docs/quickstart.md). For other dependency-loading
+options, see the [Flink SQL Client documentation](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/table/sqlclient/#dependencies).
 
 ## Capabilities and guarantees
 
@@ -47,6 +101,7 @@ Lookup joins are currently unimplemented. See [compatibility and delivery semant
 
 | Guide | Purpose |
 | --- | --- |
+| [Build from source](#build-from-source) | Build a shaded JAR for Flink 1.16, 1.17 or 1.20 and install it in a cluster |
 | [SQL quickstart](docs/quickstart.md) | Build, install, append and read a table |
 | [Configuration](docs/configuration.md) | Credentials, source and sink options |
 | [Compatibility](docs/compatibility.md) | Runtime baseline, supported paths and delivery semantics |

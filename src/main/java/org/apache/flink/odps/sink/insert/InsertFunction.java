@@ -299,7 +299,8 @@ public class InsertFunction extends OdpsWriteFunction<RowData> implements Proces
             bucket.add(item);
 
             if (bucket.getRecords().size() > 10000) {
-                Thread.sleep(1000);
+                // Chained bursts must let session ACKs and checkpoint aborts run.
+                executor.yield();
             }
         } else {
             if (buckets.containsKey(currentPartition)) {

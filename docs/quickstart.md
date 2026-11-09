@@ -1,7 +1,9 @@
 # Flink SQL quickstart
 
 Use the [tested runtime baseline](compatibility.md) and the shaded jar built in
-[README](../README.md). Start with a disposable local service before using cloud tables.
+the [source build guide](../README.md#build-from-source). Follow the
+[cluster installation steps](../README.md#install-in-your-flink-cluster) before
+running SQL. Start with a disposable local service before using cloud tables.
 
 ## Local table
 
@@ -51,6 +53,12 @@ credentials provider available on every Flink worker. See [configuration](config
 Inline cloud credentials can enter SQL logs, execution plans and checkpoints; use
 the deployment's secret/provider mechanism. Environment variables in a SQL string
 are not automatically expanded by this Connector.
+
+For new ordinary append jobs that accept realtime visibility and at-least-once
+replay, we recommend adding `'sink.coordinator.enable'='false'` to select the
+modern Storage writer. Existing coordinated Insert users should review the
+[migration differences](compatibility.md#choosing-the-storage-writer), including
+commit visibility and savepoint compatibility, before switching.
 
 For primary-key tables, declare the matching Flink columns `NOT NULL` and
 `PRIMARY KEY (...) NOT ENFORCED`. Enable `sink.operation=upsert` for the legacy

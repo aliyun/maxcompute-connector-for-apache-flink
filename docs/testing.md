@@ -38,6 +38,26 @@ matrix before claiming coverage for those configurations.
 
 Passing offline/SPI tests does not prove service acceptance or a published artifact.
 
+## Skip automatic Connector verification for one change
+
+For a change that intentionally does not need another automatic run, include
+GitHub's `[skip ci]` directive in the latest commit message:
+
+```sh
+git commit -m "docs: clarify the test procedure [skip ci]"
+```
+
+The directive must be in the PR's HEAD commit message. It skips Actions workflows
+triggered by `push` or `pull_request`, including `Connector verification`; it also
+applies to other workflows using those events. A PR title alone does not opt out.
+It does not disable the workflow or skip manual `workflow_dispatch` runs or
+`workflow_call` verification invoked by the Maven release workflow. A maintainer
+can still select **Actions → Connector verification → Run workflow** for the branch.
+
+Skipped verification is not passing test evidence. Required checks can remain
+pending and prevent merging; push a new commit without the directive when those
+checks need to run. See [GitHub's skip-workflow documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs).
+
 ## Emulator regression
 
 The Storage v1 suite defaults to the released Emulator `1.2.0`, pinned by digest in
@@ -268,3 +288,84 @@ regional retry can leave peers waiting for the failed participant's checkpoint p
 the coordinator requests global recovery. Null failure notifications from cancellation
 must not request another restart. A coordinator contract separately verifies this and
 that checkpoint ACKs skip completed tasks while still reaching pending-end tasks.
+
+## Coordinated Insert mailbox stall
+
+`EmulatorFileCachedMailboxITCase` adds a chained, window-like burst larger than
+10,000 rows while session creation is delayed. It covers both initial bootstrap
+and the first session rollover after a completed checkpoint, for an unpartitioned
+single-subtask sink and three subtasks sharing one existing dynamic partition. The positive
+cases select `sink.file-cached.enable=true`; they check every committed key/value,
+checkpoint progress, the injected delay, and cleanup of spill files and writer threads.
+The dynamic fixture precreates its partition to isolate FileCache's separate
+new-partition creation timer, which can already take five seconds. The probe uses
+a ten-second checkpoint timeout and a fifteen-second completion deadline. Each subtask
+uses one upload worker; the coordinator uses two commit workers to stay within
+the pinned Emulator's request-admission budget.
+
+```sh
+python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
+  -Dit.test=EmulatorFileCachedMailboxITCase
+```
+
+The opt-in `EmulatorInsertMailboxReproducer` selects coordinated in-memory Insert
+with an aggressive checkpoint interval and no restart. The sleep-based baseline
+can stall even at startup. Cooperative yielding restores mailbox progress, but
+rollover can still fail when a checkpoint gateway holds the session ACK. This
+probe is not a passing default regression. Run it explicitly to capture the
+RUNNING job and its `InsertFunction.processElement` sleep or yield stack;
+`target/mailbox-diagnostics/insert-mailbox-*.json` records the observations.
+
+```sh
+python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
+  -Dit.test=EmulatorInsertMailboxReproducer \
+  -Dtest=CachedCoordinatorAckContractTest
+# Optional customer-shaped probe: one dynamic partition, three sink subtasks.
+python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
+  '-Dit.test=EmulatorInsertMailboxReproducer#checkpointRolloverMustProcessNewSessionAckDuringChainedBurst' \
+  -Demulator.mailbox.dynamic=true -Demulator.mailbox.parallelism=3 \
+  -Dtest=CachedCoordinatorAckContractTest
+```
+
+The baseline can starve mailbox processing by sleeping for every row after the
+buffer limit. A checkpoint adds a second dependency: Flink can hold the new
+session ACK in its coordinator event gateway until the task acknowledges that
+checkpoint. Waiting for that ACK inside a chained record callback can prevent
+the barrier from reaching the sink, even when the callback yields to its mailbox.
+Replacing `sleep` with a blocking ACK wait alone therefore does not resolve the
+rollover case. See Flink's [gateway implementation](https://github.com/apache/flink/blob/release-1.20.4/flink-runtime/src/main/java/org/apache/flink/runtime/operators/coordination/SubtaskGatewayImpl.java).
+
+File caching is a verified local workaround for this fixture. It is not a change
+to the default writer or a claim about an arbitrary VVR binary/savepoint. A full
+in-memory-path repair needs buffering that lets barriers progress, bounded memory
+with spill or equivalent flow control, and explicit request/epoch handling for
+late ACKs and checkpoint aborts. The original commit/abort protocol must remain
+covered; blindly clearing less state or retrying bootstrap changes that protocol.
+
+
+## Mailbox responsiveness, recovery and the Storage alternative
+
+`EmulatorYieldMitigationITCase` covers the in-memory writer with a two-second
+checkpoint interval and a one-second minimum pause. `EmulatorYieldRecoveryITCase`
+uses the same quiet window, with one deliberately slow upstream callback on the
+first attempt to overlap a checkpoint. It verifies timeout, one actual restart and
+restoration of the upstream burst state. Recovery checks every key and value and
+allows only bounded append replay. These classes use three subtasks and an existing
+dynamic partition; their timing values are fixture settings.
+
+`EmulatorModernMailboxITCase` runs the same startup and rollover bursts through
+Storage realtime writing with no coordinator session handshake. The 300 ms Tunnel
+create delay is specific to the legacy path and is not a Storage fault injection.
+
+```bash
+python3 tools/run-emulator-tests.py --flink-line 1.20 -- \
+  -Dit.test=EmulatorYieldMitigationITCase,EmulatorYieldRecoveryITCase,EmulatorModernMailboxITCase \
+  -Dtest=CachedCoordinatorAckContractTest,FlinkSinkAdapterTest,StorageWriterTest
+```
+
+Reports remain in `target/mailbox-diagnostics/`, separate from the readiness matrix.
+For a local comparison with no injected session delay, the opt-in reproducer accepts
+`-Demulator.mailbox.create-delay-ms=0`, `-Demulator.mailbox.rows=100000` and
+`-Demulator.mailbox.modern=true` or `-Demulator.mailbox.arrow=true`. Compare the
+`job_elapsed_ms` field separately from readback time; these cold-job local results
+are not production throughput measurements.
