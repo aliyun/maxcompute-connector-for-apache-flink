@@ -54,6 +54,11 @@ exact counts, coverage and unresolved gates.
 
 ## Choosing the Storage writer
 
+For new ordinary append jobs that accept realtime visibility and at-least-once
+replay, we recommend the modern Storage writer. Set the table option
+`'sink.coordinator.enable'='false'`. Existing coordinated Insert users should plan
+a migration after validating the compatibility points below on their deployment.
+
 `sink.coordinator.enable=false` selects the modern Storage writer. It creates
 sessions in each task and avoids the legacy Insert coordinator's session-ID event
 handshake. This removes that specific checkpoint-gateway dependency.

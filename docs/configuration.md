@@ -108,3 +108,22 @@ interval increases potential replay after recovery. Raising the tolerated number
 of failed checkpoints does not suppress an exception thrown by the writer's
 abort callback. See Flink's [checkpoint configuration](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/checkpointing/)
 and [restart policies](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/task_failure_recovery/).
+
+### Remaining limitations
+
+This mitigation does not remove the session-ACK/barrier dependency tracked in
+[issue #9](https://github.com/aliyun/maxcompute-connector-for-apache-flink/issues/9).
+If Flink holds an ACK in its coordinator checkpoint gateway, yielding cannot
+deliver that ACK or advance the input barrier. A sufficiently short checkpoint
+interval can trigger the same race again after a restart; quiet windows and a
+bounded recovery policy must be configured together.
+
+The 10,000-row threshold is a soft threshold, not a strict row or byte memory cap.
+This change adds no standalone bootstrap-ACK deadline or recoverable buffer.
+Use enabled checkpointing with a finite timeout and a restart policy for the
+documented streaming mitigation. Exhausted retries should fail visibly. Append
+recovery can duplicate rows, and the examples do not establish a production
+failure-rate guarantee.
+
+For compatible append workloads, prefer migrating to the modern Storage writer;
+see [writer selection and migration differences](compatibility.md#choosing-the-storage-writer).
