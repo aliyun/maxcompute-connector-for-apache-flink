@@ -72,3 +72,39 @@ Size timeouts for actual backpressure and batch sizes. Legacy upsert SDK waits a
 bounded by `read timeout × (max retries + 1)`; timeout failure allows Flink to recover.
 A retry can duplicate append records. See [compatibility](compatibility.md) and
 [testing](testing.md) for the tested combinations and recovery guarantees.
+
+
+## Coordinated Insert checkpoint recovery
+
+The in-memory coordinated Insert writer yields to its mailbox when its pending
+bucket exceeds 10,000 rows. This permits session ACKs and checkpoint abort
+notifications to execute during a chained burst. It is a responsiveness mitigation:
+a new session ACK can still be held in Flink's coordinator checkpoint gateway.
+The row threshold is not a strict memory limit.
+
+For this path, enable checkpointing with a finite timeout and an explicit restart
+policy. On checkpoint abort the current writer fails the task; Flink then restores
+from the last successful checkpoint. This is task recovery, rather than silently
+skipping the failed checkpoint. Append replay remains at-least-once.
+
+For example, a streaming SQL job can start with the following settings and tune
+them to measured session creation, commit latency and recovery requirements:
+
+```sql
+SET 'execution.checkpointing.interval' = '60 s';
+SET 'execution.checkpointing.min-pause' = '5 s';
+SET 'execution.checkpointing.max-concurrent-checkpoints' = '1';
+SET 'execution.checkpointing.timeout' = '120 s';
+SET 'execution.checkpointing.tolerable-failed-checkpoints' = '0';
+SET 'restart-strategy.type' = 'fixed-delay';
+SET 'restart-strategy.fixed-delay.attempts' = '3';
+SET 'restart-strategy.fixed-delay.delay' = '10 s';
+```
+
+These values are examples, not a measured failure-rate guarantee. With one
+concurrent checkpoint, `min-pause` reserves time after a checkpoint completes;
+raising only `interval` does not always reserve that quiet period. A longer
+interval increases potential replay after recovery. Raising the tolerated number
+of failed checkpoints does not suppress an exception thrown by the writer's
+abort callback. See Flink's [checkpoint configuration](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/checkpointing/)
+and [restart policies](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/task_failure_recovery/).
