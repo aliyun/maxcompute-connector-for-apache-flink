@@ -354,6 +354,15 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
     }
 
     protected void checkForCommittingCheckpoint(long checkpointId) throws IOException {
+        if (inputEnded && !buckets.hasUncommittedData()) {
+            // A later checkpoint can close the event gate while finished peer tasks
+            // are terminating. With all rows committed, report completion without
+            // waiting for another coordinator ACK behind that gate.
+            sendEndInputEvent(checkpointId, true);
+            buckets.disposeCommittingFileForCurrentCheckpoint();
+            persistCommitState();
+            return;
+        }
         checkForEndInput(checkpointId);
         sendCheckpointSuccessEvent(checkpointId);
         // For empty data: should wait all task checkpoint success
@@ -381,6 +390,10 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
         buckets.disposeCommittingFileForCurrentCheckpoint();
         LOG.info("All partition for checkpoint {} has committed ", checkpointId);
 
+        persistCommitState();
+    }
+
+    private void persistCommitState() throws IOException {
         try {
             lastCommittingCheckpointState.clear();
             lastCommittingCheckpointState.add(lastCommittingCheckpointId);
@@ -509,6 +522,10 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
     }
 
     private void sendEndInputEvent(long checkpointId) {
+        sendEndInputEvent(checkpointId, false);
+    }
+
+    private void sendEndInputEvent(long checkpointId, boolean inputCommitted) {
         LOG.info("Send end input event to coordinator, task[{}], checkpoint[{}].", taskID, checkpointId);
 
         SinkTaskEvent event = SinkTaskEvent.builder()
@@ -516,6 +533,7 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
                 .checkpointID(checkpointId)
                 .bootstrap(false)
                 .endInput(true)
+                .inputCommitted(inputCommitted)
                 .writeSuccess(true)
                 .build();
         eventGateway.sendEventToCoordinator(event);

@@ -19,6 +19,7 @@
 package org.apache.flink.odps.sink.insert;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import com.aliyun.odps.table.DataSchema;
 import com.aliyun.odps.table.TableIdentifier;
@@ -31,6 +32,7 @@ import org.apache.flink.odps.sink.cache.BucketWriter;
 import org.apache.flink.odps.sink.cache.Buckets;
 import org.apache.flink.odps.sink.common.WriteOperationType;
 import org.apache.flink.odps.sink.event.TaskAckEvent;
+import org.apache.flink.odps.sink.event.SinkTaskEvent;
 import org.apache.flink.odps.table.OdpsOptions;
 import org.apache.flink.odps.util.OdpsConf;
 import org.apache.flink.streaming.api.functions.sink.filesystem.BucketAssigner;
@@ -45,6 +47,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Checkpoint callbacks may run reentrantly while the cached writer yields its mailbox. */
 public class CachedCheckpointProgressTest {
@@ -80,12 +84,53 @@ public class CachedCheckpointProgressTest {
         assertEquals(6, writer.acknowledged());
     }
 
+    @Test
+    public void endedEmptyCheckpointDoesNotWaitForGatedAcks() throws Exception {
+        StubWriter writer = new StubWriter();
+        writer.inputFinished();
+        List<SinkTaskEvent> events = new ArrayList<>();
+        writer.setOperatorEventGateway(event -> events.add((SinkTaskEvent) event));
+        writer.setMailboxExecutor(
+                proxy(MailboxExecutor.class, (p, method, args) -> {
+                    throw new AssertionError("An ended writer with no uncommitted data must finish without an ACK");
+                }));
+        writer.await(5);
+        assertEquals(1, events.size());
+        assertTrue(events.get(0).isEndInput());
+        assertTrue(events.get(0).isInputCommitted());
+    }
+
+    @Test
+    public void endedWriterStillWaitsForUncommittedData() throws Exception {
+        StubWriter writer = new StubWriter();
+        writer.inputFinished();
+        writer.committed = false;
+        int[] yields = {0};
+        writer.setMailboxExecutor(
+                proxy(MailboxExecutor.class, (p, method, args) -> {
+                    if (method.getName().equals("yield")) {
+                        if (yields[0]++ == 0) {
+                            writer.handleOperatorEvent(TaskAckEvent.builder().endInput(true).build());
+                        } else {
+                            assertEquals(2, yields[0]);
+                            writer.acknowledge(5);
+                            writer.committed = true;
+                        }
+                    }
+                    return null;
+                }));
+        writer.await(5);
+        assertEquals(2, yields[0]);
+    }
+
     private static <T> T proxy(Class<T> type, InvocationHandler handler) {
         return type.cast(
                 Proxy.newProxyInstance(type.getClassLoader(), new Class<?>[] {type}, handler));
     }
 
     private static final class StubWriter extends FileCachedInsertFunction {
+        private boolean committed = true;
+
         StubWriter() {
             super(
                     new Configuration(),
@@ -115,6 +160,10 @@ public class CachedCheckpointProgressTest {
             return lastCommittingCheckpointId;
         }
 
+        void inputFinished() {
+            inputEnded = true;
+        }
+
         @SuppressWarnings("unchecked")
         void await(long checkpoint) throws Exception {
             // Empty buckets need no network, files or background writer threads.
@@ -133,7 +182,17 @@ public class CachedCheckpointProgressTest {
                                     ProcessingTimeService.class,
                                     (p, m, a) ->
                                             m.getName().equals("getCurrentProcessingTime") ? 0L : null),
-                            Comparator.naturalOrder());
+                            Comparator.naturalOrder()) {
+                        @Override
+                        public boolean isCommittedForCheckpoint(long checkpointId) {
+                            return committed;
+                        }
+
+                        @Override
+                        public boolean hasUncommittedData() {
+                            return !committed;
+                        }
+                    };
             for (String name : new String[] {"lastCommittingCheckpointState", "endInputState"}) {
                 Field field = FileCachedInsertFunction.class.getDeclaredField(name);
                 field.setAccessible(true);

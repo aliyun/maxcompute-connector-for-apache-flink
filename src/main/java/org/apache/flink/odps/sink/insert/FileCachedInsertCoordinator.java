@@ -262,7 +262,7 @@ public class FileCachedInsertCoordinator extends OdpsWriteCoordinator {
                 final long checkpointId = event.getCheckpointID();
                 final ActiveSessionInfo activeSessionInfo =
                         addPendingCommitSession(partition, sessionId, event.getTaskID(),
-                                status.getWriterMessage(), status.getTotalRecords());
+                                status.getWriterMessage(), status.getTotalRecords(), checkpointId);
 
                 commitSessionIfReady(partition, sessionId, activeSessionInfo, checkpointId, event.getTaskID());
             }
@@ -370,15 +370,31 @@ public class FileCachedInsertCoordinator extends OdpsWriteCoordinator {
     @Override
     protected void handleEndInputEvent(SinkTaskEvent event) {
         LOG.info("Handle end input event for task[{}], checkpoint {}", event.getTaskID(), event.getCheckpointID());
-        pendingCompletedTaskIds.add(event.getTaskID());
-        if (event.getCheckpointID() == Long.MAX_VALUE && !isGroupPartition) {
+        if (event.isInputCommitted()) {
+            completedTaskIds.add(event.getTaskID());
+            pendingCompletedTaskIds.remove(event.getTaskID());
+        } else {
+            pendingCompletedTaskIds.add(event.getTaskID());
+        }
+        if ((event.isInputCommitted() || event.getCheckpointID() == Long.MAX_VALUE) && !isGroupPartition) {
             // Re-evaluate sessions when an empty task ends after a data task's commit event.
             for (Map.Entry<String, Map<String, ActiveSessionInfo>> partition : currentActiveSessions.entrySet()) {
                 for (Map.Entry<String, ActiveSessionInfo> session : new HashMap<>(partition.getValue()).entrySet()) {
                     int writerTask = session.getValue().getTaskIds().iterator().next();
-                    commitSessionIfReady(partition.getKey(), session.getKey(), session.getValue(), Long.MAX_VALUE, writerTask);
+                    commitSessionIfReady(partition.getKey(), session.getKey(), session.getValue(),
+                            session.getValue().getCheckpointId(), writerTask);
                 }
             }
+        }
+        if (event.isInputCommitted()) {
+            // Active writers may already be waiting for this finished participant.
+            for (long checkpoint : new ArrayList<>(taskCheckpointStatus.keySet())) {
+                Set<Integer> participants = taskCheckpointStatus.get(checkpoint);
+                if (participants != null && !participants.isEmpty()) {
+                    triggerCheckpointSuccess(checkpoint, participants.iterator().next());
+                }
+            }
+            return;
         }
         executor.execute(() -> {
             final TaskAckEvent taskAckEvent = TaskAckEvent.builder()
@@ -780,12 +796,13 @@ public class FileCachedInsertCoordinator extends OdpsWriteCoordinator {
                                                       final String sessionId,
                                                       final int taskId,
                                                       final WriterCommitMessage commitMessage,
-                                                      final long rowCount) {
+                                                      final long rowCount,
+                                                      final long checkpointId) {
         Map<String, ActiveSessionInfo> partitionCreatedSession =
                 currentActiveSessions.computeIfAbsent(partition, key -> new HashMap<>());
 
         ActiveSessionInfo sessionInfo =
-                partitionCreatedSession.computeIfAbsent(sessionId, key -> new ActiveSessionInfo());
+                partitionCreatedSession.computeIfAbsent(sessionId, key -> new ActiveSessionInfo(checkpointId));
 
         sessionInfo.addCommitMessage(commitMessage);
         sessionInfo.addCompleteTask(taskId);

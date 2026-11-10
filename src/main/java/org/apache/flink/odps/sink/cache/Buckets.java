@@ -327,6 +327,10 @@ public class Buckets<IN, BucketID> implements ProcessingTimeCallback {
         return isCommitted;
     }
 
+    public boolean hasUncommittedData() {
+        return activeBuckets.values().stream().anyMatch(Bucket::hasUncommittedData);
+    }
+
     public void disposeCommittingFileForCurrentCheckpoint() throws IOException {
         for (Map.Entry<BucketID, Bucket<IN, BucketID>> bucket : activeBuckets.entrySet()) {
             bucket.getValue().disposeCurrentCommittingFile();

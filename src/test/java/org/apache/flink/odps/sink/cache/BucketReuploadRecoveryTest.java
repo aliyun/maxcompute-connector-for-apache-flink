@@ -151,6 +151,7 @@ public class BucketReuploadRecoveryTest {
         assertEquals(Collections.singletonList("old-session"), sessions);
         assertTrue(bucket.isActive());
         assertFalse(bucket.isCommitted(7));
+        assertTrue("Restored pending data must prevent early input completion", bucket.hasUncommittedData());
         WriterThread<String> worker = new WriterThread<String>(Comparator.naturalOrder(), 1);
         bucket.setWriterThread(worker);
         CompletableFuture<IOException> completed = new CompletableFuture<>();
@@ -189,14 +190,17 @@ public class BucketReuploadRecoveryTest {
                 assertEquals("old-session", committed);
                 assertEquals(Collections.singletonList("old-session"), sessions);
                 assertFalse(bucket.isCommitted(7));
+                assertTrue(bucket.hasUncommittedData());
             } else {
                 assertNull(failure);
                 assertEquals(0, aborts.get());
                 assertEquals(Arrays.asList(1L, 2L, 3L), delivered);
                 assertEquals("new-session", committed);
                 assertEquals(Arrays.asList("old-session", "new-session"), sessions);
+                assertTrue("An upload is not yet a committed session", bucket.hasUncommittedData());
                 bucket.setCommitted(7);
                 assertTrue(bucket.isCommitted(7));
+                assertFalse(bucket.hasUncommittedData());
             }
             assertEquals(
                     Collections.singleton(7L),

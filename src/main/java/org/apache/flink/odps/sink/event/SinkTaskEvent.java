@@ -33,6 +33,8 @@ public class SinkTaskEvent implements OperatorEvent {
     private boolean writeSuccess;
 
     private boolean checkpointSuccess;
+    // Only an ended cached writer whose rows have all committed may set this flag.
+    private boolean inputCommitted;
 
     private SinkTaskEvent(
             int taskID,
@@ -42,7 +44,8 @@ public class SinkTaskEvent implements OperatorEvent {
             boolean bootstrap,
             boolean endInput,
             boolean writeSuccess,
-            boolean checkpointSuccess) {
+            boolean checkpointSuccess,
+            boolean inputCommitted) {
         this.taskID = taskID;
         this.checkpointID = checkpointID;
         this.writerStatuses = new ArrayList<>(writerStatuses);
@@ -51,6 +54,7 @@ public class SinkTaskEvent implements OperatorEvent {
         this.endInput = endInput;
         this.writeSuccess = writeSuccess;
         this.checkpointSuccess = checkpointSuccess;
+        this.inputCommitted = inputCommitted;
     }
 
     public Integer getTaskID() {
@@ -89,6 +93,10 @@ public class SinkTaskEvent implements OperatorEvent {
         return checkpointSuccess;
     }
 
+    public boolean isInputCommitted() {
+        return inputCommitted;
+    }
+
     @Override
     public String toString() {
         return "SinkTaskEvent{"
@@ -97,6 +105,7 @@ public class SinkTaskEvent implements OperatorEvent {
                 + ", endInput=" + endInput
                 + ", bootstrap=" + bootstrap
                 + ", checkpointSuccess=" + checkpointSuccess
+                + ", inputCommitted=" + inputCommitted
                 + ", writeSuccess=" + writeSuccess
                 + '}';
     }
@@ -110,6 +119,7 @@ public class SinkTaskEvent implements OperatorEvent {
         private boolean endInput = false;
         private boolean bootstrap = false;
         private boolean checkpointSuccess = false;
+        private boolean inputCommitted = false;
         private boolean writeSuccess = true;
         private String partitionSpec = "";
         private Long checkpointID = -1L;
@@ -118,7 +128,7 @@ public class SinkTaskEvent implements OperatorEvent {
             Objects.requireNonNull(taskID);
             Objects.requireNonNull(writerStatuses);
             return new SinkTaskEvent(taskID, checkpointID, writerStatuses, partitionSpec,
-                    bootstrap, endInput, writeSuccess, checkpointSuccess);
+                    bootstrap, endInput, writeSuccess, checkpointSuccess, inputCommitted);
         }
 
         public Builder taskID(int taskID) {
@@ -158,6 +168,11 @@ public class SinkTaskEvent implements OperatorEvent {
 
         public Builder checkpointSuccess(boolean checkpointSuccess) {
             this.checkpointSuccess = checkpointSuccess;
+            return this;
+        }
+
+        public Builder inputCommitted(boolean inputCommitted) {
+            this.inputCommitted = inputCommitted;
             return this;
         }
     }
