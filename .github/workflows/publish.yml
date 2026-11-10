@@ -1,0 +1,44 @@
+name: Publish validated Central deployment
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Approved release tag
+        required: true
+      staging_run_id:
+        description: Successful staging workflow run for this tag
+        required: true
+      deployment_id:
+        description: Validated Central deployment from that staging run
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  publish:
+    if: github.repository == 'aliyun/maxcompute-connector-for-apache-flink'
+    environment: maven-central
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+          persist-credentials: false
+      - name: Publish only the verified deployment for this tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          STAGING_RUN_ID: ${{ inputs.staging_run_id }}
+          DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+        run: python3 tools/publish-central.py
+      - name: Retain publication receipt
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: publication-${{ inputs.tag }}
+          path: target/central-publication.json
+          if-no-files-found: warn
+          retention-days: 14

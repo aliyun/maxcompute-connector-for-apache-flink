@@ -12,6 +12,17 @@ Reports below are relative to the selected module's `flink/<line>/` directory.
 | Distributed jar | `mvn -Ppublic,release-artifacts clean verify` | Uses the shaded jar plus provided Flink dependencies in an isolated class loader. Checks Factory, Session, Jackson Module/JsonFactory/ObjectCodec SPI, XML transport with JDK StAX, quoted SQL CSV readback, legal files and the exact bundled dependency closure. |
 | Latest partition E2E | `mvn -Pmaxcompute-integration -Dit.test=LatestPartitionE2EITCase -Dmaxcompute.e2e.allow-write=true verify` | PK Delta and PK DLMV, latest-partition switch, ignored writes to old partitions, checkpoint commit and injected restart. Needs a schema-capable test project with CDC/DLMV support. |
 | Dynamic shuffle E2E | `mvn -Pmaxcompute-integration -Dit.test=DynamicShuffleSinkRecoverySystemTest -Dmaxcompute.e2e.allow-write=true verify` | 20,000 PK rows over four partitions, injected restart, SQL no-loss/idempotency readback, 5,000 latest-value rewrites and resource cleanup. |
+| Storage V2 PK changelog E2E | `mvn -pl flink/1.20 -am -Pmaxcompute-integration -Dit.test=StorageV2PkChangelogITCase -Dmaxcompute.e2e.allow-write=true verify` | Real Flink SQL to Storage V2 (`sink.coordinator.enable=false`): unpartitioned/static/dynamic PK Delta tables, update-before/after pairs, key-only deletes, absent/repeated deletes, null overwrites, replay, delete/reinsert, ordered updates across Arrow batches and partition isolation. Four checkpointed phases each use independent MaxCompute SQL exact-row assertions. No injected failure or exactly-once/recovery claim. |
+
+The PK changelog fixture explicitly creates its partitions before streaming writes.
+Automatic creation/publication of new partitions is a separate service acceptance case.
+Use `-Dmaxcompute.e2e.pk-mode=unpartitioned`, `static`, or `dynamic` to select one
+scenario; the default is `all`.
+
+The changelog suite deliberately uses input parallelism 1 with environment parallelism 2.
+Partition-value normalization must preserve input parallelism: an implicit rebalance
+before bucket routing can reorder updates and deletes for the same primary key.
+`DynamicPartitionChangelogOrderTest` checks this channel boundary without service access.
 
 Use JDK 17. Inject `ODPS_ACCESS_ID`, `ODPS_ACCESS_KEY`, `MAXCOMPUTE_PROJECT` and
 `MAXCOMPUTE_ENDPOINT` (or `ODPS_ENDPOINT`); `ODPS_SECURITY_TOKEN` is supported by the latest-partition Source suite. FM14

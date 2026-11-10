@@ -25,6 +25,8 @@ jobs:
           persist-credentials: false
       - name: Check public source boundaries
         run: python3 tools/check-source.py
+      - name: Check Central publication identity guards
+        run: python3 tools/test_publish_central.py
       - name: Scan source for secrets
         shell: bash
         run: |

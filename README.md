@@ -52,16 +52,16 @@ dependencies from Maven Central. These commands run offline tests and verify the
 packaged JAR in an isolated consumer; they require no MaxCompute credentials,
 Docker or signing keys.
 
-For Connector release `1.0.0`, the resulting deployment artifacts are:
+For Connector release `1.0.1`, the resulting deployment artifacts are:
 
 | Flink runtime line | Shaded JAR |
 | --- | --- |
-| 1.16 | `flink/1.16/target/flink-connector-maxcompute-1.0.0-1.16-shaded.jar` |
-| 1.17 | `flink/1.17/target/flink-connector-maxcompute-1.0.0-1.17-shaded.jar` |
-| 1.20 | `flink/1.20/target/flink-connector-maxcompute-1.0.0-1.20-shaded.jar` |
+| 1.16 | `flink/1.16/target/flink-connector-maxcompute-1.0.1-1.16-shaded.jar` |
+| 1.17 | `flink/1.17/target/flink-connector-maxcompute-1.0.1-1.17-shaded.jar` |
+| 1.20 | `flink/1.20/target/flink-connector-maxcompute-1.0.1-1.20-shaded.jar` |
 
 Use the file ending in `-shaded.jar` for cluster installation. The JAR without that
-suffix does not bundle the SDK dependencies. The Connector release (`1.0.0`) and
+suffix does not bundle the SDK dependencies. The Connector release (`1.0.1`) and
 Flink runtime line (`1.16`, `1.17` or `1.20`) are separate parts of the artifact
 version. See [multi-version builds](docs/multi-version.md) for source sharing and
 the complete verification matrix.
@@ -72,7 +72,7 @@ Set `FLINK_HOME` to your Flink installation directory and copy the matching shad
 JAR into its `lib/` directory. For example, for Flink 1.20:
 
 ```sh
-cp flink/1.20/target/flink-connector-maxcompute-1.0.0-1.20-shaded.jar "$FLINK_HOME/lib/"
+cp flink/1.20/target/flink-connector-maxcompute-1.0.1-1.20-shaded.jar "$FLINK_HOME/lib/"
 ```
 
 Install the same JAR on the JobManager, every TaskManager and any separate SQL

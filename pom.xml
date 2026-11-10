@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun.odps</groupId>
     <artifactId>flink-connector-maxcompute-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <modules>
         <module>flink/1.16</module>
@@ -617,6 +617,7 @@
                         <includes combine.children="append">
                             <include>**/LatestPartitionE2EITCase.java</include>
                             <include>**/DynamicShuffleSinkRecoverySystemTest.java</include>
+                            <include>**/StorageV2PkChangelogITCase.java</include>
                         </includes>
                         <failIfNoTests>true</failIfNoTests>
                         <argLine>@{coverage.argLine} ${connector.test.argLine}</argLine>

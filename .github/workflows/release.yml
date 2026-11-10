@@ -103,11 +103,12 @@ jobs:
       - name: Test, sign and stage for manual Central publication
         shell: bash
         run: |
+          set -euo pipefail
           mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
             -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
             -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
             -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
+            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy | tee "$RUNNER_TEMP/release-deploy.log"
       - name: Verify signatures and record distributed artifact hashes
         shell: bash
         run: |
@@ -118,3 +119,14 @@ jobs:
             gpg --batch --verify "$signature" "${signature%.asc}"
           done
           sha256sum flink/*/target/*.jar "${signatures[@]}" > target/release-sha256.txt
+      - name: Retain signed release artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: release-${{ inputs.tag }}
+          path: |
+            target/release-sha256.txt
+            target/central-publishing/*.zip
+            flink/*/target/*-shaded.jar
+          if-no-files-found: warn
+          retention-days: 14

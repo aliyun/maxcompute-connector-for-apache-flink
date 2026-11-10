@@ -4,11 +4,11 @@
     <parent>
         <groupId>com.aliyun.odps</groupId>
         <artifactId>flink-connector-maxcompute-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <artifactId>flink-connector-maxcompute</artifactId>
-    <version>1.0.0-1.17</version>
+    <version>1.0.1-1.17</version>
     <name>MaxCompute Connector for Apache Flink® (1.17)</name>
     <properties>
         <connector.root>${project.basedir}/../..</connector.root>
@@ -45,6 +45,13 @@
         </plugins>
     </build>
     <profiles>
+        <profile>
+            <id>maxcompute-integration</id>
+            <build><plugins><plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin></plugins></build>
+        </profile>
         <profile>
             <id>public</id>
             <build>
