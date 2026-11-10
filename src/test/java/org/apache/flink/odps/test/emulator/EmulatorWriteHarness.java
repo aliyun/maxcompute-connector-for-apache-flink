@@ -77,9 +77,11 @@ public abstract class EmulatorWriteHarness extends EmulatorFixture {
         evidence.put("outputs", outputs);
         evidence.put("stage", stage);
         evidence.put("effect", effect);
-        // A shared split queue can be drained by early readers. Pressure needs work on every
-        // reader; fault journeys keep dynamic assignment as a separate recovery dimension.
-        boolean dynamicSourceAssignment = !effect.equals("delay");
+        // A shared split queue can be drained by early readers. Pressure and the third
+        // Tunnel write need work on every reader; other faults still exercise dynamic assignment.
+        boolean dynamicSourceAssignment =
+                !effect.equals("delay")
+                        && !(stage.equals("write_late") && !writer.equals("modern"));
         evidence.put("source_dynamic_load_balancing", dynamicSourceAssignment);
         int uploadDelayMillis = Integer.getInteger("emulator.stress.delay.ms", 30);
         if (effect.equals("delay")) evidence.put("data_upload_delay_ms", uploadDelayMillis);

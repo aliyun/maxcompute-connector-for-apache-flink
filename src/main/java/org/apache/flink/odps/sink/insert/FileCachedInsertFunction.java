@@ -357,7 +357,8 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
         checkForEndInput(checkpointId);
         sendCheckpointSuccessEvent(checkpointId);
         // For empty data: should wait all task checkpoint success
-        while (lastCommittingCheckpointId != checkpointId) {
+        // Yielding can finish a nested, later checkpoint before this wait resumes.
+        while (lastCommittingCheckpointId < checkpointId) {
             try {
                 this.executor.yield();
             } catch (InterruptedException e) {
@@ -416,7 +417,7 @@ public class FileCachedInsertFunction extends OdpsWriteFunction<RowData> {
                 LOG.error("Create session failed! " + partition);
             }
         } else if (ackEvent.isCheckpoint()) {
-            lastCommittingCheckpointId = ackEvent.getCheckpointId();
+            lastCommittingCheckpointId = Math.max(lastCommittingCheckpointId, ackEvent.getCheckpointId());
 
         } else if (ackEvent.isEndInput()) {
             sendInputEnded = true;

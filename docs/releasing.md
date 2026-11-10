@@ -89,6 +89,8 @@ acceptance is claimed by the candidate tests. Connector-facing package names are
 
 - Preserve input parallelism while normalizing dynamic partition values. This removes
   an unintended rebalance that could reorder a primary key's updates and deletes.
+- Keep cached-writer checkpoint acknowledgements monotonic so later or delayed
+  acknowledgements cannot strand an earlier mailbox wait.
 - Coordinated Insert waits yield to the Flink mailbox, allowing session acknowledgements
   and checkpoint work to progress. Existing migration and recovery limits still apply.
 - Add opt-in real-service PK changelog scenarios and activate their Maven profile in all
