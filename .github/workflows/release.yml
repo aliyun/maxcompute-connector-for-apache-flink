@@ -17,19 +17,27 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: refs/tags/${{ inputs.tag }}
+          ref: ${{ github.sha }}
+          fetch-depth: 0
           persist-credentials: false
       - name: Resolve the release tag to a commit
         id: commit
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
         run: |
+          set -euo pipefail
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
           commit=$(git rev-parse --verify HEAD)
+          tagged_commit=$(git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}")
+          if [[ "$commit" != "$tagged_commit" ]]; then
+            echo "::error::Dispatch this workflow from the exact approved release tag."
+            exit 1
+          fi
           printf 'sha=%s\n' "$commit" >> "$GITHUB_OUTPUT"
 
   verify:
     needs: resolve
     uses: ./.github/workflows/ci.yml
-    with:
-      source_ref: ${{ needs.resolve.outputs.commit }}
 
   stage:
     needs: [resolve, verify]
@@ -45,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ needs.resolve.outputs.commit }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
       - name: Verify Central credentials and exact tag
@@ -103,11 +111,12 @@ jobs:
       - name: Test, sign and stage for manual Central publication
         shell: bash
         run: |
+          set -euo pipefail
           mvn -gs tools/maven-central-settings.xml -B -ntp -Ppublic,release-artifacts,release \
             -Dconnector.scm.url="$PUBLIC_SOURCE_URL" \
             -Dconnector.scm.connection="scm:git:$PUBLIC_SOURCE_URL.git" \
             -Dconnector.scm.tag="$RELEASE_TAG" \
-            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy
+            -Dgpg.keyname="$SIGNING_KEY_FINGERPRINT" clean deploy | tee "$RUNNER_TEMP/release-deploy.log"
       - name: Verify signatures and record distributed artifact hashes
         shell: bash
         run: |
@@ -118,3 +127,14 @@ jobs:
             gpg --batch --verify "$signature" "${signature%.asc}"
           done
           sha256sum flink/*/target/*.jar "${signatures[@]}" > target/release-sha256.txt
+      - name: Retain signed release artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: release-${{ inputs.tag }}
+          path: |
+            target/release-sha256.txt
+            target/central-publishing/*.zip
+            flink/*/target/*-shaded.jar
+          if-no-files-found: warn
+          retention-days: 14

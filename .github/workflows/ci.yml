@@ -5,14 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
   workflow_call:
-    inputs:
-      source_ref:
-        required: true
-        type: string
 permissions:
   contents: read
 concurrency:
-  group: connector-${{ github.workflow }}-${{ inputs.source_ref || github.event.pull_request.number || github.ref }}
+  group: connector-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 jobs:
   source-checks:
@@ -21,10 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ inputs.source_ref }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - name: Check public source boundaries
         run: python3 tools/check-source.py
+      - name: Check Central publication identity guards
+        run: python3 tools/test_publish_central.py
       - name: Scan source for secrets
         shell: bash
         run: |
@@ -50,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ inputs.source_ref }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
@@ -90,7 +88,7 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          ref: ${{ inputs.source_ref }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:

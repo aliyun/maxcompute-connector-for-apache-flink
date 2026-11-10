@@ -138,6 +138,15 @@ public class OdpsDynamicTableSink implements DynamicTableSink, SupportsPartition
         }
     }
 
+    static DataStream<RowData> normalizePartitionValues(
+            DataStream<RowData> input, RowType schema, List<String> partitions, String defaultValue) {
+        return input.map(new org.apache.flink.odps.sink.partition.DefaultPartitionValueMapper(
+                        schema, partitions, defaultValue))
+                .returns(org.apache.flink.table.runtime.typeutils.InternalTypeInfo.of(schema))
+                // An implicit rebalance here can reorder a PK's changes before bucket routing.
+                .setParallelism(input.getParallelism());
+    }
+
     private DataStreamSink<?> consume(
             DataStream<RowData> dataStream, boolean isBounded, DataStructureConverter converter) {
         final int parallelism =
@@ -173,9 +182,8 @@ public class OdpsDynamicTableSink implements DynamicTableSink, SupportsPartition
                 List<String> dynamicNames = partitionKeys.stream()
                         .filter(name -> !staticPartitionSpec.containsKey(name))
                         .collect(java.util.stream.Collectors.toList());
-                dataStream = dataStream.map(new org.apache.flink.odps.sink.partition.DefaultPartitionValueMapper(
-                                flinkSchema, dynamicNames, flinkConf.get(OdpsOptions.PARTITION_DEFAULT_VALUE)))
-                        .returns(org.apache.flink.table.runtime.typeutils.InternalTypeInfo.of(flinkSchema));
+                dataStream = normalizePartitionValues(dataStream, flinkSchema, dynamicNames,
+                        flinkConf.get(OdpsOptions.PARTITION_DEFAULT_VALUE));
             }
 
             TableIdentifier tableIdentifier = TableIdentifier.of(identifier.getProjectName(),

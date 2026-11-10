@@ -26,6 +26,7 @@ import com.aliyun.odps.table.TableIdentifier;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.odps.sink.event.SinkTaskEvent;
 import org.apache.flink.odps.sink.utils.AsyncExecuteThread;
+import org.apache.flink.odps.sink.utils.ActiveSessionInfo;
 import org.apache.flink.odps.util.OdpsConf;
 import org.apache.flink.odps.util.OdpsMetaDataProvider;
 import org.apache.flink.runtime.messages.Acknowledge;
@@ -38,6 +39,50 @@ import java.util.concurrent.*;
 
 /** A finished task must not receive checkpoint ACKs; pending-end tasks still need them. */
 public class CachedCoordinatorAckContractTest {
+    @Test(timeout = 5000)
+    public void endedEmptyTaskRetainsTheSharedSessionsCheckpoint() throws Exception {
+        OperatorCoordinator.Context context =
+                (OperatorCoordinator.Context)
+                        Proxy.newProxyInstance(getClass().getClassLoader(),
+                                new Class<?>[] {OperatorCoordinator.Context.class},
+                                (p, m, a) -> m.getName().equals("currentParallelism") ? 3 : null);
+        StubCoordinator coordinator = new StubCoordinator(context);
+        coordinator.start();
+        try {
+            coordinator.configure(new int[3]);
+            coordinator.addPendingSession(5);
+            coordinator.inputCommitted(1, 6);
+            coordinator.drain();
+            assertEquals(1, coordinator.requests.size());
+            assertEquals(5, coordinator.requests.get(0).getCheckpointId());
+        } finally {
+            coordinator.close();
+        }
+    }
+
+    @Test(timeout = 5000)
+    public void endedTaskDoesNotHoldLaterCheckpointAck() throws Exception {
+        OperatorCoordinator.Context context =
+                (OperatorCoordinator.Context)
+                        Proxy.newProxyInstance(
+                                getClass().getClassLoader(),
+                                new Class<?>[] {OperatorCoordinator.Context.class},
+                                (proxy, method, args) ->
+                                        method.getName().equals("currentParallelism") ? 3 : null);
+        StubCoordinator coordinator = new StubCoordinator(context);
+        coordinator.start();
+        try {
+            int[] delivered = new int[3];
+            coordinator.configure(delivered);
+            coordinator.success(2, 6);
+            coordinator.inputCommitted(1, 6);
+            coordinator.drain();
+            assertArrayEquals(new int[] {0, 0, 1}, delivered);
+        } finally {
+            coordinator.close();
+        }
+    }
+
     @Test(timeout = 5000)
     public void checkpointAckSkipsFinishedTaskButUnblocksPendingEndTask() throws Exception {
         List<Throwable> failures = new CopyOnWriteArrayList<>();
@@ -138,6 +183,7 @@ public class CachedCoordinatorAckContractTest {
     }
 
     private static final class StubCoordinator extends FileCachedInsertCoordinator {
+        private final List<AsyncExecuteThread.ExecuteRequest> requests = new ArrayList<>();
         StubCoordinator(OperatorCoordinator.Context context) {
             super(
                     "cached-ack",
@@ -167,7 +213,23 @@ public class CachedCoordinatorAckContractTest {
             set("taskStatus", new HashMap<>());
             set("checkpointTimes", new HashMap<>());
             set("commitRowCount", new HashMap<>());
+            set("currentActiveSessions", new HashMap<>());
             pendingCompletedTaskIds = new HashSet<>();
+        }
+
+        @Override
+        protected void addExecuteRequest(String partition, AsyncExecuteThread.ExecuteRequest request) {
+            requests.add(request);
+        }
+
+        void addPendingSession(long checkpoint) {
+            ActiveSessionInfo session = new ActiveSessionInfo(checkpoint);
+            session.addCompleteTask(2);
+            Map<String, ActiveSessionInfo> sessions = new HashMap<>();
+            sessions.put("session", session);
+            Map<String, Map<String, ActiveSessionInfo>> partitions = new HashMap<>();
+            partitions.put("", sessions);
+            set("currentActiveSessions", partitions);
         }
 
         private void set(String name, Object value) {
@@ -217,6 +279,15 @@ public class CachedCoordinatorAckContractTest {
                                                     .checkpointSuccess(true)
                                                     .build()),
                             "checkpoint success")
+                    .get();
+        }
+
+        void inputCommitted(int task, long checkpoint) throws Exception {
+            executor.submit(
+                            () -> handleEndInputEvent(SinkTaskEvent.builder()
+                                    .taskID(task).checkpointID(checkpoint)
+                                    .endInput(true).inputCommitted(true).build()),
+                            "fully committed input")
                     .get();
         }
 

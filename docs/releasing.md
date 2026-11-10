@@ -12,16 +12,16 @@ receipts, private CI configuration and binary build outputs outside the source t
 
 ## Bundled binary and Maven publication
 
-The first Maven release uses one source tag, `v1.0.0`, for the parent POM and the
+Each Maven release uses one source tag, currently `v1.0.1`, for the parent POM and the
 three connector modules. Submit all four coordinates in the same Central deployment.
 The shaded classifier is the deployable Flink connector for each runtime.
 
 | Artifact in `com.aliyun.odps` | Version |
 | --- | --- |
-| `flink-connector-maxcompute-parent` | `1.0.0` |
-| `flink-connector-maxcompute` | `1.0.0-1.16` |
-| `flink-connector-maxcompute` | `1.0.0-1.17` |
-| `flink-connector-maxcompute` | `1.0.0-1.20` |
+| `flink-connector-maxcompute-parent` | `1.0.1` |
+| `flink-connector-maxcompute` | `1.0.1-1.16` |
+| `flink-connector-maxcompute` | `1.0.1-1.17` |
+| `flink-connector-maxcompute` | `1.0.1-1.20` |
 
 1. Review copyright, source provenance, the source whitelist and third-party
    redistribution obligations. Resolve every `review-required` entry in
@@ -84,3 +84,22 @@ ServiceLoader provider names even after descriptors were merged. Applications
 using old shaded class names or serialized dependency classes need compatibility
 review before replacing an existing internal deployment; no old-state migration
 acceptance is claimed by the candidate tests. Connector-facing package names are unchanged.
+
+## Version 1.0.1
+
+- Preserve input parallelism while normalizing dynamic partition values. This removes
+  an unintended rebalance that could reorder a primary key's updates and deletes.
+- Keep cached-writer checkpoint acknowledgements monotonic so later or delayed
+  acknowledgements cannot strand an earlier mailbox wait.
+- Let ended cached writers with fully committed input finish without waiting for
+  acknowledgements gated by a later checkpoint. Pending or restored data still
+  follows the commit protocol, and shared sessions retain their checkpoint generation.
+- Coordinated Insert waits yield to the Flink mailbox, allowing session acknowledgements
+  and checkpoint work to progress. Existing migration and recovery limits still apply.
+- Add opt-in real-service PK changelog scenarios and activate their Maven profile in all
+  three runtime modules. The release keeps the existing options and checkpoint formats.
+
+After staging completes, inspect its exact commit, signatures, bundle hashes and four
+coordinates. The manual **Publish validated Central deployment** workflow accepts the
+release tag, successful staging run ID and deployment ID. It verifies their association
+and only publishes a validated deployment matching that tag's four coordinates.

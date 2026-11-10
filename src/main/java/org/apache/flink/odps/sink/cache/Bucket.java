@@ -162,6 +162,10 @@ public class Bucket<IN, BucketID> {
                 || !committingFileForCurrentCheckpoint.isEmpty();
     }
 
+    public boolean hasUncommittedData() {
+        return hasData() || commitStatus.containsValue(false);
+    }
+
     public void dispose() throws IOException {
         if (inProgressPart != null) {
             inProgressPart.dispose();

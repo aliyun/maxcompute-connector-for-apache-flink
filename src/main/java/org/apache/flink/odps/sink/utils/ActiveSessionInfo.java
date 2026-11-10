@@ -24,11 +24,21 @@ public class ActiveSessionInfo {
     private final Set<Integer> taskIds;
     private final List<WriterCommitMessage> commitMessageList;
     private Long totalRowCount;
+    private final long checkpointId;
 
     public ActiveSessionInfo() {
+        this(Long.MAX_VALUE);
+    }
+
+    public ActiveSessionInfo(long checkpointId) {
         this.taskIds = new HashSet<>();
         this.commitMessageList = new ArrayList<>();
         this.totalRowCount = 0L;
+        this.checkpointId = checkpointId;
+    }
+
+    public long getCheckpointId() {
+        return checkpointId;
     }
 
     public void addCommitMessage(WriterCommitMessage commitMessage) {
