@@ -20,6 +20,8 @@
 
 package org.apache.flink.odps.sink.table;
 
+import io.netty.channel.EventLoopGroup;
+
 import com.aliyun.odps.PartitionSpec;
 import com.aliyun.odps.table.DataFormat;
 import com.aliyun.odps.table.DataSchema;
@@ -80,13 +82,29 @@ public abstract class TableUpsertSessionBase implements TableUpsertSession {
                                   ArrowOptions arrowOptions,
                                   TableWriteCapabilities capabilities,
                                   EnvironmentSettings settings) throws IOException {
+        this(identifier, partitionSpec, overwrite, dynamicPartitionOptions, arrowOptions,
+                capabilities, settings, null);
+    }
+
+    protected TableUpsertSessionBase(TableIdentifier identifier,
+                                     PartitionSpec partitionSpec,
+                                     boolean overwrite,
+                                     DynamicPartitionOptions dynamicPartitionOptions,
+                                     ArrowOptions arrowOptions,
+                                     TableWriteCapabilities capabilities,
+                                     EnvironmentSettings settings,
+                                     EventLoopGroup sessionEventLoops) throws IOException {
         Preconditions.checkNotNull(identifier, "Table identifier", "required");
         Preconditions.checkNotNull(settings, "Environment settings", "required");
         this.settings = settings;
         this.identifier = identifier;
         this.overwrite = overwrite;
         sanitize(partitionSpec, dynamicPartitionOptions, arrowOptions, capabilities);
-        initSession();
+        if (sessionEventLoops == null) {
+            initSession();
+        } else {
+            initSession(sessionEventLoops);
+        }
     }
 
     public TableUpsertSessionBase(TableIdentifier identifier,
@@ -104,6 +122,10 @@ public abstract class TableUpsertSessionBase implements TableUpsertSession {
     }
 
     protected abstract void initSession() throws IOException;
+
+    protected void initSession(EventLoopGroup sessionEventLoops) throws IOException {
+        initSession();
+    }
 
     protected abstract void reloadSession() throws IOException;
 

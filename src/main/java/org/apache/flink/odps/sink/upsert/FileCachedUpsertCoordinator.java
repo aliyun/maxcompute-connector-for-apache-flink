@@ -20,9 +20,11 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.odps.sink.insert.FileCachedInsertCoordinator;
 import org.apache.flink.odps.sink.common.OdpsWriteOptions;
 import org.apache.flink.odps.sink.table.TableUpsertSessionImpl;
+import org.apache.flink.odps.sink.table.UpsertSessionCreator;
 import org.apache.flink.odps.sink.utils.AsyncExecuteThread;
 import org.apache.flink.odps.util.OdpsConf;
 import org.apache.flink.odps.util.OdpsUtils;
+import org.apache.flink.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +41,7 @@ public class FileCachedUpsertCoordinator extends FileCachedInsertCoordinator {
     protected transient Map<String, Long> upsertCommitTimes;
     protected boolean enableMajorCompact;
     protected int compactThreshold = 1;
+    private transient UpsertSessionCreator sessionCreator;
 
     public FileCachedUpsertCoordinator(String operatorName,
                                        Configuration config,
@@ -60,21 +63,18 @@ public class FileCachedUpsertCoordinator extends FileCachedInsertCoordinator {
     @Override
     protected void initEnv() {
         super.initEnv();
+        this.sessionCreator = new UpsertSessionCreator(tableIdentifier, settings);
         this.upsertCommitTimes = new HashMap<>();
     }
 
     @Override
-    protected String initDynamicWriteSession(String partitionSpec) throws IOException {
-        TableUpsertSessionImpl session = null;
-        try {
-            session = OdpsUtils.getOrCreateUpsertSession(tableIdentifier, partitionSpec, null, settings);
+    public void close() throws Exception {
+        IOUtils.closeAll(super::close, sessionCreator);
+    }
 
-            return session.getId();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+    @Override
+    protected String initDynamicWriteSession(String partitionSpec) throws IOException {
+        return sessionCreator.create(partitionSpec);
     }
 
     @Override

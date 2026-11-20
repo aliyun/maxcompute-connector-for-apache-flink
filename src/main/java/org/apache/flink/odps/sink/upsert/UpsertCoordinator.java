@@ -21,6 +21,7 @@ import org.apache.flink.odps.sink.common.OdpsWriteOptions;
 import org.apache.flink.odps.sink.event.SinkTaskEvent;
 import org.apache.flink.odps.sink.table.TableUpsertSessionImpl;
 import org.apache.flink.odps.sink.table.TableUtils;
+import org.apache.flink.odps.sink.table.UpsertSessionCreator;
 import org.apache.flink.odps.sink.utils.ExecuteThread;
 import org.apache.flink.odps.sink.utils.WriterStatus;
 import org.apache.flink.odps.util.OdpsConf;
@@ -53,6 +54,8 @@ public class UpsertCoordinator extends OdpsWriteCoordinator {
     protected transient ExecuteThread[] executeThreads;
     protected transient LinkedBlockingQueue<ExecuteThread.ExecuteRequest> requestQueue;
 
+    private transient UpsertSessionCreator sessionCreator;
+
     protected transient int compactThreshold = 1;
 
     private final AtomicLong totalCommit = new AtomicLong(0L);
@@ -83,6 +86,7 @@ public class UpsertCoordinator extends OdpsWriteCoordinator {
     @Override
     protected void initEnv() {
         this.settings = TableUtils.getEnvironmentSettings(getOdps(), odpsConf.getTunnelEndpoint(), conf);
+        this.sessionCreator = new UpsertSessionCreator(tableIdentifier, settings);
         this.tableUpsertSessionIdMap = new ConcurrentHashMap<>();
         this.upsertCommitTimes = new ConcurrentHashMap<>();
 
@@ -109,19 +113,17 @@ public class UpsertCoordinator extends OdpsWriteCoordinator {
 
     @Override
     public void close() throws Exception {
-        List<AutoCloseable> closeables = new ArrayList<>(executeThreads.length);
-        for (ExecuteThread et : executeThreads) {
-            closeables.add(() -> {
-                try {
-                    et.shutdown();
-                } catch (Throwable t) {
-                    throw new IOException("Error while shutting down commit thread.", t);
+        List<AutoCloseable> closeables = new ArrayList<>();
+        if (executeThreads != null) {
+            for (ExecuteThread thread : executeThreads) {
+                if (thread != null) {
+                    closeables.add(thread::shutdown);
                 }
-            });
+            }
         }
+        closeables.add(super::close);
+        closeables.add(sessionCreator);
         IOUtils.closeAll(closeables);
-
-        super.close();
     }
 
     @Override
@@ -145,16 +147,7 @@ public class UpsertCoordinator extends OdpsWriteCoordinator {
             if (tableUpsertSessionIdMap.containsKey(staticPartition)) {
                 sessionId = tableUpsertSessionIdMap.get(staticPartition);
             } else {
-                TableUpsertSessionImpl session = null;
-                try {
-                    session = OdpsUtils.getOrCreateUpsertSession(tableIdentifier,
-                            staticPartition, null, settings);
-                    sessionId = session.getId();
-                } finally {
-                    if (session != null) {
-                        session.close();
-                    }
-                }
+                sessionId = sessionCreator.create(staticPartition);
                 tableUpsertSessionIdMap.put(staticPartition, sessionId);
             }
             sendSingleTaskAckEvents(-1, taskId,  staticPartition, sessionId, false);
@@ -175,17 +168,7 @@ public class UpsertCoordinator extends OdpsWriteCoordinator {
                 OdpsUtils.createPartitionIfNeeded(getTableMetaProvider(),
                         tableIdentifier, partitionSpec);
 
-                TableUpsertSessionImpl session = null;
-                try {
-                    session = OdpsUtils.getOrCreateUpsertSession(tableIdentifier,
-                            partitionSpec, null, settings);
-                    sessionId = session.getId();
-                } finally {
-                    if (session != null) {
-                        session.close();
-                    }
-                }
-
+                sessionId = sessionCreator.create(partitionSpec);
                 tableUpsertSessionIdMap.put(partitionSpec, sessionId);
             }
             sendSingleTaskAckEvents(-1, taskId, partitionSpec, sessionId, false);
