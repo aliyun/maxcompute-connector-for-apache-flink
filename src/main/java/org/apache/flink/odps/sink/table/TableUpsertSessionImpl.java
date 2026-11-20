@@ -41,6 +41,7 @@ import com.aliyun.odps.table.write.TableWriteCapabilities;
 import com.aliyun.odps.tunnel.TableTunnel;
 import com.aliyun.odps.tunnel.TunnelException;
 import com.aliyun.odps.tunnel.impl.UpsertSessionImpl;
+import io.netty.channel.EventLoopGroup;
 import org.apache.flink.util.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,8 +69,26 @@ public class TableUpsertSessionImpl extends TableUpsertSessionBase {
                                   ArrowOptions arrowOptions,
                                   TableWriteCapabilities capabilities,
                                   EnvironmentSettings settings) throws IOException {
+        this(identifier, partitionSpec, overwrite, dynamicPartitionOptions, arrowOptions,
+                capabilities, settings, null);
+    }
+
+    TableUpsertSessionImpl(TableIdentifier identifier, PartitionSpec partitionSpec,
+                           EnvironmentSettings settings, EventLoopGroup sessionEventLoops)
+            throws IOException {
+        this(identifier, partitionSpec, false, null, null, null, settings, sessionEventLoops);
+    }
+
+    private TableUpsertSessionImpl(TableIdentifier identifier,
+                                   PartitionSpec partitionSpec,
+                                   boolean overwrite,
+                                   DynamicPartitionOptions dynamicPartitionOptions,
+                                   ArrowOptions arrowOptions,
+                                   TableWriteCapabilities capabilities,
+                                   EnvironmentSettings settings,
+                                   EventLoopGroup sessionEventLoops) throws IOException {
         super(identifier, partitionSpec, overwrite,
-                dynamicPartitionOptions, arrowOptions, capabilities, settings);
+                dynamicPartitionOptions, arrowOptions, capabilities, settings, sessionEventLoops);
         this.isCommitted = false;
         this.isClosed = false;
         this.commitRetry =
@@ -89,13 +108,19 @@ public class TableUpsertSessionImpl extends TableUpsertSessionBase {
 
     @Override
     protected void initSession() throws IOException {
+        initSession(null);
+    }
+
+    @Override
+    protected void initSession(EventLoopGroup sessionEventLoops) throws IOException {
         int attempt = 0;
         while (true) {
             try {
                 TableTunnel tunnel = TableUtils.getTableTunnel(settings);
                 RestOptions restOptions = settings.getRestOptions().orElse(RestOptions.newBuilder().build());
-                this.session = ((UpsertSessionImpl.Builder) tunnel.buildUpsertSession(identifier.getProject(), identifier.getTable()))
-                        .setConfig(tunnel.getConfig())
+                UpsertSessionImpl.Builder builder = (UpsertSessionImpl.Builder)
+                        tunnel.buildUpsertSession(identifier.getProject(), identifier.getTable());
+                builder.setConfig(tunnel.getConfig())
                         .setSchemaName(identifier.getSchema())
                         .setPartitionSpec(targetPartitionSpec)
                         .setSlotNum(settings.getSlotNum().orElse(8L))
@@ -103,10 +128,20 @@ public class TableUpsertSessionImpl extends TableUpsertSessionBase {
                         .setReadTimeout(restOptions.getReadTimeout().orElse(300) * 1000L)
                         .setConnectTimeout(restOptions.getConnectTimeout().orElse(180) * 1000L)
                         .setNetworkThreadNum(restOptions.getUpsertNetworkNum().orElse(1))
-                        .setConcurrentNum(restOptions.getUpsertConcurrentNum().orElse(2))
-                        .build();
-                this.sessionId = session.getId();
-                this.sessionStatus = convertSessionStatus(session.getStatus());
+                        .setConcurrentNum(restOptions.getUpsertConcurrentNum().orElse(2));
+                if (sessionEventLoops != null) {
+                    builder.setNettyBootStrap(
+                            UpsertSessionImpl.generateNettyBootstrap(tunnel.getConfig(), sessionEventLoops));
+                }
+                TableTunnel.UpsertSession created = builder.build();
+                try {
+                    this.sessionStatus = convertSessionStatus(created.getStatus());
+                } catch (Exception e) {
+                    created.close();
+                    throw e;
+                }
+                this.session = created;
+                this.sessionId = created.getId();
                 break;
             } catch (Exception e) {
                 attempt++;
